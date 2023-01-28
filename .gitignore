@@ -19,6 +19,7 @@
 /coverage
 
 # Misc
+.idea
 .DS_Store
 *.pem
 
