@@ -15,7 +15,7 @@ export default {
     },
     {
       type: 'seo',
-      name: 'defaultSeo',
+      name: 'default-seo',
       title: 'Default SEO',
     },
   ],
