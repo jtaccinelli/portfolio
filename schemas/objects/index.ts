@@ -1,1 +1,3 @@
-export default [];
+import link from './link'
+
+export default [link]
