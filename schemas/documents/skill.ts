@@ -2,8 +2,8 @@ import {ControlsIcon} from '@sanity/icons'
 
 export default {
   type: 'document',
-  name: 'service',
-  title: 'Services',
+  name: 'skill',
+  title: 'Skills',
   icon: ControlsIcon,
   fields: [
     {
@@ -30,12 +30,6 @@ export default {
       name: 'blurb',
       title: 'Blurb',
       rows: 4,
-    },
-    {
-      type: 'array',
-      name: 'content',
-      title: 'Content',
-      of: [{type: 'block'}],
     },
     {
       type: 'seo',
