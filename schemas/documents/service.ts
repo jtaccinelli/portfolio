@@ -11,5 +11,36 @@ export default {
       name: 'title',
       title: 'Title',
     },
+    {
+      type: 'slug',
+      name: 'handle',
+      title: 'Handle',
+      required: true,
+      options: {
+        source: 'title',
+      },
+    },
+    {
+      type: 'string',
+      name: 'subtitle',
+      title: 'Subtitle',
+    },
+    {
+      type: 'text',
+      name: 'blurb',
+      title: 'Blurb',
+      rows: 4,
+    },
+    {
+      type: 'array',
+      name: 'content',
+      title: 'Content',
+      of: [{type: 'block'}],
+    },
+    {
+      type: 'seo',
+      name: 'seo',
+      title: 'SEO',
+    },
   ],
 }
