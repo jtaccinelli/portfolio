@@ -18,29 +18,31 @@ export default defineConfig({
 
   plugins: [
     deskTool({
-      structure: (sanity) =>
-        sanity
+      structure: (builder) =>
+        builder
           .list()
           .title('Content')
           .items([
+            ...builder.documentTypeListItems().filter((item) => {
+              return !singletons.some((singleton) => {
+                return singleton.name === item.getId()
+              })
+            }),
+            builder.divider(),
             ...singletons.map((singleton) =>
-              sanity
+              builder
                 .listItem()
                 .title(singleton.title)
                 .icon(singleton?.icon ?? FolderIcon)
                 .child(
-                  sanity
+                  builder
                     .document()
                     .schemaType(singleton.name)
                     .documentId(singleton.name)
                     .title(singleton.title)
                 )
             ),
-            ...sanity.documentTypeListItems().filter((item) => {
-              return !singletons.some((singleton) => {
-                return singleton.name === item.getId()
-              })
-            }),
+            builder.divider(),
           ]),
     }),
     visionTool(),

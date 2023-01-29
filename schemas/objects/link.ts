@@ -35,7 +35,7 @@ export default {
         return parent?.variant !== 'url'
       },
       validation(rule: Rule) {
-        return rule.uri({allowRelative: true})
+        return rule.uri({allowRelative: true, scheme: ['http', 'https', 'mailto', 'tel']})
       },
     },
   ],

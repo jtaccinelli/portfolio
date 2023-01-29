@@ -7,9 +7,10 @@ export default {
   fields: [
     {type: 'string', name: 'title', title: 'Title'},
     {
-      type: 'string',
+      type: 'text',
       name: 'description',
       title: 'Description',
+      rows: 4,
       validation: (rule: Rule) =>
         rule.max(150).warning(`A description should not be longer than 150 characters`),
     },

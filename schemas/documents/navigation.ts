@@ -23,6 +23,8 @@ export default {
       hidden: true,
       initialValue: 'Navigation',
     },
+    {type: 'string', name: 'heading', title: 'Heading'},
+    {type: 'string', name: 'subheading', title: 'Subheading'},
     {
       type: 'array',
       name: 'items',
