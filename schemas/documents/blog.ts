@@ -2,7 +2,7 @@ import {EditIcon} from '@sanity/icons'
 
 export default {
   type: 'document',
-  name: 'blogs',
+  name: 'blog',
   title: 'Blogs',
   icon: EditIcon,
   fields: [
