@@ -6,9 +6,3 @@ export interface HiddenArgs {
   value: any
   currentUser: Omit<CurrentUser, 'role'> | null
 }
-
-export type Singleton = {
-  type: string
-  title: string
-  name: string
-}

@@ -2,13 +2,12 @@ import {defineConfig} from 'sanity'
 import {deskTool} from 'sanity/desk'
 import {visionTool} from '@sanity/vision'
 
-import {Singleton} from '@shared/sanity'
-
 import navigation from '@schemas/documents/navigation'
 import configuration from '@schemas/documents/configuration'
 import {schemaTypes} from './schemas'
+import {FolderIcon} from '@sanity/icons'
 
-export const singletons: Singleton[] = [navigation, configuration]
+export const singletons = [navigation, configuration]
 
 export default defineConfig({
   name: 'default',
@@ -28,6 +27,7 @@ export default defineConfig({
               sanity
                 .listItem()
                 .title(singleton.title)
+                .icon(singleton?.icon ?? FolderIcon)
                 .child(
                   sanity
                     .document()

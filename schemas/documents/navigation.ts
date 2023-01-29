@@ -1,3 +1,5 @@
+import {MenuIcon} from '@sanity/icons'
+
 const item = {
   type: 'object',
   name: 'item',
@@ -12,6 +14,7 @@ export default {
   type: 'document',
   name: 'navigation',
   title: 'Navigation',
+  icon: MenuIcon,
   fields: [
     {
       type: 'string',
