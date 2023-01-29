@@ -10,16 +10,27 @@ export default {
       type: 'string',
       name: 'title',
       title: 'Title',
+      required: true,
     },
     {
       type: 'slug',
-      name: 'slug',
-      title: 'Slug',
+      name: 'handle',
+      title: 'Handle',
+      required: true,
+      options: {
+        source: 'title',
+      },
+    },
+    {
+      type: 'url',
+      name: 'website',
+      title: 'Website',
     },
     {
       type: 'text',
       name: 'blurb',
       title: 'Blurb',
+      required: true,
       rows: 4,
     },
     {
