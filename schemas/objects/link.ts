@@ -1,3 +1,6 @@
+import {Rule} from 'sanity'
+import {HiddenArgs} from '@shared/sanity'
+
 export default {
   type: 'object',
   name: 'link',
@@ -11,7 +14,7 @@ export default {
       options: {
         list: [
           {title: 'Reference', value: 'reference'},
-          {title: 'External', value: 'external'},
+          {title: 'URL', value: 'url'},
         ],
       },
     },
@@ -28,8 +31,11 @@ export default {
       type: 'string',
       name: 'url',
       title: 'URL',
-      hidden({parent}: {parent: any}) {
-        return parent?.variant !== 'external'
+      hidden({parent}: HiddenArgs) {
+        return parent?.variant !== 'url'
+      },
+      validation(rule: Rule) {
+        return rule.uri({allowRelative: true})
       },
     },
   ],

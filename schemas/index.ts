@@ -1,4 +1,4 @@
-import documents from './documents';
-import objects from './objects';
+import documents from '@schemas/documents'
+import objects from '@schemas/objects'
 
-export const schemaTypes = [...documents, ...objects];
+export const schemaTypes = [...documents, ...objects]
