@@ -33,6 +33,29 @@ export default {
       rows: 4,
     },
     {
+      type: 'reference',
+      name: 'client',
+      title: 'Client',
+      to: [{type: 'client'}],
+    },
+    {
+      type: 'array',
+      name: 'skills',
+      title: 'Skills',
+      of: [
+        {
+          type: 'reference',
+          to: [{type: 'skill'}],
+        },
+      ],
+    },
+    {
+      type: 'date',
+      name: 'completed_on',
+      title: 'Date Completed',
+      required: true,
+    },
+    {
       type: 'url',
       name: 'live_site',
       title: 'Live Site',

@@ -22,7 +22,7 @@ export default {
       type: 'reference',
       name: 'reference',
       title: 'Reference',
-      to: [{type: 'navigation'}],
+      to: [{type: 'project'}, {type: 'client'}, {type: 'skill'}, {type: 'page'}, {type: 'blog'}],
       hidden({parent}: {parent: any}) {
         return parent?.variant !== 'reference'
       },

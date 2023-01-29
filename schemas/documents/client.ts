@@ -38,10 +38,5 @@ export default {
       name: 'logo',
       title: 'Logo',
     },
-    {
-      type: 'image',
-      name: 'asset',
-      title: 'Featured Asset',
-    },
   ],
 }
