@@ -8,6 +8,9 @@
       "@components/*": [
         "components/*"
       ],
+      "@schemas": [
+        "schemas"
+      ],
       "@schemas/*": [
         "schemas/*"
       ]

@@ -1,13 +1,10 @@
 import {defineConfig} from 'sanity'
 import {deskTool} from 'sanity/desk'
+import {FolderIcon} from '@sanity/icons'
 import {visionTool} from '@sanity/vision'
 
-import navigation from '@schemas/documents/navigation'
-import configuration from '@schemas/documents/configuration'
-import {schemaTypes} from './schemas'
-import {FolderIcon} from '@sanity/icons'
-
-export const singletons = [navigation, configuration]
+import {schemaTypes} from '@schemas'
+import {singletons} from '@schemas/documents'
 
 export default defineConfig({
   name: 'default',
@@ -51,7 +48,7 @@ export default defineConfig({
     types: schemaTypes,
     templates(templates) {
       return templates.filter((template) => {
-        return singletons.some((singleton) => {
+        return !singletons.some((singleton) => {
           return singleton.name === template.schemaType
         })
       })
@@ -65,6 +62,7 @@ export default defineConfig({
 
       if (!isSingleton) return input
       return input.filter((props) => {
+        console.log(props.action)
         return ['publish', 'discardChanges', 'restore'].includes(props?.action ?? '')
       })
     },

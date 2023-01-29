@@ -5,8 +5,16 @@ const item = {
   name: 'item',
   title: 'Item',
   fields: [
-    {type: 'string', name: 'label', title: 'Label'},
-    {type: 'link', name: 'link', title: 'Link'},
+    {
+      type: 'string',
+      name: 'label',
+      title: 'Label',
+    },
+    {
+      type: 'link',
+      name: 'link',
+      title: 'Link',
+    },
   ],
 }
 
@@ -23,8 +31,16 @@ export default {
       hidden: true,
       initialValue: 'Navigation',
     },
-    {type: 'string', name: 'heading', title: 'Heading'},
-    {type: 'string', name: 'subheading', title: 'Subheading'},
+    {
+      type: 'string',
+      name: 'heading',
+      title: 'Heading',
+    },
+    {
+      type: 'string',
+      name: 'subheading',
+      title: 'Subheading',
+    },
     {
       type: 'array',
       name: 'items',
