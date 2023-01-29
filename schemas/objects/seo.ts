@@ -9,10 +9,10 @@ export default {
     {
       type: 'string',
       name: 'description',
-      title: 'description',
+      title: 'Description',
       validation: (rule: Rule) =>
         rule.max(150).warning(`A description should not be longer than 150 characters`),
     },
-    {type: 'image'},
+    {type: 'image', name: 'thumbnail', title: 'Thumbnail'},
   ],
 }

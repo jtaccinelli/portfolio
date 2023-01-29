@@ -13,7 +13,13 @@ export default {
   name: 'navigation',
   title: 'Navigation',
   fields: [
-    {type: 'string', name: 'title', title: 'Title'},
+    {
+      type: 'string',
+      name: 'title',
+      title: 'Title',
+      hidden: true,
+      initialValue: 'Navigation',
+    },
     {
       type: 'array',
       name: 'items',
