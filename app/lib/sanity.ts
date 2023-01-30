@@ -1,4 +1,5 @@
 import PicoSanity from "picosanity";
+import type { Link } from "@shared/sanity";
 
 let client: ReturnType<typeof PicoSanity>;
 
@@ -11,4 +12,13 @@ export const getSanityClient = () => {
   });
 
   return client;
+};
+
+export const resolveSanityLink = (link: Link) => {
+  switch (link.variant) {
+    case "url":
+      return link.url;
+    case "reference":
+      return `/${link.reference._type}/${link.reference.handle}`;
+  }
 };

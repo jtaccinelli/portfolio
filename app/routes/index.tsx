@@ -1,47 +1,34 @@
 import type { LoaderFunction } from "@remix-run/cloudflare";
-import { useLoaderData } from "@remix-run/react";
+import { Link, useLoaderData } from "@remix-run/react";
 
-import { getSanityClient } from "~/lib/sanity";
+import type { Navigation } from "@shared/sanity";
+
+import { getSanityClient, resolveSanityLink } from "@app/lib/sanity";
+import { NAVIGATION_QUERY } from "@app/queries/navigation";
 
 export const loader: LoaderFunction = async () => {
   const client = getSanityClient();
-  const data = await client.fetch('*[_type == "client"]');
+  const navigation = await client.fetch<Navigation>(NAVIGATION_QUERY);
 
-  return { data };
+  return { navigation };
 };
 
 export default function Index() {
-  const { data } = useLoaderData();
-  console.log(data);
+  const data = useLoaderData<typeof loader>();
+  const navigation = data.navigation as Navigation;
+
+  console.log(navigation);
 
   return (
-    <div style={{ fontFamily: "system-ui, sans-serif", lineHeight: "1.4" }}>
-      <h1>Welcome to Remix</h1>
-      <ul>
-        <li>
-          <a
-            target="_blank"
-            href="https://remix.run/tutorials/blog"
-            rel="noreferrer"
-          >
-            15m Quickstart Blog Tutorial
-          </a>
-        </li>
-        <li>
-          <a
-            target="_blank"
-            href="https://remix.run/tutorials/jokes"
-            rel="noreferrer"
-          >
-            Deep Dive Jokes App Tutorial
-          </a>
-        </li>
-        <li>
-          <a target="_blank" href="https://remix.run/docs" rel="noreferrer">
-            Remix Docs
-          </a>
-        </li>
-      </ul>
+    <div>
+      <div className="fixed bottom-16 left-1/2 flex -translate-x-1/2 flex-row bg-gray-100 p-4">
+        {navigation.items.map((item) => (
+          <Link key={item._key} to={resolveSanityLink(item.link)}>
+            <div>{item.label}</div>
+          </Link>
+        ))}
+      </div>
+      <h1>{navigation.heading}</h1>
     </div>
   );
 }

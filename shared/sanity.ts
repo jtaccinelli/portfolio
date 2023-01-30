@@ -1,0 +1,53 @@
+export type Types =
+  | "navigation"
+  | "configuration"
+  | "client"
+  | "page"
+  | "project"
+  | "skill"
+  | "link";
+
+export type Node = {
+  _type: Types;
+};
+
+export type ArrayItem = Node & {
+  _key: string;
+};
+
+export type Document = Node & {
+  _id: string;
+  _rev: string;
+  _createdAt: string;
+  _updatedAt: string;
+};
+
+export type Reference = Node & {
+  _ref: string;
+};
+
+export type Link = Node & { _type: "link" } & (
+    | {
+        variant: "url";
+        url: string;
+      }
+    | {
+        variant: "reference";
+        reference: Reference & {
+          handle: string;
+        };
+      }
+  );
+
+export type NavigationItem = ArrayItem & {
+  label: string;
+  link: Link;
+};
+
+export type Navigation = Document & {
+  type: "navigation";
+  connect: NavigationItem[];
+  items: NavigationItem[];
+  heading: string;
+  subheading: string;
+};
