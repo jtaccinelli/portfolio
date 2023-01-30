@@ -44,7 +44,7 @@ export type NavigationItem = ArrayItem & {
   link: Link;
 };
 
-export type Navigation = Document & {
+export type NavigationDocument = Document & {
   type: "navigation";
   connect: NavigationItem[];
   items: NavigationItem[];

@@ -8,6 +8,9 @@ module.exports = {
       colors: {
         gray: colors.neutral,
       },
+      animation: {
+        "text-spin": "spin 60s linear infinite",
+      },
     },
   },
   plugins: [],
