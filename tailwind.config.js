@@ -4,6 +4,9 @@ const colors = require("tailwindcss/colors");
 module.exports = {
   content: ["./app/**/*.{js,ts,jsx,tsx}"],
   theme: {
+    fontFamily: {
+      sans: ["custom"],
+    },
     extend: {
       colors: {
         gray: colors.neutral,

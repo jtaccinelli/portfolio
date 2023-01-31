@@ -51,7 +51,13 @@ export function TextSpinner({
           />
         </defs>
 
-        <text fill="white" dy="20" letterSpacing="7.25" className="uppercase">
+        <text
+          fill="white"
+          dy="20"
+          letterSpacing="1"
+          className="uppercase"
+          fontFamily="custom"
+        >
           <textPath xlinkHref="#textcircle">
             {new Array(repeats)
               .fill(text)
