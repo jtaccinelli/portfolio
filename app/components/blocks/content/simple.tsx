@@ -8,7 +8,7 @@ interface Props {
 
 export function ContentSimpleLayout({ content }: Props) {
   return (
-    <div className="flex flex-col space-y-8 px-8 py-24 md:p-24">
+    <div className="flex flex-col space-y-8 px-8 py-24 md:px-24">
       <h3 className="max-w-xl text-xl md:text-3xl">{content.heading}</h3>
       <p className="max-w-xl">{content.body}</p>
       <div className="flex flex-row space-x-4">

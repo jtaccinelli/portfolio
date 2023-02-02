@@ -8,7 +8,7 @@ interface Props {
 
 export function HeroSimpleLayout({ content }: Props) {
   return (
-    <div className="relative flex flex-col items-start justify-center overflow-hidden py-32 px-8 md:py-48 md:px-24">
+    <div className="relative flex flex-col items-start justify-center overflow-hidden py-48 px-8 md:px-24">
       <div className="absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 scale-100 opacity-25 md:scale-150">
         <TextSpinner text="Design + Development +" repeats={7} />
       </div>
