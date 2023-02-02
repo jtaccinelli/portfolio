@@ -1,5 +1,6 @@
 export type Types =
   | "navigation"
+  | "footer"
   | "configuration"
   | "client"
   | "page"
@@ -50,4 +51,10 @@ export type NavigationDocument = Document & {
   items: NavigationItem[];
   heading: string;
   subheading: string;
+};
+
+export type FooterDocument = Document & {
+  type: "footer";
+  acknowledgement: string;
+  links: NavigationItem[];
 };
