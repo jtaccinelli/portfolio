@@ -17,6 +17,7 @@ export default {
       type: 'text',
       name: 'acknowledgement',
       title: 'Acknowledgement',
+      rows: 4,
     },
     {
       type: 'links',
