@@ -7,7 +7,8 @@ import page from '@schemas/documents/page'
 import client from '@schemas/documents/client'
 import skill from '@schemas/documents/skill'
 import project from '@schemas/documents/project'
+import footer from '@schemas/documents/footer'
 
-export const singletons = [navigation, configuration]
+export const singletons = [navigation, footer, configuration]
 
 export default [page, blog, client, skill, project, ...singletons]
