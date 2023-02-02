@@ -53,19 +53,18 @@ export type SEO = Object & {
   image: unknown;
 };
 
-export type Links = Object &
-  {
-    _type: "item";
-    label: string;
-    link: Link;
-  }[];
+export type Links = (ArrayItem & {
+  _type: "item";
+  label: string;
+  link: Link;
+})[];
 
 // --- BLOCK TYPES
 
 export type HeroBlock = Object & {
   _type: "hero";
   layout: "simple";
-  heading: string;
+  body: string;
   ctas: Links;
 };
 
@@ -86,8 +85,8 @@ export type Builder = (ArrayItem & { _key: BlockTypes } & (
 
 export type NavigationDocument = Document & {
   type: "navigation";
-  connect: Links[];
-  items: Links[];
+  connect: Links;
+  items: Links;
   heading: string;
   subheading: string;
 };
@@ -95,7 +94,7 @@ export type NavigationDocument = Document & {
 export type FooterDocument = Document & {
   type: "footer";
   acknowledgement: string;
-  links: Links[];
+  links: Links;
 };
 
 export type ConfigurationDocument = Document & {

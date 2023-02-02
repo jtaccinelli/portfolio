@@ -68,10 +68,12 @@ export default function App() {
         <Meta />
         <Links />
       </head>
-      <body className="bg-gray-900 text-white">
-        <Navigation />
-        <Outlet />
-        <Footer />
+      <body className="rounded-xl bg-red-800 p-8 text-white">
+        <div className="relative mx-auto grid max-w-7xl grid-cols-1 divide-y-4 divide-red-800 overflow-hidden rounded-xl bg-gray-900">
+          <Navigation />
+          <Outlet />
+          <Footer />
+        </div>
         <ScrollRestoration />
         <Scripts />
         <LiveReload />

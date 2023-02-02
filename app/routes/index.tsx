@@ -5,7 +5,6 @@ import { PAGE_QUERY } from "@shared/queries";
 
 import { getSanityClient } from "@app/lib/sanity";
 
-import { TextSpinner } from "@app/components/text-spinner";
 import { ContentBuilder } from "@app/components/blocks/builder";
 
 export async function loader() {
@@ -22,9 +21,5 @@ export default function Index() {
   const data = useLoaderData();
   const page = data.page as PageDocument;
 
-  return (
-    <div className="flex flex-col">
-      <ContentBuilder content={page.content} />
-    </div>
-  );
+  return <ContentBuilder content={page.content} />;
 }

@@ -54,7 +54,7 @@ export function TextSpinner({
         <text
           fill="white"
           dy="20"
-          letterSpacing="1"
+          letterSpacing="4"
           className="uppercase"
           fontFamily="custom"
         >
