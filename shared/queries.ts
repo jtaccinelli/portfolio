@@ -37,3 +37,10 @@ export const FOOTER_QUERY = `
     },
 }
 `;
+
+export const PAGE_QUERY = `
+*[_type == "page" && handle.current == $handle][0]{
+   "handle": handle.current,
+    ...,
+}
+`;

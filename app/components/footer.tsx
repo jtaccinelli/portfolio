@@ -8,7 +8,7 @@ export function Footer() {
   const navigation = data.navigation as NavigationDocument;
 
   return (
-    <div className="grid grid-cols-3 gap-16 border-t border-gray-800 bg-gray-900 p-16 pb-32">
+    <div className="grid grid-cols-3 gap-16 bg-gray-800 p-16 pb-32">
       <div className="flex flex-col space-y-2">
         <p className="text-gray-500">Connect</p>
         {navigation.connect.map((item) => (
