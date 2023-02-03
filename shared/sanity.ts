@@ -63,7 +63,7 @@ export type Links = (ArrayItem & {
 
 export type HeroBlock = Object & {
   _type: "hero";
-  layout: "simple";
+  layout: "simple" | "graphic";
   body: string;
   ctas: Links;
 };
@@ -72,7 +72,7 @@ export type ContentBlock = Object & {
   _type: "content";
   layout: "simple";
   heading: string;
-  body: string;
+  body: string[];
   ctas: Links;
 };
 

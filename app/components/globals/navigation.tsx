@@ -54,8 +54,8 @@ export function Navigation() {
           </Dropdown.Toggle>
         </Dropdown>
       </div>
-      <p className="ml-8 text-white md:order-first">{navigation.heading}</p>
-      <p className="mr-8 text-white">{navigation.subheading}</p>
+      <p className="ml-4 text-white md:order-first">{navigation.heading}</p>
+      <p className="mr-4 text-white">{navigation.subheading}</p>
     </div>
   );
 }

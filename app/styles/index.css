@@ -533,6 +533,10 @@ video {
   position: relative;
 }
 
+.sticky {
+  position: sticky;
+}
+
 .top-0 {
   top: 0px;
 }
@@ -581,6 +585,22 @@ video {
 
 .mr-8 {
   margin-right: 2rem;
+}
+
+.ml-6 {
+  margin-left: 1.5rem;
+}
+
+.mr-6 {
+  margin-right: 1.5rem;
+}
+
+.ml-4 {
+  margin-left: 1rem;
+}
+
+.mr-4 {
+  margin-right: 1rem;
 }
 
 .block {
@@ -1022,6 +1042,10 @@ video {
 
   .md\:grid-cols-3 {
     grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .md\:p-8 {
+    padding: 2rem;
   }
 
   .md\:px-24 {

@@ -11,6 +11,7 @@ import {
   Outlet,
   Scripts,
   ScrollRestoration,
+  useTransition,
 } from "@remix-run/react";
 
 import {
@@ -33,6 +34,7 @@ import { Footer } from "@app/components/globals/footer";
 import styles from "./styles/index.css";
 import fonts from "./styles/fonts.css";
 import icons from "boxicons/css/boxicons.min.css";
+import clsx from "clsx";
 
 export const loader: LoaderFunction = async () => {
   const client = getSanityClient();
@@ -69,16 +71,25 @@ export const links: LinksFunction = () => [
 ];
 
 export default function App() {
+  const { state } = useTransition();
+
   return (
     <html lang="en">
       <head>
         <Meta />
         <Links />
       </head>
-      <body className="bg-black p-8 text-white">
-        <Navigation />
-        <div className="relative mx-auto grid max-w-7xl grid-cols-1 divide-y-2 divide-black overflow-hidden rounded-md bg-gray-900">
-          <Outlet />
+      <body className="bg-black text-white md:p-8">
+        <div className="mx-auto max-w-7xl overflow-hidden rounded-md">
+          <Navigation />
+          <div
+            className={clsx(
+              "grid w-full grid-cols-1 divide-y-2 divide-black bg-gray-900 transition-all",
+              state === "loading" ? "opacity-0" : "opacity-1"
+            )}
+          >
+            <Outlet />
+          </div>
           <Footer />
         </div>
         <ScrollRestoration />

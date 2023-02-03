@@ -11,7 +11,7 @@ interface Props {
 export function ContentBuilder({ content }: Props) {
   return (
     <>
-      {content.map((item) => {
+      {content?.map((item) => {
         switch (item._type) {
           case "hero":
             return <HeroBlock key={item._key} content={item} />;

@@ -8,11 +8,11 @@ import { getSanityClient } from "@app/lib/sanity";
 
 import { ContentBuilder } from "@app/components/blocks/builder";
 
-export const loader: LoaderFunction = async () => {
+export const loader: LoaderFunction = async ({ params }) => {
   const client = getSanityClient();
 
   const page = await client.fetch<PageDocument>(PAGE_QUERY, {
-    handle: "index",
+    handle: params.handle,
   });
 
   return { page };
