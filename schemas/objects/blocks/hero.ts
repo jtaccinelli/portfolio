@@ -12,7 +12,10 @@ export default {
       title: 'Layout',
       initialValue: 'simple',
       options: {
-        list: [{title: 'Simple', value: 'simple'}],
+        list: [
+          {title: 'Simple', value: 'simple'},
+          {title: 'Graphic', value: 'graphic'},
+        ],
       },
     },
     {
