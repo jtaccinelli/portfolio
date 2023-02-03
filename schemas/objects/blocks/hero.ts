@@ -16,9 +16,10 @@ export default {
       },
     },
     {
-      type: 'string',
-      name: 'heading',
-      title: 'Heading',
+      type: 'text',
+      name: 'body',
+      title: 'Body',
+      rows: 4,
     },
     {
       type: 'links',
