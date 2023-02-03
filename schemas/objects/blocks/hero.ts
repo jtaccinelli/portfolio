@@ -30,4 +30,14 @@ export default {
       title: 'Calls to Action',
     },
   ],
+  preview: {
+    select: {
+      body: 'body',
+    },
+    prepare: (selection: {body: string}) => ({
+      title: 'Hero Block',
+      subtitle: selection.body,
+      media: ImageIcon,
+    }),
+  },
 }

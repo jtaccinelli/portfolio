@@ -21,9 +21,10 @@ export default {
       title: 'Heading',
     },
     {
-      type: 'text',
+      type: 'array',
       name: 'body',
       title: 'Body',
+      of: [{type: 'text', rows: 4}],
     },
     {
       type: 'links',
@@ -31,4 +32,14 @@ export default {
       title: 'Calls to Action',
     },
   ],
+  preview: {
+    select: {
+      heading: 'heading',
+    },
+    prepare: (selection: {heading: string}) => ({
+      title: 'Content Block',
+      subtitle: selection.heading,
+      media: BlockContentIcon,
+    }),
+  },
 }
