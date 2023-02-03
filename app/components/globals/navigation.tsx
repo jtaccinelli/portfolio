@@ -24,7 +24,7 @@ export function Navigation() {
             return (
               <Link key={item._key} to={link}>
                 <p
-                  className="relative px-2 text-black after:absolute after:top-full after:left-1/2 after:h-1 after:w-1 after:-translate-x-1/2 after:rounded-full after:bg-white after:transition-all hover:after:bg-gray-300 data-active:text-red-600 data-active:after:bg-red-300"
+                  className="relative px-2 text-black after:absolute after:top-full after:left-1/2 after:h-1 after:w-1 after:-translate-x-1/2 after:rounded-full after:bg-white after:transition-all hover:after:bg-gray-300 data-active:text-accent-600 data-active:after:bg-accent-300"
                   data-active={pathname.includes(link)}
                 >
                   {item.label}

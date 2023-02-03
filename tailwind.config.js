@@ -14,6 +14,7 @@ module.exports = {
     extend: {
       colors: {
         gray: colors.neutral,
+        accent: colors.emerald,
       },
       animation: {
         "text-spin": "spin 60s linear infinite",
