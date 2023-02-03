@@ -27,11 +27,12 @@ import type {
 
 import { getSanityClient } from "@app/lib/sanity";
 
-import { Navigation } from "@app/components/navigation";
-import { Footer } from "@app/components/footer";
+import { Navigation } from "@app/components/globals/navigation";
+import { Footer } from "@app/components/globals/footer";
 
 import styles from "./styles/index.css";
 import fonts from "./styles/fonts.css";
+import icons from "boxicons/css/boxicons.min.css";
 
 export const loader: LoaderFunction = async () => {
   const client = getSanityClient();
@@ -59,6 +60,7 @@ export const meta: MetaFunction = ({ data }) => {
 export const links: LinksFunction = () => [
   { rel: "stylesheet", href: styles },
   { rel: "stylesheet", href: fonts },
+  { rel: "stylesheet", href: icons },
 ];
 
 export default function App() {
@@ -68,9 +70,9 @@ export default function App() {
         <Meta />
         <Links />
       </head>
-      <body className="rounded-xl bg-gray-900 p-8 text-white">
+      <body className="bg-black p-8 text-white">
         <Navigation />
-        <div className="relative mx-auto grid max-w-7xl grid-cols-1 divide-y-4 divide-gray-900 overflow-hidden rounded-lg bg-gray-800">
+        <div className="relative mx-auto grid max-w-7xl grid-cols-1 divide-y-2 divide-black overflow-hidden rounded-md bg-gray-900">
           <Outlet />
           <Footer />
         </div>
