@@ -61,6 +61,11 @@ export const links: LinksFunction = () => [
   { rel: "stylesheet", href: styles },
   { rel: "stylesheet", href: fonts },
   { rel: "stylesheet", href: icons },
+  {
+    rel: "icon",
+    type: "image/x-icon",
+    href: "/favicon.png",
+  },
 ];
 
 export default function App() {
