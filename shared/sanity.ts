@@ -1,9 +1,9 @@
 // --- BASE SANITY TYPES
 
 export type SingletonTypes = "navigation" | "footer" | "configuration";
-export type ObjectTypes = "seo" | "link" | "links" | "item";
+export type ObjectTypes = "seo" | "link" | "links" | "item" | "card";
 export type DocumentTypes = "client" | "page" | "project" | "skill";
-export type BlockTypes = "content" | "hero";
+export type BlockTypes = "content" | "hero" | "cards";
 
 export type AllTypes =
   | SingletonTypes
@@ -11,75 +11,84 @@ export type AllTypes =
   | DocumentTypes
   | BlockTypes;
 
-export type Object = {
+export interface Object {
   _type: AllTypes;
-};
+}
 
-export type ArrayItem = Object & {
+export interface ArrayItem {
   _key: string;
-};
+}
 
-export type Document = Object & {
+export interface Document extends Object {
   _id: string;
   _rev: string;
   _createdAt: string;
   _updatedAt: string;
-};
+}
 
-export type Reference = Object & {
+export interface Reference {
   _ref: string;
-};
+}
 
 // --- CUSTOM OBJECT TYPES
 
-export type Link = Object & { _type: "link" } & (
-    | {
-        variant: "url";
-        url: string;
-      }
-    | {
-        variant: "reference";
-        reference: Reference & {
-          handle: string;
-        };
-      }
-  );
+export interface Link extends Object {
+  _type: "link";
+  label: string;
+  url: string;
+}
 
-// TODO: Image Type
-export type SEO = Object & {
+export interface LinksItem extends ArrayItem, Link {}
+
+export interface Links extends Array<LinksItem> {}
+
+export interface SEO extends Object {
   _type: "seo";
   title: string;
   description: string;
-  image: unknown;
-};
+  image: unknown; // TODO: Image Type
+}
 
-export type Links = (ArrayItem & {
-  _type: "item";
-  label: string;
-  link: Link;
-})[];
+export interface Card extends Object {
+  _type: "card";
+  heading: string;
+  body: string;
+  cta: Link;
+}
+
+export interface CardsItem extends ArrayItem, Card {}
+
+export interface Cards extends Array<CardsItem> {}
 
 // --- BLOCK TYPES
 
-export type HeroBlock = Object & {
+export interface Block extends Object {
+  _type: BlockTypes;
+}
+
+export interface HeroBlock extends Block {
   _type: "hero";
   layout: "simple" | "graphic";
   body: string;
   ctas: Links;
-};
+}
 
-export type ContentBlock = Object & {
+export interface ContentBlock extends Block {
   _type: "content";
-  layout: "simple";
+  layout: "simple" | "grid";
   heading: string;
   body: string[];
   ctas: Links;
-};
+}
 
-export type Builder = (ArrayItem & { _key: BlockTypes } & (
-    | HeroBlock
-    | ContentBlock
-  ))[];
+export interface CardsBlock extends Block {
+  _type: "cards";
+  layout: "simple";
+  heading: string;
+  cards: Cards;
+}
+
+export type Builder = (ArrayItem & (HeroBlock | ContentBlock | CardsBlock))[];
 
 // --- DOCUMENT TYPES
 

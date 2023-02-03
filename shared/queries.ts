@@ -1,11 +1,23 @@
-export const LINK_FRAGMENT = `
-link {
-    ...,
-    reference->{
-        _type,
-        "handle": handle.current
+export const URL_FRAGMENT = `
+"url": select(
+    variant == "url" => url,
+    reference->_type == "page" => "/" + reference->handle.current,
+    reference->_type == "client" => "/clients/" + reference->handle.current,
+    reference->_type == "skill" => "/skills/" + reference->handle.current,
+    reference->_type == "project" => "/projects/" + reference->handle.current,
+    reference->_type == "blog" => "/blogs/" + reference->handle.current,
+    "/"
+), 
+`;
+
+export const CONTENT_FRAGMENT = `
+    content[]{
+        ...,    
+        ctas[]{
+         ...,
+         ${URL_FRAGMENT}
+        }
     }
-}
 `;
 
 export const CONFIGURATION_QUERY = `
@@ -17,13 +29,13 @@ export const CONFIGURATION_QUERY = `
 export const NAVIGATION_QUERY = `
 *[_type == "navigation"][0]{
     ...,
-    connect[]{
+    connect[] {
         ...,
-        ${LINK_FRAGMENT}
+        ${URL_FRAGMENT}
     },
-    items[]{
+    items[] {
         ...,
-        ${LINK_FRAGMENT}
+        ${URL_FRAGMENT}
     }
 }
 `;
@@ -31,16 +43,17 @@ export const NAVIGATION_QUERY = `
 export const FOOTER_QUERY = `
 *[_type == "footer"][0]{
     ...,
-    links[]{
+    links[] {
         ...,
-        ${LINK_FRAGMENT}
-    },
+        ${URL_FRAGMENT}
+    }
 }
 `;
 
 export const PAGE_QUERY = `
 *[_type == "page" && handle.current == $handle][0]{
-   "handle": handle.current,
     ...,
+    "handle": handle.current,
+    ${CONTENT_FRAGMENT},
 }
 `;

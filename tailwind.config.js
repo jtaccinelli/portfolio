@@ -15,6 +15,9 @@ module.exports = {
       colors: {
         gray: colors.neutral,
         accent: colors.emerald,
+        dark: {
+          DEFAULT: "#101010",
+        },
       },
       animation: {
         "text-spin": "spin 60s linear infinite",
