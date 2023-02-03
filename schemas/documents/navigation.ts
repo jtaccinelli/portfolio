@@ -1,23 +1,5 @@
 import {MenuIcon} from '@sanity/icons'
 
-const item = {
-  type: 'object',
-  name: 'item',
-  title: 'Item',
-  fields: [
-    {
-      type: 'string',
-      name: 'label',
-      title: 'Label',
-    },
-    {
-      type: 'link',
-      name: 'link',
-      title: 'Link',
-    },
-  ],
-}
-
 export default {
   type: 'document',
   name: 'navigation',
@@ -42,16 +24,14 @@ export default {
       title: 'Subheading',
     },
     {
-      type: 'array',
+      type: 'links',
       name: 'items',
       title: 'Items',
-      of: [item],
     },
     {
-      type: 'array',
+      type: 'links',
       name: 'connect',
       title: 'Connect',
-      of: [item],
     },
   ],
 }

@@ -8,6 +8,11 @@ export default {
   fields: [
     {
       type: 'string',
+      name: 'label',
+      title: 'Label',
+    },
+    {
+      type: 'string',
       name: 'variant',
       title: 'Variant',
       initialValue: 'reference',

@@ -27,18 +27,6 @@ export default {
       of: [
         {
           type: 'card',
-          preview: {
-            select: {
-              heading: 'heading',
-              subheading: 'subheading',
-            },
-            prepare(selection: {heading: string; subheading: string}) {
-              return {
-                title: selection.heading,
-                subtitle: selection.subheading,
-              }
-            },
-          },
         },
       ],
     },
