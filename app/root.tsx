@@ -78,12 +78,12 @@ export default function App() {
         <Meta />
         <Links />
       </head>
-      <body className="bg-dark text-white md:p-8">
+      <body className="bg-black text-white md:p-8">
         <div className="mx-auto max-w-7xl overflow-hidden rounded-md">
           <Navigation />
           <div
             className={clsx(
-              "[&>*]:opacity-1 grid w-full grid-cols-1 divide-y-2 divide-dark bg-gray-900 [&>*]:transition-opacity",
+              "[&>*]:opacity-1 grid w-full grid-cols-1 divide-y-2 divide-black bg-gray-900 [&>*]:transition-opacity",
               state === "loading" && "[&>*]:opacity-0"
             )}
           >

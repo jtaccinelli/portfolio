@@ -12,7 +12,7 @@ export function Navigation() {
   const { pathname } = useLocation();
 
   return (
-    <div className="fixed top-0 left-0 right-0 z-50 flex flex-row flex-wrap items-center justify-between overflow-visible bg-gradient-to-b from-gray-900/20 to-gray-900/0 p-4 md:py-16 md:px-8">
+    <div className="fixed top-0 left-0 right-0 z-50 flex flex-row flex-wrap items-center justify-between overflow-visible p-4 md:py-16 md:px-8">
       <div className="mb-4 flex w-full flex-row items-center space-x-1 rounded-full bg-white p-1 shadow md:mb-0 md:w-auto">
         <div className="relative flex w-full flex-row px-4">
           {navigation.items?.map((item) => {
@@ -49,7 +49,7 @@ export function Navigation() {
           </Dropdown.Toggle>
         </Dropdown>
       </div>
-      <p className="ml-4 text-white md:order-first">{navigation.heading}</p>
+      e<p className="ml-4 text-white md:order-first">{navigation.heading}</p>
       <p className="mr-4 text-white">{navigation.subheading}</p>
     </div>
   );

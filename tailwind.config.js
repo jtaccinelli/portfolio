@@ -13,9 +13,9 @@ module.exports = {
     },
     extend: {
       colors: {
-        gray: colors.neutral,
-        accent: colors.emerald,
-        dark: {
+        gray: colors.stone,
+        accent: colors.orange,
+        black: {
           DEFAULT: "#101010",
         },
       },
