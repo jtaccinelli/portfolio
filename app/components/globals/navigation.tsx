@@ -14,12 +14,12 @@ export function Navigation() {
   return (
     <div className="fixed top-0 left-0 right-0 z-50 flex flex-row flex-wrap items-center justify-between overflow-visible p-4 md:py-16 md:px-8">
       <div className="mb-4 flex w-full flex-row items-center space-x-1 rounded-full bg-white p-1 shadow md:mb-0 md:w-auto">
-        <div className="relative flex w-full flex-row px-4">
+        <div className="relative flex w-full flex-row -space-x-2">
           {navigation.items?.map((item) => {
             return (
               <Link key={item._key} to={item.url}>
                 <p
-                  className="relative px-2 text-black after:absolute after:top-full after:left-1/2 after:h-1 after:w-1 after:-translate-x-1/2 after:rounded-full after:bg-white after:transition-all hover:after:bg-gray-300 data-active:text-accent-600 data-active:after:bg-accent-300"
+                  className="relative rounded-full border-2 border-transparent px-4 py-2 text-black hover:text-gray-700 data-active:border-gray-200 data-active:text-accent-600 hover:data-active:border-accent-600"
                   data-active={pathname === item.url}
                 >
                   {item.label}
@@ -49,7 +49,7 @@ export function Navigation() {
           </Dropdown.Toggle>
         </Dropdown>
       </div>
-      e<p className="ml-4 text-white md:order-first">{navigation.heading}</p>
+      <p className="ml-4 text-white md:order-first">{navigation.heading}</p>
       <p className="mr-4 text-white">{navigation.subheading}</p>
     </div>
   );

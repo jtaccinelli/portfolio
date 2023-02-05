@@ -108,7 +108,7 @@ export type FooterDocument = Document & {
 
 export type ConfigurationDocument = Document & {
   type: "configuration";
-  defaultSeo: SEO;
+  default_seo: SEO;
 };
 
 export type PageDocument = Document & {

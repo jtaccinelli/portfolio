@@ -45,14 +45,16 @@ export const loader: LoaderFunction = async () => {
     client.fetch<ConfigurationDocument>(CONFIGURATION_QUERY),
   ]);
 
+  console.log(configuration);
+
   return { navigation, footer, configuration };
 };
 
 export const meta: MetaFunction = ({ data }) => {
   const configuration = data.configuration as ConfigurationDocument;
   return {
-    title: configuration.defaultSeo?.title,
-    description: configuration.defaultSeo?.description,
+    title: configuration.default_seo?.title,
+    description: configuration.default_seo?.description,
     charset: "utf-8",
     viewport: "width=device-width,initial-scale=1",
   };
@@ -78,12 +80,12 @@ export default function App() {
         <Meta />
         <Links />
       </head>
-      <body className="bg-black text-white md:p-8">
+      <body className="bg-gray-800 text-white md:p-8">
         <div className="mx-auto max-w-7xl overflow-hidden rounded-md">
           <Navigation />
           <div
             className={clsx(
-              "[&>*]:opacity-1 grid w-full grid-cols-1 divide-y-2 divide-black bg-gray-900 [&>*]:transition-opacity",
+              "[&>*]:opacity-1 grid w-full grid-cols-1 divide-y-4 divide-gray-800 bg-gray-900 [&>*]:transition-opacity",
               state === "loading" && "[&>*]:opacity-0"
             )}
           >
