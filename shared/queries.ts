@@ -1,6 +1,7 @@
 export const URL_FRAGMENT = `
 "url": select(
     variant == "url" => url,
+    reference->handle.current == "home" => "/",
     reference->_type == "page" => "/" + reference->handle.current,
     reference->_type == "client" => "/clients/" + reference->handle.current,
     reference->_type == "skill" => "/skills/" + reference->handle.current,

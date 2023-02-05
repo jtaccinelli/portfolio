@@ -80,7 +80,7 @@ export default function App() {
         <Meta />
         <Links />
       </head>
-      <body className="bg-gray-800 text-white md:p-8">
+      <body className="bg-gray-800 p-2 text-white md:p-8">
         <div className="mx-auto max-w-7xl overflow-hidden rounded-md">
           <Navigation />
           <div

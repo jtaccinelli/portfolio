@@ -19,7 +19,7 @@ export function Navigation() {
             return (
               <Link key={item._key} to={item.url}>
                 <p
-                  className="relative rounded-full border-2 border-transparent px-4 py-2 text-black hover:text-gray-700 data-active:border-gray-200 data-active:text-accent-600 hover:data-active:border-accent-600"
+                  className="relative rounded-full border-2 border-transparent px-4 py-2 text-black transition-all hover:text-gray-700 data-active:border-gray-200 data-active:text-accent-600 hover:data-active:border-accent-600"
                   data-active={pathname === item.url}
                 >
                   {item.label}

@@ -12,7 +12,7 @@ export const loader: LoaderFunction = async () => {
   const client = getSanityClient();
 
   const page = await client.fetch<PageDocument>(PAGE_QUERY, {
-    handle: "index",
+    handle: "home",
   });
 
   return { page };
