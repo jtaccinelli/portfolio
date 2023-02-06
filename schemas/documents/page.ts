@@ -1,10 +1,10 @@
-import {DesktopIcon} from '@sanity/icons'
+import {DocumentsIcon} from '@sanity/icons'
 
 export default {
   type: 'document',
   name: 'page',
   title: 'Pages',
-  icon: DesktopIcon,
+  icon: DocumentsIcon,
   fields: [
     {
       type: 'string',

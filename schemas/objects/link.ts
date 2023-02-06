@@ -22,6 +22,9 @@ export default {
           {title: 'URL', value: 'url'},
         ],
       },
+      validation(rule: Rule): Rule {
+        return rule.required()
+      },
     },
     {
       type: 'reference',
