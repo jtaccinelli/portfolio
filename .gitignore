@@ -1,0 +1,15 @@
+node_modules
+/.pnp
+.pnp.js
+
+.env
+.idea
+.turbo
+.DS_Store
+*.pem
+
+/logs
+*.log
+
+*.tsbuildinfo
+

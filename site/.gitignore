@@ -1,9 +1,5 @@
-node_modules
-
-/.cache
-/functions/\[\[path\]\].js
-/functions/\[\[path\]\].js.map
-/public/build
-/functions/_assets
-.env
-.idea
+.cache
+functions/\[\[path\]\].js
+functions/\[\[path\]\].js.map
+public/build
+functions/_assets

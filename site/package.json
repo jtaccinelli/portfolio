@@ -1,4 +1,6 @@
 {
+  "name": "@portfolio/site",
+  "version": "1.0.0",
   "private": true,
   "sideEffects": false,
   "scripts": {
@@ -21,7 +23,9 @@
     "cross-env": "^7.0.3",
     "picosanity": "^4.0.0",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "cms": "*",
+    "shared": "*"
   },
   "devDependencies": {
     "@cloudflare/workers-types": "^3.18.0",
