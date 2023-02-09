@@ -1,7 +1,27 @@
 import type {Rule} from 'sanity'
 import type {HiddenArgs} from '@shared/sanity'
 
-export default {
+export interface LinkQuery extends Object {
+  _type: typeof link.name,
+  label: string;
+  url: string;
+}
+
+export const LINK_FRAGMENT = `
+  label,
+  "url": select(
+    variant == "url" => url,
+    reference->handle.current == "home" => "/",
+    reference->_type == "page" => "/" + reference->handle.current,
+    reference->_type == "client" => "/clients/" + reference->handle.current,
+    reference->_type == "skill" => "/skills/" + reference->handle.current,
+    reference->_type == "project" => "/projects/" + reference->handle.current,
+    reference->_type == "blog" => "/blogs/" + reference->handle.current,
+    "/"
+  ),
+`
+
+export const link = {
   type: 'object',
   name: 'link',
   title: 'Link',

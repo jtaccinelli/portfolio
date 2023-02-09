@@ -1,18 +1,10 @@
 // --- BASE SANITY TYPES
 
-export type SingletonTypes = "navigation" | "footer" | "configuration";
-export type ObjectTypes = "seo" | "link" | "links" | "item" | "card";
-export type DocumentTypes = "client" | "page" | "project" | "skill";
-export type BlockTypes = "content" | "hero" | "cards";
-
-export type AllTypes =
-  | SingletonTypes
-  | ObjectTypes
-  | DocumentTypes
-  | BlockTypes;
+import {SchemaTypes} from "@portfolio/cms/schemas";
+import {BlockTypes} from "@portfolio/cms/schemas/objects/blocks";
 
 export interface Object {
-  _type: AllTypes;
+  _type: SchemaTypes;
 }
 
 export interface ArrayItem {
@@ -40,7 +32,7 @@ export interface Link extends Object {
 
 export interface LinksItem extends ArrayItem, Link {}
 
-export interface Links extends Array<LinksItem> {}
+export type Links = Array<LinksItem>
 
 export interface SEO extends Object {
   _type: "seo";
@@ -58,7 +50,7 @@ export interface Card extends Object {
 
 export interface CardsItem extends ArrayItem, Card {}
 
-export interface Cards extends Array<CardsItem> {}
+export type Cards = Array<CardsItem>
 
 // --- BLOCK TYPES
 
