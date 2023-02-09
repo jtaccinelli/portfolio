@@ -1,7 +1,7 @@
 import type {Rule} from 'sanity'
-import type {HiddenArgs} from '@shared/sanity'
+import type {HiddenArgs, ObjectQuery} from '@shared/sanity'
 
-export interface LinkQuery extends Object {
+export interface LinkQuery extends ObjectQuery {
   _type: typeof link.name,
   label: string;
   url: string;

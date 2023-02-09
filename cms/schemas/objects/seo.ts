@@ -1,6 +1,14 @@
 import type {Rule} from 'sanity'
+import type {ObjectQuery} from "@shared/sanity";
 
-export default {
+export interface SeoQuery extends ObjectQuery {
+  _type: typeof seo.name,
+  title: string;
+  description: string;
+  thumbnail: string;
+}
+
+export const seo = {
   type: 'object',
   name: 'seo',
   title: 'SEO',

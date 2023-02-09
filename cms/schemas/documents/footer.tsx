@@ -20,9 +20,10 @@ export default {
       rows: 4,
     },
     {
-      type: 'links',
+      type: 'array',
       name: 'links',
       title: 'Footer Links',
+      of: [{type: 'link'}]
     },
   ],
 }

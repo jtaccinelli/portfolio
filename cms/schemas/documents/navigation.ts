@@ -24,14 +24,16 @@ export default {
       title: 'Subheading',
     },
     {
-      type: 'links',
+      type: 'array',
       name: 'items',
       title: 'Items',
+      of: [{type: 'link'}]
     },
     {
-      type: 'links',
+      type: 'array',
       name: 'connect',
       title: 'Connect',
+      of: [{type: 'link'}]
     },
   ],
 }

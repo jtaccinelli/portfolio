@@ -25,9 +25,10 @@ export default {
       rows: 4,
     },
     {
-      type: 'links',
+      type: 'array',
       name: 'ctas',
       title: 'Calls to Action',
+      of: [{type: 'link'}]
     },
   ],
   preview: {
