@@ -35,7 +35,7 @@ export default {
     select: {
       heading: 'heading',
     },
-    prepare: (selection: {heading: string}) => ({
+    prepare: (selection: any) => ({
       title: 'Cards Block',
       subtitle: selection.heading,
       media: CopyIcon,

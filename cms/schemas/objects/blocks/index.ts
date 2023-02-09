@@ -7,4 +7,5 @@ import projects from '@schemas/objects/blocks/projects'
 import skills from '@schemas/objects/blocks/skills'
 import blogs from '@schemas/objects/blocks/blogs'
 
-export default [content, hero, cards, clients, projects, skills, blogs]
+export const blocks = [content, hero, cards, clients, projects, skills, blogs] as const;
+export type BlockTypes = typeof blocks[number]['name']

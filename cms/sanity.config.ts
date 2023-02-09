@@ -3,7 +3,7 @@ import {deskTool} from 'sanity/desk'
 import {FolderIcon} from '@sanity/icons'
 import {visionTool} from '@sanity/vision'
 
-import {schemaTypes} from '@schemas'
+import {schemas} from '@schemas'
 import {singletons} from '@schemas/documents'
 
 export default defineConfig({
@@ -45,7 +45,7 @@ export default defineConfig({
     visionTool(),
   ],
   schema: {
-    types: schemaTypes,
+    types: [...schemas],
     templates(templates) {
       return templates.filter((template) => {
         return !singletons.some((singleton) => {

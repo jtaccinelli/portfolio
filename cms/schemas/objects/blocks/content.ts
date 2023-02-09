@@ -39,7 +39,7 @@ export default {
     select: {
       heading: 'heading',
     },
-    prepare: (selection: {heading: string}) => ({
+    prepare: (selection: any) => ({
       title: 'Content Block',
       subtitle: selection.heading,
       media: BlockContentIcon,

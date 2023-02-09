@@ -34,7 +34,7 @@ export default {
     select: {
       body: 'body',
     },
-    prepare: (selection: {body: string}) => ({
+    prepare: (selection: any) => ({
       title: 'Hero Block',
       subtitle: selection.body,
       media: ImageIcon,
