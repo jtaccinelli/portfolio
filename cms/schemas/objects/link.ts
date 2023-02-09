@@ -1,5 +1,5 @@
-import {Rule} from 'sanity'
-import {HiddenArgs} from '@shared/sanity'
+import type {Rule} from 'sanity'
+import type {HiddenArgs} from '@shared/sanity'
 
 export default {
   type: 'object',

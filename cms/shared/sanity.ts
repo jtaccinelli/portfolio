@@ -1,4 +1,4 @@
-import {CurrentUser, SanityDocument} from 'sanity'
+import type {CurrentUser, SanityDocument} from 'sanity'
 
 export interface HiddenArgs {
   document: SanityDocument | undefined
