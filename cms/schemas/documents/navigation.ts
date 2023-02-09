@@ -1,6 +1,18 @@
+import type {ArrayQuery, DocumentQuery} from '@shared/sanity'
+import type {LinkQuery} from '@schemas/objects/link'
+
 import {MenuIcon} from '@sanity/icons'
 
-export default {
+export interface NavigationDocumentQuery extends DocumentQuery {
+  _type: typeof navigation.name
+  title: string
+  heading: string
+  subheading: string
+  items: ArrayQuery<LinkQuery>
+  connect: ArrayQuery<LinkQuery>
+}
+
+export const navigation = {
   type: 'document',
   name: 'navigation',
   title: 'Navigation',
@@ -27,13 +39,13 @@ export default {
       type: 'array',
       name: 'items',
       title: 'Items',
-      of: [{type: 'link'}]
+      of: [{type: 'link'}],
     },
     {
       type: 'array',
       name: 'connect',
       title: 'Connect',
-      of: [{type: 'link'}]
+      of: [{type: 'link'}],
     },
   ],
 }

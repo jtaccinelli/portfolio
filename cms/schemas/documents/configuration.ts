@@ -1,6 +1,15 @@
+import type {DocumentQuery} from '@shared/sanity'
+import type {SeoQuery} from '@schemas/objects/seo'
+
 import {CogIcon} from '@sanity/icons'
 
-export default {
+export interface ConfigurationDocumentQuery extends DocumentQuery {
+  _type: typeof configuration.name
+  title: string
+  seo: SeoQuery
+}
+
+export const configuration = {
   type: 'document',
   name: 'configuration',
   title: 'Configuration',

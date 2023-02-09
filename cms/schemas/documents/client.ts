@@ -1,6 +1,17 @@
+import type {DocumentQuery, SlugQuery} from '@shared/sanity'
+
 import {UserIcon} from '@sanity/icons'
 
-export default {
+export interface ClientDocumentQuery extends DocumentQuery {
+  _type: typeof client.name
+  title: string
+  handle: SlugQuery
+  website?: string
+  blurb: string
+  logo: any // TODO: Image Type
+}
+
+export const client = {
   type: 'document',
   name: 'client',
   title: 'Clients',

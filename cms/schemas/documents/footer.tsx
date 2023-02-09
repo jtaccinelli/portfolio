@@ -1,6 +1,16 @@
+import type {ArrayQuery, DocumentQuery} from '@shared/sanity'
+import type {LinkQuery} from '@schemas/objects/link'
+
 import {BlockElementIcon} from '@sanity/icons'
 
-export default {
+export interface FooterDocumentQuery extends DocumentQuery {
+  _type: typeof footer.name
+  title: string
+  acknowledgement: string
+  links: ArrayQuery<LinkQuery>
+}
+
+export const footer = {
   type: 'document',
   name: 'footer',
   title: 'Footer',
@@ -23,7 +33,7 @@ export default {
       type: 'array',
       name: 'links',
       title: 'Footer Links',
-      of: [{type: 'link'}]
+      of: [{type: 'link'}],
     },
   ],
 }

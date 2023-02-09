@@ -1,6 +1,18 @@
+import type {DocumentQuery, SlugQuery} from '@shared/sanity'
+import type {SeoQuery} from '@schemas/objects/seo'
+
 import {ControlsIcon} from '@sanity/icons'
 
-export default {
+export interface SkillDocumentQuery extends DocumentQuery {
+  _type: typeof skill.name
+  title: string
+  handle: SlugQuery
+  subtitle: string
+  blurb: string
+  seo: SeoQuery
+}
+
+export const skill = {
   type: 'document',
   name: 'skill',
   title: 'Skills',

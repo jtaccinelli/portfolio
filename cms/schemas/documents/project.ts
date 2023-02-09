@@ -1,6 +1,24 @@
+import type {ArrayQuery, DocumentQuery, ReferenceQuery, SlugQuery} from '@shared/sanity'
+import type {ClientDocumentQuery} from '@schemas/documents/client'
+import type {SkillDocumentQuery} from '@schemas/documents/skill'
+import type {SeoQuery} from '@schemas/objects/seo'
+
 import {PresentationIcon} from '@sanity/icons'
 
-export default {
+export interface ProjectDocumentQuery extends DocumentQuery {
+  _type: typeof project.name
+  title: string
+  handle: SlugQuery
+  subtitle: string
+  blurb: string
+  client: ReferenceQuery<ClientDocumentQuery>
+  skills: ArrayQuery<ReferenceQuery<SkillDocumentQuery>>
+  completed_on: any // TODO: Date Data Type;
+  live_site: string
+  seo: SeoQuery
+}
+
+export const project = {
   type: 'document',
   name: 'project',
   title: 'Projects',
