@@ -1,6 +1,21 @@
+import type {LinkQuery} from '@schemas/objects/link'
+import type {ArrayQuery, BlockQuery} from '@shared/sanity'
+
 import {ImageIcon} from '@sanity/icons'
 
-export default {
+export interface HeroBlockQuery extends BlockQuery {
+  _type: typeof hero.name
+  layout: (typeof layouts)[number]['value']
+  body: string
+  ctas: ArrayQuery<LinkQuery>
+}
+
+const layouts = [
+  {title: 'Simple', value: 'simple'},
+  {title: 'Graphic', value: 'graphic'},
+] as const
+
+export const hero = {
   type: 'object',
   name: 'hero',
   title: 'Hero Block',
@@ -12,10 +27,7 @@ export default {
       title: 'Layout',
       initialValue: 'simple',
       options: {
-        list: [
-          {title: 'Simple', value: 'simple'},
-          {title: 'Graphic', value: 'graphic'},
-        ],
+        list: layouts,
       },
     },
     {
@@ -28,7 +40,7 @@ export default {
       type: 'array',
       name: 'ctas',
       title: 'Calls to Action',
-      of: [{type: 'link'}]
+      of: [{type: 'link'}],
     },
   ],
   preview: {
@@ -41,4 +53,4 @@ export default {
       media: ImageIcon,
     }),
   },
-}
+} as const

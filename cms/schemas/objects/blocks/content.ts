@@ -1,6 +1,21 @@
 import {BlockContentIcon} from '@sanity/icons'
+import type {ArrayQuery, BlockQuery} from '@shared/sanity'
+import type {LinkQuery} from '@schemas/objects/link'
 
-export default {
+export interface ContentBlockQuery extends BlockQuery {
+  _type: typeof content.name
+  layout: (typeof layouts)[number]['value']
+  heading: string
+  body: ArrayQuery<string>
+  ctas: ArrayQuery<LinkQuery>
+}
+
+const layouts = [
+  {title: 'Simple', value: 'simple'},
+  {title: 'Grid', value: 'grid'},
+] as const
+
+export const content = {
   type: 'object',
   name: 'content',
   title: 'Content Block',
@@ -12,10 +27,7 @@ export default {
       title: 'Layout',
       initialValue: 'simple',
       options: {
-        list: [
-          {title: 'Simple', value: 'simple'},
-          {title: 'Grid', value: 'grid'},
-        ],
+        list: layouts,
       },
     },
     {
@@ -33,7 +45,7 @@ export default {
       type: 'array',
       name: 'ctas',
       title: 'Calls to Action',
-      of: [{type: 'link'}]
+      of: [{type: 'link'}],
     },
   ],
   preview: {

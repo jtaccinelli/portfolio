@@ -1,4 +1,5 @@
 import type {DocumentQuery, SlugQuery} from '@shared/sanity'
+import type {BuilderQuery} from '@schemas/objects/builder'
 import type {SeoQuery} from '@schemas/objects/seo'
 
 import {DocumentsIcon} from '@sanity/icons'
@@ -7,7 +8,7 @@ export interface PageDocumentQuery extends DocumentQuery {
   _type: typeof page.name
   title: string
   handle: SlugQuery
-  content: any // TODO: Builder Type
+  content: BuilderQuery
   seo: SeoQuery
 }
 

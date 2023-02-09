@@ -1,6 +1,18 @@
+import type {ArrayQuery, BlockQuery, ReferenceQuery} from '@shared/sanity'
+import type {BlogDocumentQuery} from '@schemas/documents/blog'
+
 import {EditIcon} from '@sanity/icons'
 
-export default {
+export interface BlogsBlockQuery extends BlockQuery {
+  _type: typeof blogs.name
+  layout: (typeof layouts)[number]['value']
+  heading: string
+  items: ArrayQuery<ReferenceQuery<BlogDocumentQuery>>
+}
+
+const layouts = [{title: 'Simple', value: 'simple'}] as const
+
+export const blogs = {
   type: 'object',
   name: 'blogs',
   title: 'Blogs Block',
@@ -12,7 +24,7 @@ export default {
       title: 'Layout',
       initialValue: 'simple',
       options: {
-        list: [{title: 'Simple', value: 'simple'}],
+        list: layouts,
       },
     },
     {
@@ -38,7 +50,7 @@ export default {
     },
     prepare: (selection: any) => ({
       title: 'Blogs Block',
-      subtitle: selection.heading,
+      subtitle: selection.heading as string,
       media: EditIcon,
     }),
   },

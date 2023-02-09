@@ -1,6 +1,18 @@
+import type {ArrayQuery, BlockQuery, ReferenceQuery} from '@shared/sanity'
+import type {ClientDocumentQuery} from '@schemas/documents/client'
+
 import {UserIcon} from '@sanity/icons'
 
-export default {
+export interface ClientsBlockQuery extends BlockQuery {
+  _type: typeof clients.name
+  layouts: (typeof layouts)[number]['value']
+  heading: string
+  items: ArrayQuery<ReferenceQuery<ClientDocumentQuery>>
+}
+
+const layouts = [{title: 'Simple', value: 'simple'}] as const
+
+export const clients = {
   type: 'object',
   name: 'clients',
   title: 'Clients Block',
@@ -12,7 +24,7 @@ export default {
       title: 'Layout',
       initialValue: 'simple',
       options: {
-        list: [{title: 'Simple', value: 'simple'}],
+        list: layouts,
       },
     },
     {

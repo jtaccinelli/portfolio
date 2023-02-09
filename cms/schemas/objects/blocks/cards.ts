@@ -1,6 +1,18 @@
+import type {ArrayQuery, BlockQuery} from '@shared/sanity'
+import type {CardQuery} from '@schemas/objects/card'
+
 import {CopyIcon} from '@sanity/icons'
 
-export default {
+export interface CardsBlockQuery extends BlockQuery {
+  _type: typeof cards.name
+  layout: (typeof layouts)[number]['value']
+  heading: string
+  cards: ArrayQuery<CardQuery>
+}
+
+const layouts = [{title: 'Simple', value: 'simple'}] as const
+
+export const cards = {
   type: 'object',
   name: 'cards',
   title: 'Cards Block',
@@ -12,7 +24,7 @@ export default {
       title: 'Layout',
       initialValue: 'simple',
       options: {
-        list: [{title: 'Simple', value: 'simple'}],
+        list: layouts,
       },
     },
     {
