@@ -1,14 +1,16 @@
 import type { FC } from "react";
 
-import type { CardsBlock as Content } from "@cms/shared/sanity";
+import type { CardsBlockQuery } from "cms/schemas/objects/blocks/cards";
 
-import { CardsSimpleLayout } from "@site/app/components/blocks/cards/simple";
+import { CardsSimpleLayout } from "site/components/blocks/cards/simple";
 
 interface Props {
-  content: Content;
+  content: CardsBlockQuery;
 }
 
-type Layouts = { [key in Content["layout"]]: FC<Props> };
+type Layouts = {
+  [key in CardsBlockQuery["layout"]]: FC<Props>;
+};
 
 const layouts: Layouts = {
   simple: CardsSimpleLayout,

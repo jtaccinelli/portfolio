@@ -1,10 +1,10 @@
-import type { HeroBlock as Content } from "@cms/shared/sanity";
+import { HeroBlockQuery } from "cms/schemas/objects/blocks/hero";
 
-import { TextSpinner } from "@site/app/components/text-spinner";
-import { CallToAction } from "@site/app/components/cta";
+import { TextSpinner } from "site/components/text-spinner";
+import { CallToAction } from "site/components/cta";
 
 interface Props {
-  content: Content;
+  content: HeroBlockQuery;
 }
 
 export function HeroGraphicLayout({ content }: Props) {

@@ -1,17 +1,15 @@
 import type { LoaderFunction } from "@remix-run/cloudflare";
 import { useLoaderData } from "@remix-run/react";
 
-import type { PageDocument } from "@cms/shared/sanity";
-import { PAGE_QUERY } from "@site/shared/queries";
+import { PageDocumentQuery, PAGE_QUERY } from "cms/schemas/documents/page";
 
-import { getSanityClient } from "@site/app/lib/sanity";
-
-import { ContentBuilder } from "@site/app/components/blocks/builder";
+import { getSanityClient } from "site/lib/sanity";
+import { ContentBuilder } from "site/components/blocks/builder";
 
 export const loader: LoaderFunction = async () => {
   const client = getSanityClient();
 
-  const page = await client.fetch<PageDocument>(PAGE_QUERY, {
+  const page = await client.fetch<PageDocumentQuery>(PAGE_QUERY, {
     handle: "home",
   });
 
@@ -20,7 +18,7 @@ export const loader: LoaderFunction = async () => {
 
 export default function Page() {
   const data = useLoaderData();
-  const page = data.page as PageDocument;
+  const page = data.page as PageDocumentQuery;
 
   return <ContentBuilder content={page.content} />;
 }

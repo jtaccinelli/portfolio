@@ -1,12 +1,12 @@
-import type { Builder } from "@cms/shared/sanity";
+import { BuilderQuery } from "cms/schemas/objects/builder";
 
-import { HeroBlock } from "@site/app/components/blocks/hero";
-import { ContentBlock } from "@site/app/components/blocks/content";
-import { CardsBlock } from "@site/app/components/blocks/cards";
-import { FallbackBlock } from "@site/app/components/blocks/fallback";
+import { HeroBlock } from "site/components/blocks/hero";
+import { ContentBlock } from "site/components/blocks/content";
+import { CardsBlock } from "site/components/blocks/cards";
+import { FallbackBlock } from "site/components/blocks/fallback";
 
 interface Props {
-  content: Builder;
+  content: BuilderQuery;
 }
 
 export function ContentBuilder({ content }: Props) {

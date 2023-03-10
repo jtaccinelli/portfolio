@@ -1,15 +1,15 @@
 import type { FC } from "react";
 
-import type { HeroBlock as Content } from "@cms/shared/sanity";
+import { HeroBlockQuery } from "cms/schemas/objects/blocks/hero";
 
-import { HeroSimpleLayout } from "@site/app/components/blocks/hero/simple";
-import { HeroGraphicLayout } from "@site/app/components/blocks/hero/graphic";
+import { HeroSimpleLayout } from "site/components/blocks/hero/simple";
+import { HeroGraphicLayout } from "site/components/blocks/hero/graphic";
 
 interface Props {
-  content: Content;
+  content: HeroBlockQuery;
 }
 
-type Layouts = { [key in Content["layout"]]: FC<Props> };
+type Layouts = { [key in HeroBlockQuery["layout"]]: FC<Props> };
 
 const layouts: Layouts = {
   simple: HeroSimpleLayout,

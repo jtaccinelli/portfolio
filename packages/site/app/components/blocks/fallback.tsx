@@ -1,4 +1,4 @@
-import type { Builder } from "@cms/shared/sanity";
+import type { Builder } from "site/shared/sanity";
 
 interface Props {
   content: Builder[0];

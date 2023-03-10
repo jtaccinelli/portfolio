@@ -1,5 +1,5 @@
-import type { HeroBlock as Content } from "@cms/shared/sanity";
-import { CallToAction } from "@site/app/components/cta";
+import type { HeroBlock as Content } from "site/shared/sanity";
+import { CallToAction } from "site/components/cta";
 
 interface Props {
   content: Content;

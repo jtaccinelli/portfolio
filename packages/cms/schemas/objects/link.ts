@@ -1,5 +1,5 @@
 import type {Rule} from 'sanity'
-import type {HiddenArgs, ObjectQuery} from '~/shared/sanity'
+import type {HiddenArgs, ObjectQuery} from 'cms/shared/sanity'
 
 export interface LinkQuery extends ObjectQuery {
   _type: typeof link.name

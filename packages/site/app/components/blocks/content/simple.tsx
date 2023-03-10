@@ -1,8 +1,9 @@
-import type { ContentBlock as Content } from "@cms/shared/sanity";
-import { CallToAction } from "@site/app/components/cta";
+import { ContentBlockQuery } from "cms/schemas/objects/blocks/content";
+
+import { CallToAction } from "site/components/cta";
 
 interface Props {
-  content: Content;
+  content: ContentBlockQuery;
 }
 
 export function ContentSimpleLayout({ content }: Props) {

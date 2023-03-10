@@ -1,11 +1,12 @@
 import { Link, useLoaderData, useLocation } from "@remix-run/react";
 
-import type { NavigationDocument } from "@cms/shared/sanity";
-import { Dropdown } from "@site/app/components/compounds/dropdown";
+import { NavigationDocumentQuery } from "cms/schemas/documents/navigation";
+
+import { Dropdown } from "site/components/compounds/dropdown";
 
 export function Navigation() {
   const data = useLoaderData();
-  const navigation = data.navigation as NavigationDocument;
+  const navigation = data.navigation as NavigationDocumentQuery;
 
   console.log(navigation);
 

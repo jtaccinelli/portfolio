@@ -7,7 +7,7 @@ export default defineCliConfig({
     dataset: 'production',
   },
   vite: (config) => {
-    config.resolve.alias['~'] = path.resolve(__dirname)
+    config.resolve.alias['cms'] = path.resolve(__dirname)
     return config
   },
 })

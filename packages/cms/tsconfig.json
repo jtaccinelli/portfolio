@@ -3,7 +3,7 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "~/*": ["*"],
+      "cms/*": ["*"],
     },
     "target": "ES2017",
     "lib": [

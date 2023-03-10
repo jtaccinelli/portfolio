@@ -17,22 +17,22 @@ import {
 import {
   NAVIGATION_QUERY,
   NavigationDocumentQuery,
-} from "@portfolio/cms/schemas/documents/navigation";
+} from "cms/schemas/documents/navigation";
 
 import {
   FOOTER_QUERY,
   FooterDocumentQuery,
-} from "@portfolio/cms/schemas/documents/footer";
+} from "cms/schemas/documents/footer";
 
 import {
   CONFIGURATION_QUERY,
   ConfigurationDocumentQuery,
-} from "@portfolio/cms/schemas/documents/configuration";
+} from "cms/schemas/documents/configuration";
 
-import { getSanityClient } from "@site/app/lib/sanity";
+import { getSanityClient } from "site/lib/sanity";
 
-import { Navigation } from "@site/app/components/globals/navigation";
-import { Footer } from "@site/app/components/globals/footer";
+import { Navigation } from "site/components/globals/navigation";
+import { Footer } from "site/components/globals/footer";
 
 import styles from "./styles/index.css";
 import fonts from "./styles/fonts.css";
@@ -47,8 +47,6 @@ export const loader: LoaderFunction = async () => {
     client.fetch<FooterDocumentQuery>(FOOTER_QUERY),
     client.fetch<ConfigurationDocumentQuery>(CONFIGURATION_QUERY),
   ]);
-
-  console.log(configuration);
 
   return { navigation, footer, configuration };
 };

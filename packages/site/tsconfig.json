@@ -9,7 +9,8 @@
     "composite": true,
     "baseUrl": ".",
     "paths": {
-      "@site/*": ["*"],
+      "site/*": ["app/*"],
+      "cms/*": ["../cms/*"]
     },
     "lib": [
       "DOM",

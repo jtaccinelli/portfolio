@@ -1,10 +1,12 @@
 import { Link, useLoaderData } from "@remix-run/react";
-import type { FooterDocument, NavigationDocument } from "@cms/shared/sanity";
+
+import { FooterDocumentQuery } from "cms/schemas/documents/footer";
+import { NavigationDocumentQuery } from "cms/schemas/documents/navigation";
 
 export function Footer() {
   const data = useLoaderData();
-  const footer = data.footer as FooterDocument;
-  const navigation = data.navigation as NavigationDocument;
+  const footer = data.footer as FooterDocumentQuery;
+  const navigation = data.navigation as NavigationDocumentQuery;
 
   return (
     <div className="grid grid-cols-1 gap-16 bg-accent-600 px-8 py-24 pb-32 md:grid-cols-3 md:px-24">

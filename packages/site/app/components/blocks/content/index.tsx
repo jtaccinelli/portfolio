@@ -1,15 +1,15 @@
 import type { FC } from "react";
 
-import type { ContentBlock as Content } from "@cms/shared/sanity";
+import { ContentBlockQuery } from "cms/schemas/objects/blocks/content";
 
-import { ContentSimpleLayout } from "@site/app/components/blocks/content/simple";
-import { ContentGridLayout } from "@site/app/components/blocks/content/grid";
+import { ContentSimpleLayout } from "site/components/blocks/content/simple";
+import { ContentGridLayout } from "site/components/blocks/content/grid";
 
 interface Props {
-  content: Content;
+  content: ContentBlockQuery;
 }
 
-type Layouts = { [key in Content["layout"]]: FC<Props> };
+type Layouts = { [key in ContentBlockQuery["layout"]]: FC<Props> };
 
 const layouts: Layouts = {
   simple: ContentSimpleLayout,

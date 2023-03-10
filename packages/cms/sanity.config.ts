@@ -3,8 +3,8 @@ import {deskTool} from 'sanity/desk'
 import {FolderIcon} from '@sanity/icons'
 import {visionTool} from '@sanity/vision'
 
-import {schemas} from '~/schemas'
-import {singletons} from '~/schemas/documents'
+import {schemas} from 'cms/schemas'
+import {singletons} from 'cms/schemas/documents'
 
 export default defineConfig({
   name: 'default',

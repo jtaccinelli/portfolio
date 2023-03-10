@@ -1,8 +1,9 @@
-import type { CardsBlock as Content } from "@cms/shared/sanity";
-import { CallToAction } from "@site/app/components/cta";
+import type { CardsBlockQuery } from "cms/schemas/objects/blocks/cards";
+
+import { CallToAction } from "site/components/cta";
 
 interface Props {
-  content: Content;
+  content: CardsBlockQuery;
 }
 
 export function CardsSimpleLayout({ content }: Props) {
