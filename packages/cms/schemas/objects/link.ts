@@ -1,10 +1,10 @@
 import type {Rule} from 'sanity'
-import type {HiddenArgs, ObjectQuery} from '@shared/sanity'
+import type {HiddenArgs, ObjectQuery} from '@cms/shared/sanity'
 
 export interface LinkQuery extends ObjectQuery {
-  _type: typeof link.name,
-  label: string;
-  url: string;
+  _type: typeof link.name
+  label: string
+  url: string
 }
 
 export const LINK_FRAGMENT = `
@@ -67,4 +67,4 @@ export const link = {
       },
     },
   ],
-}
+} as const

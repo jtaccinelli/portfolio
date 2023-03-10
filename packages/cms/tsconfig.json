@@ -3,19 +3,7 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@cms/*": ["./*"],
-      "@shared/*": [
-        "shared/*"
-      ],
-      "@components/*": [
-        "components/*"
-      ],
-      "@schemas": [
-        "schemas"
-      ],
-      "@schemas/*": [
-        "schemas/*"
-      ]
+      "@cms/*": ["*"],
     },
     "target": "ES2017",
     "lib": [

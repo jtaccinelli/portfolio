@@ -1,7 +1,7 @@
-import type {ArrayQuery, BlockQuery, ReferenceQuery} from '@shared/sanity'
-import type {SkillDocumentQuery} from '@schemas/documents/skill'
-
 import {ControlsIcon} from '@sanity/icons'
+
+import type {ArrayQuery, BlockQuery, ReferenceQuery} from '@cms/shared/sanity'
+import type {SkillDocumentQuery} from '@cms/schemas/documents/skill'
 
 export interface SkillsBlockQuery extends BlockQuery {
   _type: typeof skills.name
@@ -54,4 +54,4 @@ export const skills = {
       media: ControlsIcon,
     }),
   },
-}
+} as const

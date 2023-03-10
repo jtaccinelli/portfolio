@@ -1,8 +1,9 @@
-import type {ArrayQuery, DocumentQuery} from '@shared/sanity'
-import type {LinkQuery} from '@schemas/objects/link'
-
 import {BlockElementIcon} from '@sanity/icons'
-import {LINK_FRAGMENT} from '@schemas/objects/link'
+
+import type {ArrayQuery, DocumentQuery} from '@cms/shared/sanity'
+
+import type {LinkQuery} from '@cms/schemas/objects/link'
+import {LINK_FRAGMENT} from '@cms/schemas/objects/link'
 
 export interface FooterDocumentQuery extends DocumentQuery {
   _type: typeof footer.name
@@ -46,4 +47,4 @@ export const footer = {
       of: [{type: 'link'}],
     },
   ],
-}
+} as const

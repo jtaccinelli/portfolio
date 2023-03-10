@@ -1,7 +1,7 @@
-import type {ArrayQuery, BlockQuery, ReferenceQuery} from '@shared/sanity'
-import type {BlogDocumentQuery} from '@schemas/documents/blog'
-
 import {EditIcon} from '@sanity/icons'
+
+import type {ArrayQuery, BlockQuery, ReferenceQuery} from '@cms/shared/sanity'
+import type {BlogDocumentQuery} from '@cms/schemas/documents/blog'
 
 export interface BlogsBlockQuery extends BlockQuery {
   _type: typeof blogs.name
@@ -54,4 +54,4 @@ export const blogs = {
       media: EditIcon,
     }),
   },
-}
+} as const

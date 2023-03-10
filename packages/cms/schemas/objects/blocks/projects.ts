@@ -1,7 +1,7 @@
-import type {ArrayQuery, BlockQuery, ReferenceQuery} from '@shared/sanity'
-import type {ProjectDocumentQuery} from '@schemas/documents/project'
-
 import {PresentationIcon} from '@sanity/icons'
+
+import type {ArrayQuery, BlockQuery, ReferenceQuery} from '@cms/shared/sanity'
+import type {ProjectDocumentQuery} from '@cms/schemas/documents/project'
 
 export interface ProjectsBlockQuery extends BlockQuery {
   _type: typeof projects.name
@@ -54,4 +54,4 @@ export const projects = {
       media: PresentationIcon,
     }),
   },
-}
+} as const

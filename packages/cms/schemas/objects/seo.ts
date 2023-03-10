@@ -1,11 +1,12 @@
 import type {Rule} from 'sanity'
-import type {ObjectQuery} from "@shared/sanity";
+
+import type {ObjectQuery} from '@cms/shared/sanity'
 
 export interface SeoQuery extends ObjectQuery {
-  _type: typeof seo.name,
-  title: string;
-  description: string;
-  thumbnail: string;
+  _type: typeof seo.name
+  title: string
+  description: string
+  thumbnail: string
 }
 
 export const seo = {
@@ -32,4 +33,4 @@ export const seo = {
       title: 'Thumbnail',
     },
   ],
-}
+} as const

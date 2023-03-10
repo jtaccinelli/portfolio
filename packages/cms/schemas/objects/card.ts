@@ -1,10 +1,10 @@
-import type {ObjectQuery} from "@shared/sanity";
-import type {LinkQuery} from "@schemas/objects/link";
+import type {ObjectQuery} from '@cms/shared/sanity'
+import type {LinkQuery} from '@cms/schemas/objects/link'
 
 export interface CardQuery extends ObjectQuery {
-  _type: typeof card.name,
-  heading: string;
-  body: string;
+  _type: typeof card.name
+  heading: string
+  body: string
   cta: LinkQuery
 }
 
@@ -30,4 +30,4 @@ export const card = {
       title: 'CTA',
     },
   ],
-}
+} as const

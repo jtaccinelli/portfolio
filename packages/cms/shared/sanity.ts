@@ -1,6 +1,7 @@
 import type {CurrentUser, SanityDocument} from 'sanity'
-import type {SchemaTypes} from '@schemas'
-import type {BlockTypes} from '@schemas/objects/blocks'
+
+import type {SchemaTypes} from '@cms/schemas'
+import type {BlockTypes} from '@cms/schemas/objects/blocks'
 
 export interface HiddenArgs {
   document: SanityDocument | undefined
@@ -9,7 +10,6 @@ export interface HiddenArgs {
   currentUser: Omit<CurrentUser, 'role'> | null
 }
 
-// --- BASE SANITY TYPES
 export interface ObjectQuery {
   _type: SchemaTypes
 }

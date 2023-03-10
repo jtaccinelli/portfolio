@@ -1,6 +1,6 @@
-import type {DocumentQuery} from '@shared/sanity'
-
 import {EditIcon} from '@sanity/icons'
+
+import type {DocumentQuery} from '@cms/shared/sanity'
 
 export interface BlogDocumentQuery extends DocumentQuery {
   _type: typeof blog.name
