@@ -1,7 +1,9 @@
 {
+  "references": [{"path": "../site"}],
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
+      "@cms/*": ["./*"],
       "@shared/*": [
         "shared/*"
       ],

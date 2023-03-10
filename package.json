@@ -5,9 +5,9 @@
   "author": "Jordan <jtaccinelli@gmail.com>",
   "private": true,
   "workspaces": [
-    "cms",
-    "site",
-    "shared"
+    "packages/cms",
+    "packages/site",
+    "packages/shared"
   ],
   "main": "index.js",
   "license": "MIT"

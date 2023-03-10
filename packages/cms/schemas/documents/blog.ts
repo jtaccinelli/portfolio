@@ -1,11 +1,11 @@
-import type {DocumentQuery} from "@shared/sanity";
+import type {DocumentQuery} from '@shared/sanity'
 
 import {EditIcon} from '@sanity/icons'
 
 export interface BlogDocumentQuery extends DocumentQuery {
-  _type: typeof blog.name,
-  title: string;
-  content: any; // TODO: Content Block Type
+  _type: typeof blog.name
+  title: string
+  content: any // TODO: Content Block Type
 }
 
 export const blog = {
@@ -26,4 +26,4 @@ export const blog = {
       of: [{type: 'block'}],
     },
   ],
-}
+} as const

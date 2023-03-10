@@ -2,6 +2,7 @@ import type {ArrayQuery, DocumentQuery} from '@shared/sanity'
 import type {LinkQuery} from '@schemas/objects/link'
 
 import {BlockElementIcon} from '@sanity/icons'
+import {LINK_FRAGMENT} from '@schemas/objects/link'
 
 export interface FooterDocumentQuery extends DocumentQuery {
   _type: typeof footer.name
@@ -9,6 +10,15 @@ export interface FooterDocumentQuery extends DocumentQuery {
   acknowledgement: string
   links: ArrayQuery<LinkQuery>
 }
+
+export const FOOTER_QUERY = `
+*[_type == "footer"][0]{
+    ...,
+    links[] {
+        ${LINK_FRAGMENT}
+    }
+}
+`
 
 export const footer = {
   type: 'document',

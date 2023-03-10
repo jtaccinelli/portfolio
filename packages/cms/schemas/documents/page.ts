@@ -3,6 +3,7 @@ import type {BuilderQuery} from '@schemas/objects/builder'
 import type {SeoQuery} from '@schemas/objects/seo'
 
 import {DocumentsIcon} from '@sanity/icons'
+import {LINK_FRAGMENT} from '@schemas/objects/link'
 
 export interface PageDocumentQuery extends DocumentQuery {
   _type: typeof page.name
@@ -11,6 +12,19 @@ export interface PageDocumentQuery extends DocumentQuery {
   content: BuilderQuery
   seo: SeoQuery
 }
+
+export const PAGE_QUERY = `
+*[_type == "page" && handle.current == $handle][0]{
+    ...,
+    "handle": handle.current,
+    content[]{
+        ...,    
+        ctas[]{
+          ${LINK_FRAGMENT}
+        }
+    }
+}
+`
 
 export const page = {
   type: 'document',

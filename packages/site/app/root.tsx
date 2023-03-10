@@ -15,16 +15,19 @@ import {
 } from "@remix-run/react";
 
 import {
-  CONFIGURATION_QUERY,
-  FOOTER_QUERY,
   NAVIGATION_QUERY,
-} from "@shared/queries";
+  NavigationDocumentQuery,
+} from "@portfolio/cms/schemas/documents/navigation";
 
-import type {
-  ConfigurationDocument,
-  FooterDocument,
-  NavigationDocument,
-} from "@shared/sanity";
+import {
+  FOOTER_QUERY,
+  FooterDocumentQuery,
+} from "@portfolio/cms/schemas/documents/footer";
+
+import {
+  CONFIGURATION_QUERY,
+  ConfigurationDocumentQuery,
+} from "@portfolio/cms/schemas/documents/configuration";
 
 import { getSanityClient } from "@app/lib/sanity";
 
@@ -40,9 +43,9 @@ export const loader: LoaderFunction = async () => {
   const client = getSanityClient();
 
   const [navigation, footer, configuration] = await Promise.all([
-    client.fetch<NavigationDocument>(NAVIGATION_QUERY),
-    client.fetch<FooterDocument>(FOOTER_QUERY),
-    client.fetch<ConfigurationDocument>(CONFIGURATION_QUERY),
+    client.fetch<NavigationDocumentQuery>(NAVIGATION_QUERY),
+    client.fetch<FooterDocumentQuery>(FOOTER_QUERY),
+    client.fetch<ConfigurationDocumentQuery>(CONFIGURATION_QUERY),
   ]);
 
   console.log(configuration);
@@ -51,7 +54,7 @@ export const loader: LoaderFunction = async () => {
 };
 
 export const meta: MetaFunction = ({ data }) => {
-  const configuration = data.configuration as ConfigurationDocument;
+  const configuration = data.configuration as ConfigurationDocumentQuery;
   return {
     title: configuration.default_seo?.title,
     description: configuration.default_seo?.description,

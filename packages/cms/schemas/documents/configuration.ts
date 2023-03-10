@@ -6,8 +6,14 @@ import {CogIcon} from '@sanity/icons'
 export interface ConfigurationDocumentQuery extends DocumentQuery {
   _type: typeof configuration.name
   title: string
-  seo: SeoQuery
+  default_seo: SeoQuery
 }
+
+export const CONFIGURATION_QUERY = `
+*[_type == "configuration"][0]{
+    ...
+}
+`
 
 export const configuration = {
   type: 'document',
