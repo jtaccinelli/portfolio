@@ -29,10 +29,10 @@ import {
   ConfigurationDocumentQuery,
 } from "@portfolio/cms/schemas/documents/configuration";
 
-import { getSanityClient } from "@app/lib/sanity";
+import { getSanityClient } from "@site/app/lib/sanity";
 
-import { Navigation } from "@app/components/globals/navigation";
-import { Footer } from "@app/components/globals/footer";
+import { Navigation } from "@site/app/components/globals/navigation";
+import { Footer } from "@site/app/components/globals/footer";
 
 import styles from "./styles/index.css";
 import fonts from "./styles/fonts.css";

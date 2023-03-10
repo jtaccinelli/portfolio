@@ -1,9 +1,9 @@
 import type { FC } from "react";
 
-import type { HeroBlock as Content } from "@shared/sanity";
+import type { HeroBlock as Content } from "@cms/shared/sanity";
 
-import { HeroSimpleLayout } from "@app/components/blocks/hero/simple";
-import { HeroGraphicLayout } from "@app/components/blocks/hero/graphic";
+import { HeroSimpleLayout } from "@site/app/components/blocks/hero/simple";
+import { HeroGraphicLayout } from "@site/app/components/blocks/hero/graphic";
 
 interface Props {
   content: Content;

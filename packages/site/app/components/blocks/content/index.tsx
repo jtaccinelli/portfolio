@@ -1,9 +1,9 @@
 import type { FC } from "react";
 
-import type { ContentBlock as Content } from "@shared/sanity";
+import type { ContentBlock as Content } from "@cms/shared/sanity";
 
-import { ContentSimpleLayout } from "@app/components/blocks/content/simple";
-import { ContentGridLayout } from "@app/components/blocks/content/grid";
+import { ContentSimpleLayout } from "@site/app/components/blocks/content/simple";
+import { ContentGridLayout } from "@site/app/components/blocks/content/grid";
 
 interface Props {
   content: Content;

@@ -1,5 +1,5 @@
 import { Link, useLoaderData } from "@remix-run/react";
-import type { FooterDocument, NavigationDocument } from "@shared/sanity";
+import type { FooterDocument, NavigationDocument } from "@cms/shared/sanity";
 
 export function Footer() {
   const data = useLoaderData();

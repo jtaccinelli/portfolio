@@ -1,12 +1,12 @@
 import type { LoaderFunction } from "@remix-run/cloudflare";
 import { useLoaderData } from "@remix-run/react";
 
-import type { PageDocument } from "@shared/sanity";
-import { PAGE_QUERY } from "@shared/queries";
+import type { PageDocument } from "@cms/shared/sanity";
+import { PAGE_QUERY } from "@site/shared/queries";
 
-import { getSanityClient } from "@app/lib/sanity";
+import { getSanityClient } from "@site/app/lib/sanity";
 
-import { ContentBuilder } from "@app/components/blocks/builder";
+import { ContentBuilder } from "@site/app/components/blocks/builder";
 
 export const loader: LoaderFunction = async ({ params }) => {
   const client = getSanityClient();

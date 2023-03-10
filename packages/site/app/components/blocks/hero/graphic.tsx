@@ -1,7 +1,7 @@
-import type { HeroBlock as Content } from "@shared/sanity";
+import type { HeroBlock as Content } from "@cms/shared/sanity";
 
-import { TextSpinner } from "@app/components/text-spinner";
-import { CallToAction } from "@app/components/cta";
+import { TextSpinner } from "@site/app/components/text-spinner";
+import { CallToAction } from "@site/app/components/cta";
 
 interface Props {
   content: Content;

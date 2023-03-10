@@ -1,7 +1,7 @@
 import { Link, useLoaderData, useLocation } from "@remix-run/react";
 
-import type { NavigationDocument } from "@shared/sanity";
-import { Dropdown } from "@app/components/compounds/dropdown";
+import type { NavigationDocument } from "@cms/shared/sanity";
+import { Dropdown } from "@site/app/components/compounds/dropdown";
 
 export function Navigation() {
   const data = useLoaderData();

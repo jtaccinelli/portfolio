@@ -1,8 +1,8 @@
 import type { FC } from "react";
 
-import type { CardsBlock as Content } from "@shared/sanity";
+import type { CardsBlock as Content } from "@cms/shared/sanity";
 
-import { CardsSimpleLayout } from "@app/components/blocks/cards/simple";
+import { CardsSimpleLayout } from "@site/app/components/blocks/cards/simple";
 
 interface Props {
   content: Content;

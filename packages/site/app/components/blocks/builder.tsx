@@ -1,9 +1,9 @@
-import type { Builder } from "@shared/sanity";
+import type { Builder } from "@cms/shared/sanity";
 
-import { HeroBlock } from "@app/components/blocks/hero";
-import { ContentBlock } from "@app/components/blocks/content";
-import { CardsBlock } from "@app/components/blocks/cards";
-import { FallbackBlock } from "@app/components/blocks/fallback";
+import { HeroBlock } from "@site/app/components/blocks/hero";
+import { ContentBlock } from "@site/app/components/blocks/content";
+import { CardsBlock } from "@site/app/components/blocks/cards";
+import { FallbackBlock } from "@site/app/components/blocks/fallback";
 
 interface Props {
   content: Builder;

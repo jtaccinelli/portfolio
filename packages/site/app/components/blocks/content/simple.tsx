@@ -1,5 +1,5 @@
-import type { ContentBlock as Content } from "@shared/sanity";
-import { CallToAction } from "@app/components/cta";
+import type { ContentBlock as Content } from "@cms/shared/sanity";
+import { CallToAction } from "@site/app/components/cta";
 
 interface Props {
   content: Content;
