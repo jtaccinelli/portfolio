@@ -1,5 +1,5 @@
 {
-  "name": "@portfolio/site",
+  "name": "site",
   "version": "1.0.0",
   "private": true,
   "sideEffects": false,
@@ -24,8 +24,7 @@
     "picosanity": "^4.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "cms": "*",
-    "shared": "*"
+    "cms": "*"
   },
   "devDependencies": {
     "@cloudflare/workers-types": "^3.18.0",
