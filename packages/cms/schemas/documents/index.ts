@@ -1,12 +1,12 @@
-import {navigation} from '@cms/schemas/documents/navigation'
-import {configuration} from '@cms/schemas/documents/configuration'
+import {navigation} from '~/schemas/documents/navigation'
+import {configuration} from '~/schemas/documents/configuration'
 
-import {blog} from '@cms/schemas/documents/blog'
-import {page} from '@cms/schemas/documents/page'
-import {client} from '@cms/schemas/documents/client'
-import {skill} from '@cms/schemas/documents/skill'
-import {project} from '@cms/schemas/documents/project'
-import {footer} from '@cms/schemas/documents/footer'
+import {blog} from '~/schemas/documents/blog'
+import {page} from '~/schemas/documents/page'
+import {client} from '~/schemas/documents/client'
+import {skill} from '~/schemas/documents/skill'
+import {project} from '~/schemas/documents/project'
+import {footer} from '~/schemas/documents/footer'
 
 export const singletons = [navigation, footer, configuration] as const
 export type SingletonTypes = (typeof singletons)[number]['name']

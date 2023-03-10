@@ -1,7 +1,7 @@
 import {UserIcon} from '@sanity/icons'
 
-import type {ArrayQuery, BlockQuery, ReferenceQuery} from '@cms/shared/sanity'
-import type {ClientDocumentQuery} from '@cms/schemas/documents/client'
+import type {ArrayQuery, BlockQuery, ReferenceQuery} from '~/shared/sanity'
+import type {ClientDocumentQuery} from '~/schemas/documents/client'
 
 export interface ClientsBlockQuery extends BlockQuery {
   _type: typeof clients.name

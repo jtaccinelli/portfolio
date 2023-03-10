@@ -1,6 +1,6 @@
 import {UserIcon} from '@sanity/icons'
 
-import type {DocumentQuery, SlugQuery} from '@cms/shared/sanity'
+import type {DocumentQuery, SlugQuery} from '~/shared/sanity'
 
 export interface ClientDocumentQuery extends DocumentQuery {
   _type: typeof client.name

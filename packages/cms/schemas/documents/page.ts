@@ -1,10 +1,10 @@
 import {DocumentsIcon} from '@sanity/icons'
 
-import type {DocumentQuery, SlugQuery} from '@cms/shared/sanity'
+import type {DocumentQuery, SlugQuery} from '~/shared/sanity'
 
-import type {BuilderQuery} from '@cms/schemas/objects/builder'
-import type {SeoQuery} from '@cms/schemas/objects/seo'
-import {LINK_FRAGMENT} from '@cms/schemas/objects/link'
+import type {BuilderQuery} from '~/schemas/objects/builder'
+import type {SeoQuery} from '~/schemas/objects/seo'
+import {LINK_FRAGMENT} from '~/schemas/objects/link'
 
 export interface PageDocumentQuery extends DocumentQuery {
   _type: typeof page.name

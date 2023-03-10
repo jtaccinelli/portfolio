@@ -1,5 +1,5 @@
-import type {ObjectQuery} from '@cms/shared/sanity'
-import type {LinkQuery} from '@cms/schemas/objects/link'
+import type {ObjectQuery} from '~/shared/sanity'
+import type {LinkQuery} from '~/schemas/objects/link'
 
 export interface CardQuery extends ObjectQuery {
   _type: typeof card.name
