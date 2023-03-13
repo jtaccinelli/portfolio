@@ -1,4 +1,5 @@
 import type { LoaderFunction } from "@remix-run/cloudflare";
+import { json } from "@remix-run/cloudflare";
 import { useLoaderData } from "@remix-run/react";
 
 import { PageDocumentQuery, PAGE_QUERY } from "cms/schemas/documents/page";
@@ -13,7 +14,7 @@ export const loader: LoaderFunction = async () => {
     handle: "home",
   });
 
-  return { page };
+  return json({ page });
 };
 
 export default function Page() {
