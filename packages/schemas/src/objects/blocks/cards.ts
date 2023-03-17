@@ -1,7 +1,7 @@
 import {CopyIcon} from '@sanity/icons'
 
 import type {ArrayQuery, BlockQuery} from '~/shared/sanity'
-import type {CardQuery} from '~/schemas/objects/card'
+import type {CardQuery} from '~/objects/card'
 
 export interface CardsBlockQuery extends BlockQuery {
   _type: typeof cards.name

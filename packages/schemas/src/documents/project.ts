@@ -2,9 +2,9 @@ import {PresentationIcon} from '@sanity/icons'
 
 import type {ArrayQuery, DocumentQuery, ReferenceQuery, SlugQuery} from '~/shared/sanity'
 
-import type {ClientDocumentQuery} from '~/schemas/documents/client'
-import type {SkillDocumentQuery} from '~/schemas/documents/skill'
-import type {SeoQuery} from '~/schemas/objects/seo'
+import type {ClientDocumentQuery} from '~/documents/client'
+import type {SkillDocumentQuery} from '~/documents/skill'
+import type {SeoQuery} from '~/objects/seo'
 
 export interface ProjectDocumentQuery extends DocumentQuery {
   _type: typeof project.name

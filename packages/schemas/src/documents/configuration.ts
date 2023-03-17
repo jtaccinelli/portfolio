@@ -1,7 +1,7 @@
 import {CogIcon} from '@sanity/icons'
 
 import type {DocumentQuery} from '~/shared/sanity'
-import type {SeoQuery} from '~/schemas/objects/seo'
+import type {SeoQuery} from '~/objects/seo'
 
 export interface ConfigurationDocumentQuery extends DocumentQuery {
   _type: typeof configuration.name

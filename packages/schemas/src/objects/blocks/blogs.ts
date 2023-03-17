@@ -1,22 +1,22 @@
-import {PresentationIcon} from '@sanity/icons'
+import {EditIcon} from '@sanity/icons'
 
 import type {ArrayQuery, BlockQuery, ReferenceQuery} from '~/shared/sanity'
-import type {ProjectDocumentQuery} from '~/schemas/documents/project'
+import type {BlogDocumentQuery} from '~/documents/blog'
 
-export interface ProjectsBlockQuery extends BlockQuery {
-  _type: typeof projects.name
+export interface BlogsBlockQuery extends BlockQuery {
+  _type: typeof blogs.name
   layout: (typeof layouts)[number]['value']
   heading: string
-  items: ArrayQuery<ReferenceQuery<ProjectDocumentQuery>>
+  items: ArrayQuery<ReferenceQuery<BlogDocumentQuery>>
 }
 
 const layouts = [{title: 'Simple', value: 'simple'}] as const
 
-export const projects = {
+export const blogs = {
   type: 'object',
-  name: 'projects',
-  title: 'Projects Block',
-  icon: PresentationIcon,
+  name: 'blogs',
+  title: 'Blogs Block',
+  icon: EditIcon,
   fields: [
     {
       type: 'string',
@@ -39,7 +39,7 @@ export const projects = {
       of: [
         {
           type: 'reference',
-          to: [{type: 'project'}],
+          to: [{type: 'blog'}],
         },
       ],
     },
@@ -49,9 +49,9 @@ export const projects = {
       heading: 'heading',
     },
     prepare: (selection: any) => ({
-      title: 'Project Block',
-      subtitle: selection.heading,
-      media: PresentationIcon,
+      title: 'Blogs Block',
+      subtitle: selection.heading as string,
+      media: EditIcon,
     }),
   },
 } as const

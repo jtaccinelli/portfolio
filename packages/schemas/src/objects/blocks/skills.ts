@@ -1,22 +1,22 @@
-import {UserIcon} from '@sanity/icons'
+import {ControlsIcon} from '@sanity/icons'
 
 import type {ArrayQuery, BlockQuery, ReferenceQuery} from '~/shared/sanity'
-import type {ClientDocumentQuery} from '~/schemas/documents/client'
+import type {SkillDocumentQuery} from '~/documents/skill'
 
-export interface ClientsBlockQuery extends BlockQuery {
-  _type: typeof clients.name
-  layouts: (typeof layouts)[number]['value']
+export interface SkillsBlockQuery extends BlockQuery {
+  _type: typeof skills.name
+  layout: (typeof layouts)[number]['value']
   heading: string
-  items: ArrayQuery<ReferenceQuery<ClientDocumentQuery>>
+  items: ArrayQuery<ReferenceQuery<SkillDocumentQuery>>
 }
 
 const layouts = [{title: 'Simple', value: 'simple'}] as const
 
-export const clients = {
+export const skills = {
   type: 'object',
-  name: 'clients',
-  title: 'Clients Block',
-  icon: UserIcon,
+  name: 'skills',
+  title: 'Skills Block',
+  icon: ControlsIcon,
   fields: [
     {
       type: 'string',
@@ -39,7 +39,7 @@ export const clients = {
       of: [
         {
           type: 'reference',
-          to: [{type: 'client'}],
+          to: [{type: 'skill'}],
         },
       ],
     },
@@ -49,9 +49,9 @@ export const clients = {
       heading: 'heading',
     },
     prepare: (selection: any) => ({
-      title: 'Client Block',
+      title: 'Skills Block',
       subtitle: selection.heading,
-      media: UserIcon,
+      media: ControlsIcon,
     }),
   },
 } as const

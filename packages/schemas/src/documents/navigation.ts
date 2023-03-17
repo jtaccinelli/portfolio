@@ -1,8 +1,8 @@
 import {MenuIcon} from '@sanity/icons'
 
 import type {ArrayQuery, DocumentQuery} from '~/shared/sanity'
-import type {LinkQuery} from '~/schemas/objects/link'
-import {LINK_FRAGMENT} from '~/schemas/objects/link'
+import type {LinkQuery} from '~/objects/link'
+import {LINK_FRAGMENT} from '~/objects/link'
 
 export interface NavigationDocumentQuery extends DocumentQuery {
   _type: typeof navigation.name

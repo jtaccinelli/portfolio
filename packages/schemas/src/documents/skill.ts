@@ -1,7 +1,7 @@
 import {ControlsIcon} from '@sanity/icons'
 
 import type {DocumentQuery, SlugQuery} from '~/shared/sanity'
-import type {SeoQuery} from '~/schemas/objects/seo'
+import type {SeoQuery} from '~/objects/seo'
 
 export interface SkillDocumentQuery extends DocumentQuery {
   _type: typeof skill.name

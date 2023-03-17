@@ -2,23 +2,18 @@
   "name": "@portfolio/studio",
   "private": true,
   "version": "1.0.0",
-  "main": "package.json",
+
   "scripts": {
     "dev": "sanity dev",
     "start": "sanity start",
-    "build": "sanity build",
+    "build:sanity": "sanity build",
+    "build:ts": "rm -rf dist && tsc",
     "deploy": "sanity deploy"
-  },
-  "exports": {
-    ".": {
-      "types": "./schemas/export",
-      "import": "./schemas/export",
-      "require": "./schemas/export"
-    }
   },
   "dependencies": {
     "@sanity/icons": "^2.2.2",
     "@sanity/vision": "^3.0.0",
+    "@portfolio/schemas": "*",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-is": "^18.2.0",

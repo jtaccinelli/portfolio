@@ -1,7 +1,7 @@
 import {BlockContentIcon} from '@sanity/icons'
 
 import type {ArrayQuery, BlockQuery} from '~/shared/sanity'
-import type {LinkQuery} from '~/schemas/objects/link'
+import type {LinkQuery} from '~/objects/link'
 
 export interface ContentBlockQuery extends BlockQuery {
   _type: typeof content.name
