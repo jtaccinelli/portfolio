@@ -1,5 +1,5 @@
 {
-  "name": "site",
+  "name": "@portfolio/frontend",
   "version": "1.0.0",
   "private": true,
   "sideEffects": false,
@@ -20,7 +20,7 @@
     "@remix-run/react": "^1.11.1",
     "boxicons": "^2.1.4",
     "clsx": "^1.2.1",
-    "cms": "*",
+    "@portfolio/studio": "*",
     "cross-env": "^7.0.3",
     "picosanity": "^4.0.0",
     "react": "^18.2.0",
