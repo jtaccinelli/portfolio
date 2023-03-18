@@ -3,8 +3,7 @@ import {deskTool} from 'sanity/desk'
 import {FolderIcon} from '@sanity/icons'
 import {visionTool} from '@sanity/vision'
 
-import {schemas} from '~/schemas'
-import {singletons} from '~/schemas/documents'
+import {schemas, singletons} from '@portfolio/schemas'
 
 export default defineConfig({
   name: 'default',
@@ -29,14 +28,14 @@ export default defineConfig({
             ...singletons.map((singleton) =>
               builder
                 .listItem()
-                .title(singleton.title)
+                .title(singleton.title as string)
                 .icon(singleton?.icon ?? FolderIcon)
                 .child(
                   builder
                     .document()
                     .schemaType(singleton.name)
                     .documentId(singleton.name)
-                    .title(singleton.title)
+                    .title(singleton.title as string)
                 )
             ),
             builder.divider(),

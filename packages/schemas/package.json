@@ -2,10 +2,11 @@
   "name": "@portfolio/schemas",
   "private": true,
   "version": "1.0.0",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "scripts": {
-    "build": "tsup src/index.ts --dts"
+    "build": "tsup src/index.ts --dts --format esm,cjs"
   },
   "dependencies": {
     "@sanity/icons": "^2.2.2",
