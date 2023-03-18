@@ -1,7 +1,9 @@
 import { Link, useLoaderData } from "@remix-run/react";
 
-import { FooterDocumentQuery } from "cms/schemas/documents/footer";
-import { NavigationDocumentQuery } from "cms/schemas/documents/navigation";
+import {
+  FooterDocumentQuery,
+  NavigationDocumentQuery,
+} from "@portfolio/schemas";
 
 export function Footer() {
   const data = useLoaderData();

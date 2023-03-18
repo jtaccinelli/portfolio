@@ -3,6 +3,7 @@ import type {
   FocusEventHandler,
   MouseEventHandler,
 } from "react";
+
 import {
   cloneElement,
   createContext,
@@ -10,6 +11,7 @@ import {
   useContext,
   useState,
 } from "react";
+
 import clsx from "clsx";
 
 interface ContextState {
@@ -58,7 +60,7 @@ function Root({ initialState, ...props }: PropsRoot) {
   return <DropdownContext.Provider {...props} value={value} />;
 }
 
-interface PropsToggle extends ComponentProps<"button"> {}
+type PropsToggle = ComponentProps<"button">;
 
 function Toggle({ children, onClick, onBlur, ...props }: PropsToggle) {
   const { isShow, toggle, close } = useDropdown();
@@ -83,7 +85,7 @@ function Toggle({ children, onClick, onBlur, ...props }: PropsToggle) {
   });
 }
 
-interface PropsList extends ComponentProps<"div"> {}
+type PropsList = ComponentProps<"div">;
 
 function List({ children, className, ...props }: PropsList) {
   const { isShow } = useDropdown();

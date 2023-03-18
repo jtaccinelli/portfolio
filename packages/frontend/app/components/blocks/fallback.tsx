@@ -1,7 +1,7 @@
-import type { Builder } from "site/shared/sanity";
+import type { BuilderQuery } from "@portfolio/schemas";
 
 interface Props {
-  content: Builder[0];
+  content: BuilderQuery[number];
 }
 
 export function FallbackBlock({ content }: Props) {

@@ -1,6 +1,6 @@
-import { ContentBlockQuery } from "cms/schemas/objects/blocks/content";
+import { ContentBlockQuery } from "@portfolio/schemas";
 
-import { CallToAction } from "site/components/cta";
+import { CallToAction } from "~/app/components/cta";
 
 interface Props {
   content: ContentBlockQuery;

@@ -1,8 +1,8 @@
 import { Link, useLoaderData, useLocation } from "@remix-run/react";
 
-import { NavigationDocumentQuery } from "cms/schemas/documents/navigation";
+import { NavigationDocumentQuery } from "@portfolio/schemas";
 
-import { Dropdown } from "site/components/compounds/dropdown";
+import { Dropdown } from "~/app/components/compounds/dropdown";
 
 export function Navigation() {
   const data = useLoaderData();

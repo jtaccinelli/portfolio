@@ -1,8 +1,8 @@
-import type { HeroBlock as Content } from "site/shared/sanity";
-import { CallToAction } from "site/components/cta";
+import type { HeroBlockQuery } from "@portfolio/schemas";
+import { CallToAction } from "~/app/components/cta";
 
 interface Props {
-  content: Content;
+  content: HeroBlockQuery;
 }
 
 export function HeroSimpleLayout({ content }: Props) {

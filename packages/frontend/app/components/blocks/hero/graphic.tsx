@@ -1,7 +1,7 @@
-import { HeroBlockQuery } from "cms/schemas/objects/blocks/hero";
+import { HeroBlockQuery } from "@portfolio/schemas";
 
-import { TextSpinner } from "site/components/text-spinner";
-import { CallToAction } from "site/components/cta";
+import { TextSpinner } from "~/app/components/text-spinner";
+import { CallToAction } from "~/app/components/cta";
 
 interface Props {
   content: HeroBlockQuery;

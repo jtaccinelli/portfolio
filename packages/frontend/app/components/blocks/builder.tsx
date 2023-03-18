@@ -1,9 +1,9 @@
-import { BuilderQuery } from "cms/schemas/objects/builder";
+import type { BuilderQuery } from "@portfolio/schemas";
 
-import { HeroBlock } from "site/components/blocks/hero";
-import { ContentBlock } from "site/components/blocks/content";
-import { CardsBlock } from "site/components/blocks/cards";
-import { FallbackBlock } from "site/components/blocks/fallback";
+import { HeroBlock } from "~/app/components/blocks/hero";
+import { ContentBlock } from "~/app/components/blocks/content";
+import { CardsBlock } from "~/app/components/blocks/cards";
+import { FallbackBlock } from "~/app/components/blocks/fallback";
 
 interface Props {
   content: BuilderQuery;

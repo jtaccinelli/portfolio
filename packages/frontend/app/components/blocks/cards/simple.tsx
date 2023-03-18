@@ -1,6 +1,6 @@
-import type { CardsBlockQuery } from "cms/schemas/objects/blocks/cards";
+import type { CardsBlockQuery } from "@portfolio/schemas";
 
-import { CallToAction } from "site/components/cta";
+import { CallToAction } from "~/app/components/cta";
 
 interface Props {
   content: CardsBlockQuery;

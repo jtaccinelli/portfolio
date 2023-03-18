@@ -4,13 +4,10 @@
     "**/*.ts",
     "**/*.tsx"
   ],
-  "references": [{"path": "../studio"}],
   "compilerOptions": {
-    "composite": true,
     "baseUrl": ".",
     "paths": {
-      "site/*": ["app/*"],
-      "cms/*": ["../cms/*"]
+      "~/*": ["*"]
     },
     "lib": [
       "DOM",

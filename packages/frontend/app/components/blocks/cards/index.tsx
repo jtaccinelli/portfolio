@@ -1,8 +1,8 @@
 import type { FC } from "react";
 
-import type { CardsBlockQuery } from "cms/schemas/objects/blocks/cards";
+import type { CardsBlockQuery } from "@portfolio/schemas";
 
-import { CardsSimpleLayout } from "site/components/blocks/cards/simple";
+import { CardsSimpleLayout } from "~/app/components/blocks/cards/simple";
 
 interface Props {
   content: CardsBlockQuery;

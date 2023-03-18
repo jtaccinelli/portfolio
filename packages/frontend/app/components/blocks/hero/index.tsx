@@ -1,9 +1,9 @@
 import type { FC } from "react";
 
-import { HeroBlockQuery } from "cms/schemas/objects/blocks/hero";
+import { HeroBlockQuery } from "@portfolio/schemas";
 
-import { HeroSimpleLayout } from "site/components/blocks/hero/simple";
-import { HeroGraphicLayout } from "site/components/blocks/hero/graphic";
+import { HeroSimpleLayout } from "~/app/components/blocks/hero/simple";
+import { HeroGraphicLayout } from "~/app/components/blocks/hero/graphic";
 
 interface Props {
   content: HeroBlockQuery;

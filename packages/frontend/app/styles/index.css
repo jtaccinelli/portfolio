@@ -595,10 +595,6 @@ video {
   display: grid;
 }
 
-.hidden {
-  display: none;
-}
-
 .h-\[calc\(var\(--cy\)\*2\)\] {
   height: calc(var(--cy) * 2);
 }

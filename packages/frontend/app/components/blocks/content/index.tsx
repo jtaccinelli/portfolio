@@ -1,9 +1,9 @@
 import type { FC } from "react";
 
-import { ContentBlockQuery } from "cms/schemas/objects/blocks/content";
+import { ContentBlockQuery } from "@portfolio/schemas";
 
-import { ContentSimpleLayout } from "site/components/blocks/content/simple";
-import { ContentGridLayout } from "site/components/blocks/content/grid";
+import { ContentSimpleLayout } from "~/app/components/blocks/content/simple";
+import { ContentGridLayout } from "~/app/components/blocks/content/grid";
 
 interface Props {
   content: ContentBlockQuery;
