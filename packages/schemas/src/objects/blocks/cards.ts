@@ -1,3 +1,4 @@
+import {defineArrayMember, defineField, defineType} from 'sanity'
 import {CopyIcon} from '@sanity/icons'
 
 import type {ArrayQuery, BlockQuery} from '~/shared/sanity'
@@ -12,36 +13,36 @@ export interface CardsBlockQuery extends BlockQuery {
 
 const layouts = [{title: 'Simple', value: 'simple'}] as const
 
-export const cards = {
+export const cards = defineType({
   type: 'object',
   name: 'cards',
   title: 'Cards Block',
   icon: CopyIcon,
   fields: [
-    {
+    defineField({
       type: 'string',
       name: 'layout',
       title: 'Layout',
       initialValue: 'simple',
       options: {
-        list: layouts,
+        list: [...layouts],
       },
-    },
-    {
+    }),
+    defineField({
       type: 'string',
       name: 'heading',
       title: 'Heading',
-    },
-    {
+    }),
+    defineField({
       type: 'array',
       name: 'cards',
       title: 'Cards',
       of: [
-        {
+        defineArrayMember({
           type: 'card',
-        },
+        }),
       ],
-    },
+    }),
   ],
   preview: {
     select: {
@@ -53,4 +54,4 @@ export const cards = {
       media: CopyIcon,
     }),
   },
-} as const
+})

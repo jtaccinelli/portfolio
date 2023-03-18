@@ -1,3 +1,4 @@
+import {defineArrayMember, defineField, defineType} from 'sanity'
 import {BlockElementIcon} from '@sanity/icons'
 
 import type {ArrayQuery, DocumentQuery} from '~/shared/sanity'
@@ -21,30 +22,30 @@ export const FOOTER_QUERY = `
 }
 `
 
-export const footer = {
+export const footer = defineType({
   type: 'document',
   name: 'footer',
   title: 'Footer',
   icon: BlockElementIcon,
   fields: [
-    {
+    defineField({
       type: 'string',
       name: 'title',
       title: 'Title',
       hidden: true,
       initialValue: 'Footer',
-    },
-    {
+    }),
+    defineField({
       type: 'text',
       name: 'acknowledgement',
       title: 'Acknowledgement',
       rows: 4,
-    },
-    {
+    }),
+    defineField({
       type: 'array',
       name: 'links',
       title: 'Footer Links',
-      of: [{type: 'link'}],
-    },
+      of: [defineArrayMember({type: 'link'})],
+    }),
   ],
-} as const
+})

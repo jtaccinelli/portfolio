@@ -1,3 +1,4 @@
+import {defineField, defineType} from 'sanity'
 import {UserIcon} from '@sanity/icons'
 
 import type {DocumentQuery, SlugQuery} from '~/shared/sanity'
@@ -11,43 +12,43 @@ export interface ClientDocumentQuery extends DocumentQuery {
   logo: any // TODO: Image Type
 }
 
-export const client = {
+export const client = defineType({
   type: 'document',
   name: 'client',
   title: 'Clients',
   icon: UserIcon,
   fields: [
-    {
+    defineField({
       type: 'string',
       name: 'title',
       title: 'Title',
-      required: true,
-    },
-    {
+      validation: (rule) => rule.required(),
+    }),
+    defineField({
       type: 'slug',
       name: 'handle',
       title: 'Handle',
-      required: true,
+      validation: (rule) => rule.required(),
       options: {
         source: 'title',
       },
-    },
-    {
+    }),
+    defineField({
       type: 'url',
       name: 'website',
       title: 'Website',
-    },
-    {
+    }),
+    defineField({
       type: 'text',
       name: 'blurb',
       title: 'Blurb',
-      required: true,
+      validation: (rule) => rule.required(),
       rows: 4,
-    },
-    {
+    }),
+    defineField({
       type: 'image',
       name: 'logo',
       title: 'Logo',
-    },
+    }),
   ],
-} as const
+})

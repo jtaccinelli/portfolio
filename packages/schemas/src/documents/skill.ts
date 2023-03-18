@@ -1,3 +1,4 @@
+import {defineField, defineType} from 'sanity'
 import {ControlsIcon} from '@sanity/icons'
 
 import type {DocumentQuery, SlugQuery} from '~/shared/sanity'
@@ -12,41 +13,41 @@ export interface SkillDocumentQuery extends DocumentQuery {
   seo: SeoQuery
 }
 
-export const skill = {
+export const skill = defineType({
   type: 'document',
   name: 'skill',
   title: 'Skills',
   icon: ControlsIcon,
   fields: [
-    {
+    defineField({
       type: 'string',
       name: 'title',
       title: 'Title',
-    },
-    {
+    }),
+    defineField({
       type: 'slug',
       name: 'handle',
       title: 'Handle',
-      required: true,
+      validation: (rule) => rule.required(),
       options: {
         source: 'title',
       },
-    },
-    {
+    }),
+    defineField({
       type: 'string',
       name: 'subtitle',
       title: 'Subtitle',
-    },
-    {
+    }),
+    defineField({
       type: 'text',
       name: 'blurb',
       title: 'Blurb',
       rows: 4,
-    },
-    {
+    }),
+    defineField({
       type: 'seo',
       name: 'seo',
       title: 'SEO',
-    },
+    }),
   ],
-} as const
+})

@@ -1,3 +1,4 @@
+import {defineArrayMember, defineField, defineType} from 'sanity'
 import {BlockContentIcon} from '@sanity/icons'
 
 import type {ArrayQuery, BlockQuery} from '~/shared/sanity'
@@ -16,47 +17,47 @@ const layouts = [
   {title: 'Grid', value: 'grid'},
 ] as const
 
-export const content = {
+export const content = defineType({
   type: 'object',
   name: 'content',
   title: 'Content Block',
   icon: BlockContentIcon,
   fields: [
-    {
+    defineField({
       type: 'string',
       name: 'layout',
       title: 'Layout',
       initialValue: 'simple',
       options: {
-        list: layouts,
+        list: [...layouts],
       },
-    },
-    {
+    }),
+    defineField({
       type: 'string',
       name: 'heading',
       title: 'Heading',
-    },
-    {
+    }),
+    defineField({
       type: 'array',
       name: 'body',
       title: 'Body',
-      of: [{type: 'text', rows: 4}],
-    },
-    {
+      of: [defineArrayMember({type: 'text', rows: 4})],
+    }),
+    defineField({
       type: 'array',
       name: 'ctas',
       title: 'Calls to Action',
-      of: [{type: 'link'}],
-    },
+      of: [defineArrayMember({type: 'link'})],
+    }),
   ],
   preview: {
     select: {
       heading: 'heading',
     },
-    prepare: (selection: any) => ({
+    prepare: (selection) => ({
       title: 'Content Block',
       subtitle: selection.heading,
       media: BlockContentIcon,
     }),
   },
-} as const
+})

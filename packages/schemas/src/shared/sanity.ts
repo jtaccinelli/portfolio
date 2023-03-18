@@ -1,6 +1,6 @@
 import type {CurrentUser, SanityDocument} from 'sanity'
 
-import type {SchemaTypes} from '~/index'
+import type {SchemaTypes} from '~/schemas'
 import type {BlockTypes} from '~/objects/blocks'
 
 export interface HiddenArgs {

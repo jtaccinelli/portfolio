@@ -1,3 +1,4 @@
+import {defineField, defineType} from 'sanity'
 import {DocumentsIcon} from '@sanity/icons'
 
 import type {DocumentQuery, SlugQuery} from '~/shared/sanity'
@@ -27,34 +28,34 @@ export const PAGE_QUERY = `
 }
 `
 
-export const page = {
+export const page = defineType({
   type: 'document',
   name: 'page',
   title: 'Pages',
   icon: DocumentsIcon,
   fields: [
-    {
+    defineField({
       type: 'string',
       name: 'title',
       title: 'Title',
-    },
-    {
+    }),
+    defineField({
       type: 'slug',
       name: 'handle',
       title: 'Handle',
       options: {
         source: 'title',
       },
-    },
-    {
+    }),
+    defineField({
       type: 'builder',
       name: 'content',
       title: 'Content',
-    },
-    {
+    }),
+    defineField({
       type: 'seo',
       name: 'seo',
       title: 'SEO',
-    },
+    }),
   ],
-} as const
+})
