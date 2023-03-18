@@ -12,8 +12,5 @@
     "dev:site": "yarn workspace site dev",
     "dev": "run-p dev:*",
     "build": "turbo build"
-  },
-  "devDependencies": {
-    "turbo": "^1.8.3"
   }
 }
