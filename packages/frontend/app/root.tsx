@@ -11,33 +11,28 @@ import {
   Outlet,
   Scripts,
   ScrollRestoration,
-  useTransition,
+  useNavigation,
 } from "@remix-run/react";
+
+import clsx from "clsx";
 
 import {
   NAVIGATION_QUERY,
-  NavigationDocumentQuery,
-} from "cms/schemas/documents/navigation";
-
-import {
   FOOTER_QUERY,
-  FooterDocumentQuery,
-} from "cms/schemas/documents/footer";
-
-import {
   CONFIGURATION_QUERY,
+  NavigationDocumentQuery,
+  FooterDocumentQuery,
   ConfigurationDocumentQuery,
-} from "cms/schemas/documents/configuration";
+} from "@portfolio/schemas";
 
-import { getSanityClient } from "site/lib/sanity";
+import { getSanityClient } from "~/app/lib/sanity";
 
-import { Navigation } from "site/components/globals/navigation";
-import { Footer } from "site/components/globals/footer";
+import { Navigation } from "~/app/components/globals/navigation";
+import { Footer } from "~/app/components/globals/footer";
 
 import styles from "./styles/index.css";
 import fonts from "./styles/fonts.css";
 import icons from "boxicons/css/boxicons.min.css";
-import clsx from "clsx";
 
 export const loader: LoaderFunction = async () => {
   const client = getSanityClient();
@@ -73,7 +68,7 @@ export const links: LinksFunction = () => [
 ];
 
 export default function App() {
-  const { state } = useTransition();
+  const { state } = useNavigation();
 
   return (
     <html lang="en">
