@@ -1,0 +1,71 @@
+diff --git a/node_modules/@portfolio/frontend/node_modules/nanoid/index.js b/node_modules/@portfolio/frontend/node_modules/nanoid/index.js
+index 7b2e502..f5bd92d 100644
+--- a/node_modules/@portfolio/frontend/node_modules/nanoid/index.js
++++ b/node_modules/@portfolio/frontend/node_modules/nanoid/index.js
+@@ -1,33 +1,15 @@
+-import { randomFillSync } from 'crypto'
+-import { urlAlphabet } from './url-alphabet/index.js'
+-export { urlAlphabet }
+-const POOL_SIZE_MULTIPLIER = 128
+-let pool, poolOffset
+-let fillPool = bytes => {
+-  if (!pool || pool.length < bytes) {
+-    pool = Buffer.allocUnsafe(bytes * POOL_SIZE_MULTIPLIER)
+-    randomFillSync(pool)
+-    poolOffset = 0
+-  } else if (poolOffset + bytes > pool.length) {
+-    randomFillSync(pool)
+-    poolOffset = 0
+-  }
+-  poolOffset += bytes
+-}
+-export let random = bytes => {
+-  fillPool((bytes -= 0))
+-  return pool.subarray(poolOffset - bytes, poolOffset)
+-}
++export { urlAlphabet } from './url-alphabet/index.js'
++export let random = bytes => crypto.getRandomValues(new Uint8Array(bytes))
+ export let customRandom = (alphabet, defaultSize, getRandom) => {
+-  let mask = (2 << (31 - Math.clz32((alphabet.length - 1) | 1))) - 1
+-  let step = Math.ceil((1.6 * mask * defaultSize) / alphabet.length)
++  let mask = (2 << (Math.log(alphabet.length - 1) / Math.LN2)) - 1
++  let step = -~((1.6 * mask * defaultSize) / alphabet.length)
+   return (size = defaultSize) => {
+     let id = ''
+     while (true) {
+       let bytes = getRandom(step)
+-      let i = step
+-      while (i--) {
+-        id += alphabet[bytes[i] & mask] || ''
++      let j = step
++      while (j--) {
++        id += alphabet[bytes[j] & mask] || ''
+         if (id.length === size) return id
+       }
+     }
+@@ -35,11 +17,17 @@ export let customRandom = (alphabet, defaultSize, getRandom) => {
+ }
+ export let customAlphabet = (alphabet, size = 21) =>
+   customRandom(alphabet, size, random)
+-export let nanoid = (size = 21) => {
+-  fillPool((size -= 0))
+-  let id = ''
+-  for (let i = poolOffset - size; i < poolOffset; i++) {
+-    id += urlAlphabet[pool[i] & 63]
+-  }
+-  return id
+-}
++export let nanoid = (size = 21) =>
++  crypto.getRandomValues(new Uint8Array(size)).reduce((id, byte) => {
++    byte &= 63
++    if (byte < 36) {
++      id += byte.toString(36)
++    } else if (byte < 62) {
++      id += (byte - 26).toString(36).toUpperCase()
++    } else if (byte > 62) {
++      id += '-'
++    } else {
++      id += '_'
++    }
++    return id
++  }, '')

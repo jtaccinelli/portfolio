@@ -12,7 +12,8 @@
     "dev": "remix build && run-p \"dev:*\"",
     "start": "cross-env NODE_ENV=production npm run wrangler",
     "typecheck": "tsc",
-    "wrangler": "wrangler pages dev ./public"
+    "wrangler": "wrangler pages dev ./public",
+    "postinstall": "patch-package"
   },
   "dependencies": {
     "@portfolio/schemas": "*",
@@ -23,9 +24,16 @@
     "clsx": "^1.2.1",
     "cross-env": "^7.0.3",
     "isbot": "^3.6.5",
+    "nanoid": "^4.0.1",
+    "patch-package": "^6.5.1",
     "picosanity": "^4.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
+  },
+  "workspaces": {
+    "nohoist": [
+      "nanoid"
+    ]
   },
   "devDependencies": {
     "@cloudflare/workers-types": "^3.18.0",
