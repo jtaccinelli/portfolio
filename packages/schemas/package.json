@@ -20,7 +20,10 @@
   },
   "tsup": {
     "dts": true,
-    "format": ["esm", "cjs"]
+    "format": [
+      "esm",
+      "cjs"
+    ]
   },
   "prettier": {
     "semi": false,

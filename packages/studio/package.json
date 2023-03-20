@@ -9,9 +9,9 @@
     "deploy": "sanity deploy"
   },
   "dependencies": {
+    "@portfolio/schemas": "*",
     "@sanity/icons": "^2.2.2",
     "@sanity/vision": "^3.0.0",
-    "@portfolio/schemas": "*",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-is": "^18.2.0",

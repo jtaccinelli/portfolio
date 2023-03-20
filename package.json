@@ -8,13 +8,12 @@
     "packages/*"
   ],
   "scripts": {
-    "dev:cms": "yarn workspace cms dev",
-    "dev:site": "yarn workspace site dev",
-    "dev": "run-p dev:*",
-    "build": "turbo build",
-    "postinstall": "patch-package"
-},
+    "build": "lerna run build",
+    "postinstall": "yarn patch"
+  },
+  "devDependencies": {
+    "lerna": "^6.5.1"
+  },
   "dependencies": {
     "patch-package": "^6.5.1"
   }
-}
