@@ -7,6 +7,7 @@
     "build:remix": "remix build",
     "build:css": "tailwindcss -m -i ./app/styles/app.css -o ./app/styles/index.css",
     "build": "run-s build:*",
+    "lerna": "lerna run build --scope=@portfolio/frontend",
     "dev:css": "tailwindcss -w -i ./app/styles/app.css -o ./app/styles/index.css",
     "dev:remix": "remix dev",
     "dev": "run-p dev:*"
