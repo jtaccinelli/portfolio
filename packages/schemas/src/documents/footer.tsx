@@ -16,6 +16,7 @@ export const FOOTER_QUERY = `
 *[_type == "footer"][0]{
     ...,
     links[] {
+        _key,
         ${LINK_FRAGMENT}
     }
 }

@@ -1,14 +1,12 @@
 import { Link, useLoaderData, useLocation } from "@remix-run/react";
 
-import { NavigationDocumentQuery } from "@portfolio/schemas";
+import type { NavigationDocumentQuery } from "@portfolio/schemas";
 
 import { Dropdown } from "~/app/components/compounds/dropdown";
 
 export function Navigation() {
   const data = useLoaderData();
   const navigation = data.navigation as NavigationDocumentQuery;
-
-  console.log(navigation);
 
   const { pathname } = useLocation();
 
@@ -36,15 +34,15 @@ export function Navigation() {
               <span>Connect</span>
               <i className="bx bx-chevron-down" />
               <Dropdown.List>
-                <div className="absolute top-[140%] left-1/2 flex -translate-x-1/2 flex-col divide-y divide-gray-900 overflow-hidden rounded bg-gray-800 transition-all">
-                  {navigation.connect?.map((item) => (
-                    <Link key={item._key} to={item.url}>
-                      <p className="whitespace-nowrap p-2 px-4 text-left text-white hover:bg-gray-700">
-                        {item.label}
-                      </p>
-                    </Link>
-                  ))}
-                </div>
+                {/*<div className="absolute top-[140%] left-1/2 flex -translate-x-1/2 flex-col divide-y divide-gray-900 overflow-hidden rounded bg-gray-800 transition-all">*/}
+                {/*  {navigation.connect?.map((item) => (*/}
+                {/*    <Link key={item._key} to={item.url}>*/}
+                {/*      <p className="whitespace-nowrap p-2 px-4 text-left text-white hover:bg-gray-700">*/}
+                {/*        {item.label}*/}
+                {/*      </p>*/}
+                {/*    </Link>*/}
+                {/*  ))}*/}
+                {/*</div>*/}
               </Dropdown.List>
             </button>
           </Dropdown.Toggle>

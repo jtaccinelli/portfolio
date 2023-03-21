@@ -7,7 +7,8 @@
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "scripts": {
-    "build": "tsup src/index.ts"
+    "build": "tsup",
+    "dev": "tsup --watch"
   },
   "dependencies": {
     "@sanity/icons": "^2.2.2",
@@ -20,6 +21,7 @@
     "typescript": "^4.0.0"
   },
   "tsup": {
+    "entry": ["src/index.ts"],
     "dts": true,
     "format": [
       "esm",

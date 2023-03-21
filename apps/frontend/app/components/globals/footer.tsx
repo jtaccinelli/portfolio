@@ -1,6 +1,6 @@
 import { Link, useLoaderData } from "@remix-run/react";
 
-import {
+import type {
   FooterDocumentQuery,
   NavigationDocumentQuery,
 } from "@portfolio/schemas";

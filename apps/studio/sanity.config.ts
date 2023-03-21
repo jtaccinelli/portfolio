@@ -61,7 +61,6 @@ export default defineConfig({
 
       if (!isSingleton) return input
       return input.filter((props) => {
-        console.log(props.action)
         return ['publish', 'discardChanges', 'restore'].includes(props?.action ?? '')
       })
     },

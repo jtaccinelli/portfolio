@@ -1,4 +1,4 @@
-import { ContentBlockQuery } from "@portfolio/schemas";
+import type { ContentBlockQuery } from "@portfolio/schemas";
 
 import { CallToAction } from "~/app/components/cta";
 

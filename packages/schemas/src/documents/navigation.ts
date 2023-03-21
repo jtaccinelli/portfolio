@@ -18,9 +18,11 @@ export const NAVIGATION_QUERY = `
 *[_type == "navigation"][0]{
     ...,
     connect[] {
+        _key,
         ${LINK_FRAGMENT}
     },
     items[] {
+        _key,
         ${LINK_FRAGMENT}
     }
 }
