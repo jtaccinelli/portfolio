@@ -4,17 +4,14 @@
   "private": true,
   "sideEffects": false,
   "scripts": {
+    "preinstall": "cd ..",
+    "build:remix": "remix build",
     "build:css": "tailwindcss -m -i ./app/styles/app.css -o ./app/styles/index.css",
-    "build": "remix build && run-p \"build:*\"",
+    "build": "run-s \"build:*\"",
     "dev:css": "tailwindcss -w -i ./app/styles/app.css -o ./app/styles/index.css",
     "dev:remix": "remix watch",
-    "dev:wrangler": "cross-env NODE_ENV=development npm run wrangler",
-    "dev": "remix build && run-p \"dev:*\"",
-    "start": "cross-env NODE_ENV=production npm run wrangler",
-    "typecheck": "tsc",
-    "wrangler": "wrangler pages dev ./public",
-    "lerna": "lerna run build",
-    "postinstall": "patch-package"
+    "dev:wrangler": "cross-env NODE_ENV=development npm run wrangler pages dev ./public",
+    "dev": "run-p \"dev:*\""
   },
   "dependencies": {
     "@portfolio/schemas": "*",
@@ -25,16 +22,9 @@
     "clsx": "^1.2.1",
     "cross-env": "^7.0.3",
     "isbot": "^3.6.5",
-    "nanoid": "^4.0.1",
-    "patch-package": "^6.5.1",
     "picosanity": "^4.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
-  },
-  "workspaces": {
-    "nohoist": [
-      "nanoid"
-    ]
   },
   "devDependencies": {
     "@cloudflare/workers-types": "^3.18.0",
