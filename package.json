@@ -5,16 +5,12 @@
   "author": "Jordan <jtaccinelli@gmail.com>",
   "private": true,
   "workspaces": {
-    "packages": ["packages/*"]
+    "packages": ["packages/*", "apps/*"]
   },
   "scripts": {
-    "build": "lerna run build",
-    "postinstall": "patch-package"
+    "build": "lerna run build"
   },
   "devDependencies": {
     "lerna": "^6.5.1"
-  },
-  "dependencies": {
-    "patch-package": "^6.5.1"
   }
 }
