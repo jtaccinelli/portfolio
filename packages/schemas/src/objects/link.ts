@@ -59,7 +59,6 @@ export const link = {
       name: 'url',
       title: 'URL',
       hidden: ({parent}: any) => parent?.variant !== 'url',
-      validation: (rule: Rule) => rule.required(),
     },
   ],
 } as const
