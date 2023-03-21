@@ -1,5 +1,6 @@
-.cache
-functions/\[\[path\]\].js
-functions/\[\[path\]\].js.map
-public/build
-functions/_assets
+node_modules
+
+/.cache
+/public/build
+/.netlify
+.env

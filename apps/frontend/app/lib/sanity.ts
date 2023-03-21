@@ -1,9 +1,10 @@
-import PicoSanity from "picosanity";
+import type { SanityClient } from "@sanity/client";
+import { createClient } from "@sanity/client";
 
-let client: ReturnType<typeof PicoSanity>;
+let client: SanityClient;
 
 export const getSanityClient = () => {
-  client ||= PicoSanity({
+  client ||= createClient({
     apiVersion: "2021-03-25",
     projectId: "10uz7hfe",
     dataset: "production",

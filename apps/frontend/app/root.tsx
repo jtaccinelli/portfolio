@@ -2,7 +2,7 @@ import type {
   LinksFunction,
   MetaFunction,
   LoaderFunction,
-} from "@remix-run/cloudflare";
+} from "@remix-run/node";
 
 import {
   Links,
@@ -16,13 +16,15 @@ import {
 
 import clsx from "clsx";
 
+import type {
+  NavigationDocumentQuery,
+  FooterDocumentQuery,
+  ConfigurationDocumentQuery,
+} from "@portfolio/schemas";
 import {
   NAVIGATION_QUERY,
   FOOTER_QUERY,
   CONFIGURATION_QUERY,
-  NavigationDocumentQuery,
-  FooterDocumentQuery,
-  ConfigurationDocumentQuery,
 } from "@portfolio/schemas";
 
 import { getSanityClient } from "~/app/lib/sanity";

@@ -1,8 +1,9 @@
-import type { LoaderFunction } from "@remix-run/cloudflare";
-import { json } from "@remix-run/cloudflare";
+import type { LoaderFunction } from "@remix-run/node";
+import { json } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
 
-import { PageDocumentQuery, PAGE_QUERY } from "@portfolio/schemas";
+import type { PageDocumentQuery } from "@portfolio/schemas";
+import { PAGE_QUERY } from "@portfolio/schemas";
 
 import { getSanityClient } from "~/app/lib/sanity";
 import { ContentBuilder } from "~/app/components/blocks/builder";
