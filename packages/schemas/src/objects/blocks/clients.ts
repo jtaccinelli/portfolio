@@ -1,4 +1,3 @@
-import {defineArrayMember, defineField, defineType} from 'sanity'
 import {UserIcon} from '@sanity/icons'
 
 import type {ArrayQuery, BlockQuery, ReferenceQuery} from '~/shared/sanity'
@@ -13,46 +12,46 @@ export interface ClientsBlockQuery extends BlockQuery {
 
 const layouts = [{title: 'Simple', value: 'simple'}] as const
 
-export const clients = defineType({
+export const clients = {
   type: 'object',
   name: 'clients',
   title: 'Clients Block',
   icon: UserIcon,
   fields: [
-    defineField({
+    {
       type: 'string',
       name: 'layout',
       title: 'Layout',
-      initialValue: 'simple',
+      initialValue: layouts[0].value,
       options: {
-        list: [...layouts],
+        list: layouts,
       },
-    }),
-    defineField({
+    },
+    {
       type: 'string',
       name: 'heading',
       title: 'Heading',
-    }),
-    defineField({
+    },
+    {
       type: 'array',
       name: 'items',
       title: 'Items',
       of: [
-        defineArrayMember({
+        {
           type: 'reference',
           to: [{type: 'client'}],
-        }),
+        },
       ],
-    }),
+    },
   ],
   preview: {
     select: {
       heading: 'heading',
     },
-    prepare: (selection) => ({
+    prepare: (selection: any) => ({
       title: 'Client Block',
       subtitle: selection.heading,
       media: UserIcon,
     }),
   },
-})
+} as const

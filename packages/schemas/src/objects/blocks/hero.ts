@@ -1,4 +1,3 @@
-import {defineArrayMember, defineField, defineType} from 'sanity'
 import {ImageIcon} from '@sanity/icons'
 
 import type {ArrayQuery, BlockQuery} from '~/shared/sanity'
@@ -16,42 +15,42 @@ const layouts = [
   {title: 'Graphic', value: 'graphic'},
 ] as const
 
-export const hero = defineType({
+export const hero = {
   type: 'object',
   name: 'hero',
   title: 'Hero Block',
   icon: ImageIcon,
   fields: [
-    defineField({
+    {
       type: 'string',
       name: 'layout',
       title: 'Layout',
       initialValue: 'simple',
       options: {
-        list: [...layouts],
+        list: layouts,
       },
-    }),
-    defineField({
+    },
+    {
       type: 'text',
       name: 'body',
       title: 'Body',
       rows: 4,
-    }),
-    defineField({
+    },
+    {
       type: 'array',
       name: 'ctas',
       title: 'Calls to Action',
-      of: [defineArrayMember({type: 'link'})],
-    }),
+      of: [{type: 'link'}],
+    },
   ],
   preview: {
     select: {
       body: 'body',
     },
-    prepare: (selection) => ({
+    prepare: (selection: any) => ({
       title: 'Hero Block',
       subtitle: selection.body,
       media: ImageIcon,
     }),
   },
-})
+} as const

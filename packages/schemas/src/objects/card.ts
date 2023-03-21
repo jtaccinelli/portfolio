@@ -1,5 +1,3 @@
-import {defineField, defineType} from 'sanity'
-
 import type {ObjectQuery} from '~/shared/sanity'
 import type {LinkQuery} from '~/objects/link'
 
@@ -10,26 +8,26 @@ export interface CardQuery extends ObjectQuery {
   cta: LinkQuery
 }
 
-export const card = defineType({
+export const card = {
   type: 'object',
   name: 'card',
   title: 'Name',
   fields: [
-    defineField({
+    {
       type: 'string',
       name: 'heading',
       title: 'Heading',
-    }),
-    defineField({
+    },
+    {
       type: 'text',
       name: 'body',
       title: 'Body',
       rows: 4,
-    }),
-    defineField({
+    },
+    {
       type: 'link',
       name: 'cta',
       title: 'CTA',
-    }),
+    },
   ],
-})
+} as const

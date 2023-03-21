@@ -1,4 +1,3 @@
-import {defineArrayMember, defineField, defineType} from 'sanity'
 import {MenuIcon} from '@sanity/icons'
 
 import type {ArrayQuery, DocumentQuery} from '~/shared/sanity'
@@ -27,40 +26,40 @@ export const NAVIGATION_QUERY = `
 }
 `
 
-export const navigation = defineType({
+export const navigation = {
   type: 'document',
   name: 'navigation',
   title: 'Navigation',
   icon: MenuIcon,
   fields: [
-    defineField({
+    {
       type: 'string',
       name: 'title',
       title: 'Title',
       hidden: true,
       initialValue: 'Navigation',
-    }),
-    defineField({
+    },
+    {
       type: 'string',
       name: 'heading',
       title: 'Heading',
-    }),
-    defineField({
+    },
+    {
       type: 'string',
       name: 'subheading',
       title: 'Subheading',
-    }),
-    defineField({
+    },
+    {
       type: 'array',
       name: 'items',
       title: 'Items',
-      of: [defineArrayMember({type: 'link'})],
-    }),
-    defineField({
+      of: [{type: 'link'}],
+    },
+    {
       type: 'array',
       name: 'connect',
       title: 'Connect',
-      of: [defineArrayMember({type: 'link'})],
-    }),
+      of: [{type: 'link'}],
+    },
   ],
-})
+} as const

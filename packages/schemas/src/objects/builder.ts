@@ -1,5 +1,3 @@
-import {defineType} from 'sanity'
-
 import type {ArrayQuery} from '~/shared/sanity'
 
 import type {HeroBlockQuery} from '~/objects/blocks/hero'
@@ -20,7 +18,7 @@ export type BuilderQuery = ArrayQuery<
   | BlogsBlockQuery
 >
 
-export const builder = defineType({
+export const builder = {
   type: 'array',
   name: 'builder',
   title: 'Builder',
@@ -33,4 +31,4 @@ export const builder = defineType({
     {type: 'projects'},
     {type: 'blogs'},
   ],
-})
+} as const

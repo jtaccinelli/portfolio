@@ -1,4 +1,4 @@
-import {defineArrayMember, defineField, defineType} from 'sanity'
+import type {Rule} from 'sanity'
 import {PresentationIcon} from '@sanity/icons'
 
 import type {ArrayQuery, DocumentQuery, ReferenceQuery, SlugQuery} from '~/shared/sanity'
@@ -21,70 +21,70 @@ export interface ProjectDocumentQuery extends DocumentQuery {
   seo: SeoQuery
 }
 
-export const project = defineType({
+export const project = {
   type: 'document',
   name: 'project',
   title: 'Projects',
   icon: PresentationIcon,
   fields: [
-    defineField({
+    {
       type: 'string',
       name: 'title',
       title: 'Title',
-      validation: (rule) => rule.required(),
-    }),
-    defineField({
+      validation: (rule: Rule) => rule.required(),
+    },
+    {
       type: 'slug',
       name: 'handle',
       title: 'Handle',
-      validation: (rule) => rule.required(),
+      validation: (rule: Rule) => rule.required(),
       options: {
         source: 'title',
       },
-    }),
-    defineField({
+    },
+    {
       type: 'string',
       name: 'subtitle',
       title: 'Subtitle',
-    }),
-    defineField({
+    },
+    {
       type: 'text',
       name: 'blurb',
       title: 'Blurb',
       rows: 4,
-    }),
-    defineField({
+    },
+    {
       type: 'reference',
       name: 'client',
       title: 'Client',
       to: [{type: 'client'}],
-    }),
-    defineField({
+    },
+    {
       type: 'array',
       name: 'skills',
       title: 'Skills',
       of: [
-        defineArrayMember({
+        {
           type: 'reference',
           to: [{type: 'skill'}],
-        }),
+        },
       ],
-    }),
-    defineField({
+    },
+    {
       type: 'date',
       name: 'completed_on',
       title: 'Date Completed',
-      validation: (rule) => rule.required(),
-    }),
-    defineField({
+      validation: (rule: Rule) => rule.required(),
+    },
+    {
       type: 'url',
       name: 'live_site',
       title: 'Live Site',
-    }),
-    defineField({
+    },
+    {
       type: 'seo',
       name: 'seo',
       title: 'SEO',
-    }),
+    },
   ],
-})
+} as const

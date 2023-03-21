@@ -1,4 +1,3 @@
-import {defineField, defineType} from 'sanity'
 import {CogIcon} from '@sanity/icons'
 
 import type {DocumentQuery} from '~/shared/sanity'
@@ -17,23 +16,23 @@ export const CONFIGURATION_QUERY = `
 }
 `
 
-export const configuration = defineType({
+export const configuration = {
   type: 'document',
   name: 'configuration',
   title: 'Configuration',
   icon: CogIcon,
   fields: [
-    defineField({
+    {
       type: 'string',
       name: 'title',
       title: 'Title',
       hidden: true,
       initialValue: 'Configuration',
-    }),
-    defineField({
+    },
+    {
       type: 'seo',
       name: 'default_seo',
       title: 'Default SEO',
-    }),
+    },
   ],
-})
+} as const

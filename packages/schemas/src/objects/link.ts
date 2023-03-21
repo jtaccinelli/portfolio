@@ -1,4 +1,4 @@
-import {defineField, defineType} from 'sanity'
+import type {Rule} from 'sanity'
 
 import type {ObjectQuery} from '~/shared/sanity'
 
@@ -27,47 +27,39 @@ const variants = [
   {title: 'URL', value: 'url'},
 ] as const
 
-export const link = defineType({
+export const link = {
   type: 'object',
   name: 'link',
   title: 'Link',
   fields: [
-    defineField({
+    {
       type: 'string',
       name: 'label',
       title: 'Label',
-    }),
-    defineField({
+    },
+    {
       type: 'string',
       name: 'variant',
       title: 'Variant',
       initialValue: 'reference',
       options: {
-        list: [...variants],
+        list: variants,
       },
-      validation: (rule) => {
-        return rule.required()
-      },
-    }),
-    defineField({
+      validation: (rule: Rule) => rule.required(),
+    },
+    {
       type: 'reference',
       name: 'reference',
       title: 'Reference',
       to: [{type: 'project'}, {type: 'client'}, {type: 'skill'}, {type: 'page'}, {type: 'blog'}],
-      hidden: ({parent}) => {
-        return parent?.variant !== 'reference'
-      },
-    }),
-    defineField({
+      hidden: ({parent}: any) => parent?.variant !== 'reference',
+    },
+    {
       type: 'url',
       name: 'url',
       title: 'URL',
-      hidden: ({parent}) => {
-        return parent?.variant !== 'url'
-      },
-      validation: (rule) => {
-        return rule.uri({allowRelative: true, scheme: ['http', 'https', 'mailto', 'tel']})
-      },
-    }),
+      hidden: ({parent}: any) => parent?.variant !== 'url',
+      validation: (rule: Rule) => rule.required(),
+    },
   ],
-})
+} as const

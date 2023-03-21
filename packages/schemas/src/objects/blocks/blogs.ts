@@ -1,4 +1,3 @@
-import {defineArrayMember, defineField, defineType} from 'sanity'
 import {EditIcon} from '@sanity/icons'
 
 import type {ArrayQuery, BlockQuery, ReferenceQuery} from '~/shared/sanity'
@@ -13,37 +12,37 @@ export interface BlogsBlockQuery extends BlockQuery {
 
 const layouts = [{title: 'Simple', value: 'simple'}] as const
 
-export const blogs = defineType({
+export const blogs = {
   type: 'object',
   name: 'blogs',
   title: 'Blogs Block',
   icon: EditIcon,
   fields: [
-    defineField({
+    {
       type: 'string',
       name: 'layout',
       title: 'Layout',
       initialValue: 'simple',
       options: {
-        list: [...layouts],
+        list: layouts,
       },
-    }),
-    defineField({
+    },
+    {
       type: 'string',
       name: 'heading',
       title: 'Heading',
-    }),
-    defineField({
+    },
+    {
       type: 'array',
       name: 'items',
       title: 'Items',
       of: [
-        defineArrayMember({
+        {
           type: 'reference',
           to: [{type: 'blog'}],
-        }),
+        },
       ],
-    }),
+    },
   ],
   preview: {
     select: {
@@ -55,4 +54,4 @@ export const blogs = defineType({
       media: EditIcon,
     }),
   },
-})
+} as const
