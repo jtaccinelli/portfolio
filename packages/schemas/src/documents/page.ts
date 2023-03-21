@@ -19,7 +19,7 @@ export const PAGE_QUERY = `
     ...,
     "handle": handle.current,
     content[]{
-        ...,   
+        ...,  
         ctas[]{
           _key,
           ${LINK_FRAGMENT}
