@@ -9,7 +9,7 @@
     "deploy": "sanity deploy"
   },
   "dependencies": {
-    "@portfolio/schemas": "*",
+    "@portfolio/schemas": "workspace:*",
     "@sanity/icons": "^2.2.2",
     "@sanity/vision": "^3.0.0",
     "react": "^18.2.0",
