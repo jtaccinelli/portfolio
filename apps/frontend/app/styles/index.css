@@ -603,6 +603,22 @@ video {
   height: 100%;
 }
 
+.h-10 {
+  height: 2.5rem;
+}
+
+.h-20 {
+  height: 5rem;
+}
+
+.h-16 {
+  height: 4rem;
+}
+
+.max-h-10 {
+  max-height: 2.5rem;
+}
+
 .w-\[calc\(var\(--cx\)\*2\)\] {
   width: calc(var(--cx) * 2);
 }
