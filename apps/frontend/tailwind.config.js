@@ -19,8 +19,19 @@ module.exports = {
           DEFAULT: "#101010",
         },
       },
+      keyframes: {
+        scroll: {
+          "0%": {
+            transform: "translateX(0)",
+          },
+          "100%": {
+            transform: "translateX(calc(-100%))",
+          },
+        },
+      },
       animation: {
         "text-spin": "spin 60s linear infinite",
+        scroll: "scroll 30s linear infinite",
       },
     },
   },

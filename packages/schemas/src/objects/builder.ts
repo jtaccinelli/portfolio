@@ -7,6 +7,7 @@ import type {ClientsBlockQuery} from '~/objects/blocks/clients'
 import type {SkillsBlockQuery} from '~/objects/blocks/skills'
 import type {ProjectsBlockQuery} from '~/objects/blocks/projects'
 import type {BlogsBlockQuery} from '~/objects/blocks/blogs'
+import type {TickerBlockQuery} from '~/objects/blocks/ticker'
 
 export type BuilderQuery = ArrayQuery<
   | HeroBlockQuery
@@ -16,6 +17,7 @@ export type BuilderQuery = ArrayQuery<
   | SkillsBlockQuery
   | ProjectsBlockQuery
   | BlogsBlockQuery
+  | TickerBlockQuery
 >
 
 export const builder = {
@@ -30,5 +32,6 @@ export const builder = {
     {type: 'skills'},
     {type: 'projects'},
     {type: 'blogs'},
+    {type: 'ticker'},
   ],
 } as const

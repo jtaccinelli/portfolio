@@ -1,6 +1,6 @@
 import type { FC } from "react";
 
-import { HeroBlockQuery } from "@portfolio/schemas";
+import type { HeroBlockQuery } from "@portfolio/schemas";
 
 import { HeroSimpleLayout } from "~/app/components/blocks/hero/simple";
 import { HeroGraphicLayout } from "~/app/components/blocks/hero/graphic";
