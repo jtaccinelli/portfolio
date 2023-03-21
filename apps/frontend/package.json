@@ -14,7 +14,7 @@
     "deploy": ""
   },
   "dependencies": {
-    "@portfolio/schemas": "workspace:*",
+    "@portfolio/schemas": "*",
     "@remix-run/cloudflare": "^1.14.3",
     "@remix-run/cloudflare-pages": "^1.14.3",
     "@remix-run/react": "^1.14.3",
@@ -42,6 +42,5 @@
   },
   "engines": {
     "node": ">=16.13"
-  },
-  "packageManager": "yarn@3.5.0"
+  }
 }
