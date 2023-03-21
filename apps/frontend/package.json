@@ -4,14 +4,15 @@
   "private": true,
   "sideEffects": false,
   "scripts": {
-    "preinstall": "cd ..",
+    "preinstall": "cd .. && yarn",
     "build:remix": "remix build",
     "build:css": "tailwindcss -m -i ./app/styles/app.css -o ./app/styles/index.css",
-    "build": "run-s \"build:*\"",
+    "build": "run-s build:*",
     "dev:css": "tailwindcss -w -i ./app/styles/app.css -o ./app/styles/index.css",
     "dev:remix": "remix watch",
     "dev:wrangler": "cross-env NODE_ENV=development npm run wrangler pages dev ./public",
-    "dev": "run-p \"dev:*\""
+    "dev": "run-p dev:*",
+    "deploy": ""
   },
   "dependencies": {
     "@portfolio/schemas": "*",
