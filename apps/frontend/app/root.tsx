@@ -88,8 +88,8 @@ export default function App() {
             )}
           >
             <Outlet />
+            <Footer />
           </div>
-          <Footer />
         </div>
         <ScrollRestoration />
         <Scripts />
