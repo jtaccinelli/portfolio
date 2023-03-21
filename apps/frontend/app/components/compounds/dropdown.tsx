@@ -4,44 +4,34 @@ import type {
   MouseEventHandler,
 } from "react";
 
-import {
-  cloneElement,
-  createContext,
-  isValidElement,
-  useContext,
-  useState,
-} from "react";
+import { cloneElement, isValidElement, useState } from "react";
 
 import clsx from "clsx";
 
-interface ContextState {
+type State = {
   isShow: boolean;
-}
+};
 
-interface ContextActions {
+type Actions = {
   open: () => void;
   close: () => void;
   toggle: () => void;
-}
-
-interface ContextValue extends ContextState, ContextActions {}
-
-const defaultValue: ContextValue = {
-  isShow: false,
-  open: () => {},
-  close: () => {},
-  toggle: () => {},
 };
 
-const DropdownContext = createContext(defaultValue);
-const useDropdown = () => useContext(DropdownContext);
+type Events = {
+  [Key in keyof Actions as `on${Capitalize<Key>}`]: Actions[Key];
+};
 
-interface PropsRoot
-  extends Omit<ComponentProps<typeof DropdownContext.Provider>, "value"> {
-  initialState?: ContextState;
-}
+export type Value = State & Actions;
 
-function Root({ initialState, ...props }: PropsRoot) {
+const defaultValue: Value = {
+  isShow: false,
+  open: () => null,
+  close: () => null,
+  toggle: () => null,
+};
+
+export function useDropdown(initialState?: State) {
   const [isShow, setIsShow] = useState(
     initialState?.isShow ?? defaultValue.isShow
   );
@@ -50,32 +40,39 @@ function Root({ initialState, ...props }: PropsRoot) {
   const close = () => setIsShow(false);
   const toggle = () => setIsShow((prev) => !prev);
 
-  const value: ContextValue = {
+  return {
     isShow,
     open,
     close,
     toggle,
   };
-
-  return <DropdownContext.Provider {...props} value={value} />;
 }
 
-type PropsToggle = ComponentProps<"button">;
+type PropsToggle = ComponentProps<"button"> &
+  Pick<Events, "onToggle" | "onClose"> &
+  Pick<State, "isShow">;
 
-function Toggle({ children, onClick, onBlur, ...props }: PropsToggle) {
-  const { isShow, toggle, close } = useDropdown();
-
+function Toggle({
+  children,
+  onClick,
+  onBlur,
+  onToggle,
+  onClose,
+  isShow,
+  ...props
+}: PropsToggle) {
   const handleClick: MouseEventHandler<HTMLButtonElement> = (event) => {
     if (onClick) onClick(event);
-    toggle();
+    onToggle();
   };
 
   const handleBlur: FocusEventHandler<HTMLButtonElement> = (event) => {
     if (onBlur) onBlur(event);
-    close();
+    onClose();
   };
 
   if (!isValidElement(children)) return null;
+
   return cloneElement(children, {
     ...children.props,
     ...props,
@@ -85,11 +82,9 @@ function Toggle({ children, onClick, onBlur, ...props }: PropsToggle) {
   });
 }
 
-type PropsList = ComponentProps<"div">;
+type PropsList = ComponentProps<"div"> & Pick<State, "isShow">;
 
-function List({ children, className, ...props }: PropsList) {
-  const { isShow } = useDropdown();
-
+function List({ children, className, isShow, ...props }: PropsList) {
   if (!isValidElement(children)) return null;
   return cloneElement(children, {
     ...children.props,
@@ -104,4 +99,4 @@ function List({ children, className, ...props }: PropsList) {
   });
 }
 
-export const Dropdown = Object.assign(Root, { Toggle, List });
+export const Dropdown = { Toggle, List };
