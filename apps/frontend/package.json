@@ -4,7 +4,6 @@
   "private": true,
   "sideEffects": false,
   "scripts": {
-    "preinstall": "cd .. && yarn",
     "build:remix": "remix build",
     "build:css": "tailwindcss -m -i ./app/styles/app.css -o ./app/styles/index.css",
     "build": "run-s build:*",
@@ -43,5 +42,6 @@
   },
   "engines": {
     "node": ">=16.13"
-  }
+  },
+  "packageManager": "yarn@3.5.0"
 }
