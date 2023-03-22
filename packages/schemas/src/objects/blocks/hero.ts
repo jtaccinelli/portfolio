@@ -13,6 +13,7 @@ export interface HeroBlockQuery extends BlockQuery {
 const layouts = [
   {title: 'Simple', value: 'simple'},
   {title: 'Graphic', value: 'graphic'},
+  {title: 'Narrow', value: 'narrow'},
 ] as const
 
 export const hero = {
