@@ -4,7 +4,6 @@ node_modules
 
 .idea
 .env
-.idea
 .turbo
 .DS_Store
 *.pem
