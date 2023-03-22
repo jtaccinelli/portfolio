@@ -720,10 +720,6 @@ video {
   justify-content: space-around;
 }
 
-.gap-1 {
-  gap: 0.25rem;
-}
-
 .gap-16 {
   gap: 4rem;
 }
@@ -932,6 +928,10 @@ video {
 
 .pb-8 {
   padding-bottom: 2rem;
+}
+
+.pt-36 {
+  padding-top: 9rem;
 }
 
 .text-left {

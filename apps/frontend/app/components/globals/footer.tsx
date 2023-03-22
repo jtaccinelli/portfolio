@@ -16,7 +16,7 @@ export function Footer() {
         <p className="font-medium text-white">Connect</p>
         {navigation.connect?.map((item) => (
           <Link key={item._key} to={item.url}>
-            <p className="border-b-2 border-gray-700 transition-colors hover:border-red-600">
+            <p className="border-b-2 border-gray-700 transition-colors hover:border-accent-600">
               {item.label}
             </p>
           </Link>
@@ -26,7 +26,7 @@ export function Footer() {
         <p className="font-medium text-white">Boring Stuff</p>
         {footer.links?.map((item) => (
           <Link key={item._key} to={item.url}>
-            <p className="border-b-2 border-gray-700 transition-colors hover:border-red-600">
+            <p className="border-b-2 border-gray-700 transition-colors hover:border-accent-600">
               {item.label}
             </p>
           </Link>
