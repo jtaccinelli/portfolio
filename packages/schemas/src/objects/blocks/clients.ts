@@ -5,7 +5,7 @@ import type {ClientDocumentQuery} from '~/documents/client'
 
 export interface ClientsBlockQuery extends BlockQuery {
   _type: typeof clients.name
-  layouts: (typeof layouts)[number]['value']
+  layout: (typeof layouts)[number]['value']
   heading: string
   items: ArrayQuery<ReferenceQuery<ClientDocumentQuery>>
 }
