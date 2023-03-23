@@ -1,8 +1,8 @@
-import type { LoaderFunction } from "@remix-run/node";
+import type { LoaderFunction, MetaFunction } from "@remix-run/node";
 import { json } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
 
-import type { PageDocumentQuery } from "@portfolio/schemas";
+import type { PageDocumentQuery, SeoQuery } from "@portfolio/schemas";
 import { PAGE_QUERY } from "@portfolio/schemas";
 
 import { getSanityClient } from "~/app/lib/sanity";
@@ -16,6 +16,14 @@ export const loader: LoaderFunction = async () => {
   });
 
   return json({ page });
+};
+
+export const meta: MetaFunction<typeof loader> = ({ data }) => {
+  const seo = data.page.seo as SeoQuery;
+  return {
+    title: seo?.title ?? "Landing Page",
+    description: seo?.description,
+  };
 };
 
 export default function Page() {

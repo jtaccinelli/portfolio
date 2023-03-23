@@ -1,4 +1,4 @@
-import type { LoaderFunction } from "@remix-run/node";
+import type { LoaderFunction, MetaFunction } from "@remix-run/node";
 import { json } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
 
@@ -16,6 +16,14 @@ export const loader: LoaderFunction = async ({ params }) => {
   });
 
   return json({ page });
+};
+
+export const meta: MetaFunction<typeof loader> = ({ data }) => {
+  const page = data.page as PageDocumentQuery;
+  return {
+    title: page?.seo?.title ?? page?.title,
+    description: page?.seo?.description,
+  };
 };
 
 export default function Page() {
