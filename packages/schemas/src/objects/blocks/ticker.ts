@@ -8,7 +8,7 @@ export interface TickerBlockQuery extends BlockQuery {
   content: string
 }
 
-export const TICKET_BLOCK_FRAGMENT = `
+export const TICKER_BLOCK_FRAGMENT = `
   ...
 `
 

@@ -22,7 +22,7 @@ import type {BlogsBlockQuery} from '~/objects/blocks/blogs'
 import {BLOGS_BLOCK_FRAGMENT} from '~/objects/blocks/blogs'
 
 import type {TickerBlockQuery} from '~/objects/blocks/ticker'
-import {TICKET_BLOCK_FRAGMENT} from '~/objects/blocks/ticker'
+import {TICKER_BLOCK_FRAGMENT} from '~/objects/blocks/ticker'
 
 export type BuilderQuery = ArrayQuery<
   | HeroBlockQuery
@@ -37,29 +37,29 @@ export type BuilderQuery = ArrayQuery<
 
 export const BUILDER_FRAGMENT = `
   ...,
-  _type == "hero" {
+  _type == "hero" => {
     ${HERO_BLOCK_FRAGMENT}
   },
-  _type == "content" {
+  _type == "content" => {
     ${CONTENT_BLOCK_FRAGMENT}
   },
-  _type == "cards" {
+  _type == "cards" => {
     ${CARDS_BLOCK_FRAGMENT}
   },
-  _type == "clients" {
+  _type == "clients" => {
     ${CLIENTS_BLOCK_FRAGMENT}
   },
-  _type == "skills" {
+  _type == "skills" => {
     ${SKILLS_BLOCK_FRAGMENT}
   },
-  _type == "projects" {
+  _type == "projects" => {
     ${PROJECTS_BLOCK_FRAGMENT}
   },
-  _type == "blogs" {
+  _type == "blogs" => {
     ${BLOGS_BLOCK_FRAGMENT}
   },
-  _type == "ticker" {
-    ${TICKET_BLOCK_FRAGMENT}
+  _type == "ticker" => {
+    ${TICKER_BLOCK_FRAGMENT}
   }
 `
 

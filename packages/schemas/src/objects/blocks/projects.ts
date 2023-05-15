@@ -13,7 +13,7 @@ export interface ProjectsBlockQuery extends BlockQuery {
 
 export const PROJECTS_BLOCK_FRAGMENT = `
   ...,
-  items[]-> {
+  items[]->{
     ${PROJECT_DOCUMENT_FRAGMENT}
   }
 `
