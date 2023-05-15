@@ -12,14 +12,12 @@ export interface FooterDocumentQuery extends DocumentQuery {
   links: ArrayQuery<LinkQuery>
 }
 
-export const FOOTER_QUERY = `
-*[_type == "footer"][0]{
-    ...,
-    links[] {
-        _key,
-        ${LINK_FRAGMENT}
-    }
-}
+export const FOOTER_DOCUMENT_FRAGMENT = `
+  ...,
+  links[] {
+    _key,
+    ${LINK_FRAGMENT}
+  }
 `
 
 export const footer = {

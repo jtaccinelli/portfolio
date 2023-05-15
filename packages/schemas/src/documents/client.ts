@@ -12,6 +12,12 @@ export interface ClientDocumentQuery extends DocumentQuery {
   logo: any // TODO: Image Type
 }
 
+export const CLIENT_DOCUMENT_FRAGMENT = `
+  ...,
+  "handle": handle.current,
+  logo->
+`
+
 export const client = {
   type: 'document',
   name: 'client',

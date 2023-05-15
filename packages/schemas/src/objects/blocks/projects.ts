@@ -2,6 +2,7 @@ import {PresentationIcon} from '@sanity/icons'
 
 import type {ArrayQuery, BlockQuery, ReferenceQuery} from '~/shared/sanity'
 import type {ProjectDocumentQuery} from '~/documents/project'
+import {PROJECT_DOCUMENT_FRAGMENT} from '~/documents/project'
 
 export interface ProjectsBlockQuery extends BlockQuery {
   _type: typeof projects.name
@@ -9,6 +10,13 @@ export interface ProjectsBlockQuery extends BlockQuery {
   heading: string
   items: ArrayQuery<ReferenceQuery<ProjectDocumentQuery>>
 }
+
+export const PROJECTS_BLOCK_FRAGMENT = `
+  ...,
+  items[]-> {
+    ${PROJECT_DOCUMENT_FRAGMENT}
+  }
+`
 
 const layouts = [{title: 'Simple', value: 'simple'}] as const
 

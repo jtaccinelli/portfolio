@@ -7,6 +7,9 @@ import type {ClientDocumentQuery} from '~/documents/client'
 import type {SkillDocumentQuery} from '~/documents/skill'
 
 import type {SeoQuery} from '~/objects/seo'
+import {CLIENT_DOCUMENT_FRAGMENT} from '~/documents/client'
+import {SEO_FRAGMENT} from '~/objects/seo'
+import {SKILL_DOCUMENT_FRAGMENT} from '~/documents/skill'
 
 export interface ProjectDocumentQuery extends DocumentQuery {
   _type: typeof project.name
@@ -20,6 +23,20 @@ export interface ProjectDocumentQuery extends DocumentQuery {
   live_site: string
   seo: SeoQuery
 }
+
+export const PROJECT_DOCUMENT_FRAGMENT = `
+  ...,
+  "handle": handle.current,
+  client->{
+    ${CLIENT_DOCUMENT_FRAGMENT}
+  },
+  skills[]->{
+    ${SKILL_DOCUMENT_FRAGMENT}
+  },
+  seo {
+    ${SEO_FRAGMENT}
+  }
+`
 
 export const project = {
   type: 'document',

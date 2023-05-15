@@ -1,7 +1,9 @@
 import {CopyIcon} from '@sanity/icons'
 
 import type {ArrayQuery, BlockQuery} from '~/shared/sanity'
+
 import type {CardQuery} from '~/objects/card'
+import {CARD_FRAGMENT} from '~/objects/card'
 
 export interface CardsBlockQuery extends BlockQuery {
   _type: typeof cards.name
@@ -9,6 +11,13 @@ export interface CardsBlockQuery extends BlockQuery {
   heading: string
   cards: ArrayQuery<CardQuery>
 }
+
+export const CARDS_BLOCK_FRAGMENT = `
+  ...,
+  cards[] {
+    ${CARD_FRAGMENT}
+  }
+`
 
 const layouts = [{title: 'Simple', value: 'simple'}] as const
 

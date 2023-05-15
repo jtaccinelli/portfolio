@@ -2,7 +2,9 @@ import type {Rule} from 'sanity'
 import {ControlsIcon} from '@sanity/icons'
 
 import type {DocumentQuery, SlugQuery} from '~/shared/sanity'
+
 import type {SeoQuery} from '~/objects/seo'
+import {SEO_FRAGMENT} from '~/objects/seo'
 
 export interface SkillDocumentQuery extends DocumentQuery {
   _type: typeof skill.name
@@ -12,6 +14,14 @@ export interface SkillDocumentQuery extends DocumentQuery {
   blurb: string
   seo: SeoQuery
 }
+
+export const SKILL_DOCUMENT_FRAGMENT = `
+  ...,
+  "handle": handle.current,
+  seo {
+    ${SEO_FRAGMENT}
+  }
+`
 
 export const skill = {
   type: 'document',

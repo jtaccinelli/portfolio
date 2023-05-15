@@ -21,10 +21,11 @@ import type {
   FooterDocumentQuery,
   ConfigurationDocumentQuery,
 } from "@portfolio/schemas";
+
 import {
-  NAVIGATION_QUERY,
-  FOOTER_QUERY,
-  CONFIGURATION_QUERY,
+  NAVIGATION_DOCUMENT_FRAGMENT,
+  FOOTER_DOCUMENT_FRAGMENT,
+  CONFIGURATION_DOCUMENT_FRAGMENT,
 } from "@portfolio/schemas";
 
 import { getSanityClient } from "~/app/lib/sanity";
@@ -40,9 +41,18 @@ export const loader: LoaderFunction = async () => {
   const client = getSanityClient();
 
   const [navigation, footer, configuration] = await Promise.all([
-    client.fetch<NavigationDocumentQuery>(NAVIGATION_QUERY),
-    client.fetch<FooterDocumentQuery>(FOOTER_QUERY),
-    client.fetch<ConfigurationDocumentQuery>(CONFIGURATION_QUERY),
+    client.fetch<NavigationDocumentQuery>(`
+    *[_type == "navigation"][0] {
+      ${NAVIGATION_DOCUMENT_FRAGMENT}
+    }`),
+    client.fetch<FooterDocumentQuery>(`
+    *[_type == "footer"][0]{
+      ${FOOTER_DOCUMENT_FRAGMENT}   
+    }`),
+    client.fetch<ConfigurationDocumentQuery>(`
+    *[_type == "configuration"][0] {
+      ${CONFIGURATION_DOCUMENT_FRAGMENT}
+    }`),
   ]);
 
   return { navigation, footer, configuration };

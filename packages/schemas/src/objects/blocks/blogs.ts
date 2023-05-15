@@ -1,7 +1,9 @@
 import {EditIcon} from '@sanity/icons'
 
 import type {ArrayQuery, BlockQuery, ReferenceQuery} from '~/shared/sanity'
+
 import type {BlogDocumentQuery} from '~/documents/blog'
+import {BLOG_DOCUMENT_FRAGMENT} from '~/documents/blog'
 
 export interface BlogsBlockQuery extends BlockQuery {
   _type: typeof blogs.name
@@ -9,6 +11,13 @@ export interface BlogsBlockQuery extends BlockQuery {
   heading: string
   items: ArrayQuery<ReferenceQuery<BlogDocumentQuery>>
 }
+
+export const BLOGS_BLOCK_FRAGMENT = `
+  ...,
+  items[]->{
+    ${BLOG_DOCUMENT_FRAGMENT}
+  }
+`
 
 const layouts = [{title: 'Simple', value: 'simple'}] as const
 

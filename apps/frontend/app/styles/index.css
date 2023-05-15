@@ -587,10 +587,6 @@ video {
   display: block;
 }
 
-.\!block {
-  display: block !important;
-}
-
 .flex {
   display: flex;
 }
@@ -1014,11 +1010,6 @@ video {
 .hover\:border-accent-600:hover {
   --tw-border-opacity: 1;
   border-color: rgb(234 88 12 / var(--tw-border-opacity));
-}
-
-.hover\:border-red-600:hover {
-  --tw-border-opacity: 1;
-  border-color: rgb(220 38 38 / var(--tw-border-opacity));
 }
 
 .hover\:bg-gray-200:hover {

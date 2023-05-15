@@ -8,6 +8,10 @@ export interface TickerBlockQuery extends BlockQuery {
   content: string
 }
 
+export const TICKET_BLOCK_FRAGMENT = `
+  ...
+`
+
 const layouts = [
   {title: 'Subtle', value: 'subtle'},
   {title: 'Highlight', value: 'highlight'},

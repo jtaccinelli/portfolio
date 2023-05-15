@@ -8,6 +8,10 @@ export interface BlogDocumentQuery extends DocumentQuery {
   content: any // TODO: Content Block Type
 }
 
+export const BLOG_DOCUMENT_FRAGMENT = `
+  ...
+`
+
 export const blog = {
   type: 'document',
   name: 'blog',

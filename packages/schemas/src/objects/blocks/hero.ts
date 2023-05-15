@@ -1,7 +1,9 @@
 import {ImageIcon} from '@sanity/icons'
 
 import type {ArrayQuery, BlockQuery} from '~/shared/sanity'
+
 import type {LinkQuery} from '~/objects/link'
+import {LINK_FRAGMENT} from '~/objects/link'
 
 export interface HeroBlockQuery extends BlockQuery {
   _type: typeof hero.name
@@ -9,6 +11,13 @@ export interface HeroBlockQuery extends BlockQuery {
   body: string
   ctas: ArrayQuery<LinkQuery>
 }
+
+export const HERO_BLOCK_FRAGMENT = `
+  ...,
+  ctas[] {
+    ${LINK_FRAGMENT}
+  }
+`
 
 const layouts = [
   {title: 'Simple', value: 'simple'},

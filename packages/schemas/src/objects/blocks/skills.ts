@@ -1,7 +1,9 @@
 import {ControlsIcon} from '@sanity/icons'
 
 import type {ArrayQuery, BlockQuery, ReferenceQuery} from '~/shared/sanity'
+
 import type {SkillDocumentQuery} from '~/documents/skill'
+import {SKILL_DOCUMENT_FRAGMENT} from '~/documents/skill'
 
 export interface SkillsBlockQuery extends BlockQuery {
   _type: typeof skills.name
@@ -9,6 +11,13 @@ export interface SkillsBlockQuery extends BlockQuery {
   heading: string
   items: ArrayQuery<ReferenceQuery<SkillDocumentQuery>>
 }
+
+export const SKILLS_BLOCK_FRAGMENT = `
+  ...,
+  items[]-> {
+    ${SKILL_DOCUMENT_FRAGMENT}
+  }
+`
 
 const layouts = [{title: 'Simple', value: 'simple'}] as const
 

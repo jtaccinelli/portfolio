@@ -3,6 +3,7 @@ import {CogIcon} from '@sanity/icons'
 import type {DocumentQuery} from '~/shared/sanity'
 
 import type {SeoQuery} from '~/objects/seo'
+import {SEO_FRAGMENT} from '~/objects/seo'
 
 export interface ConfigurationDocumentQuery extends DocumentQuery {
   _type: typeof configuration.name
@@ -10,10 +11,11 @@ export interface ConfigurationDocumentQuery extends DocumentQuery {
   default_seo: SeoQuery
 }
 
-export const CONFIGURATION_QUERY = `
-*[_type == "configuration"][0]{
-    ...
-}
+export const CONFIGURATION_DOCUMENT_FRAGMENT = `
+  ...,
+  default_seo {
+    ${SEO_FRAGMENT}
+  }
 `
 
 export const configuration = {

@@ -3,7 +3,7 @@ import { json } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
 
 import type { PageDocumentQuery, SeoQuery } from "@portfolio/schemas";
-import { PAGE_QUERY } from "@portfolio/schemas";
+import { PAGE_DOCUMENT_FRAGMENT } from "@portfolio/schemas";
 
 import { getSanityClient } from "~/app/lib/sanity";
 import { ContentBuilder } from "~/app/components/blocks/builder";
@@ -11,9 +11,11 @@ import { ContentBuilder } from "~/app/components/blocks/builder";
 export const loader: LoaderFunction = async () => {
   const client = getSanityClient();
 
-  const page = await client.fetch<PageDocumentQuery>(PAGE_QUERY, {
-    handle: "home",
-  });
+  const page = await client.fetch<PageDocumentQuery>(
+    `*[_type == "page" && handle.current == "home"][0]{
+      ${PAGE_DOCUMENT_FRAGMENT}
+    }`
+  );
 
   return json({ page });
 };

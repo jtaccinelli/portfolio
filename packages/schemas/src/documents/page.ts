@@ -1,10 +1,10 @@
 import {DocumentsIcon} from '@sanity/icons'
 
 import type {DocumentQuery, SlugQuery} from '~/shared/sanity'
+import type {SeoQuery} from '~/objects/seo'
 
 import type {BuilderQuery} from '~/objects/builder'
-import type {SeoQuery} from '~/objects/seo'
-import {LINK_FRAGMENT} from '~/objects/link'
+import {BUILDER_FRAGMENT} from '~/objects/builder'
 
 export interface PageDocumentQuery extends DocumentQuery {
   _type: typeof page.name
@@ -14,18 +14,12 @@ export interface PageDocumentQuery extends DocumentQuery {
   seo: SeoQuery
 }
 
-export const PAGE_QUERY = `
-*[_type == "page" && handle.current == $handle][0]{
-    ...,
-    "handle": handle.current,
-    content[]{
-        ...,  
-        ctas[]{
-          _key,
-          ${LINK_FRAGMENT}
-        }
-    }
-}
+export const PAGE_DOCUMENT_FRAGMENT = `
+  ...,
+  "handle": handle.current,
+  content[] {
+    ${BUILDER_FRAGMENT}
+  }
 `
 
 export const page = {

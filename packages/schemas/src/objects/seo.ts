@@ -9,6 +9,11 @@ export interface SeoQuery extends ObjectQuery {
   thumbnail: string
 }
 
+export const SEO_FRAGMENT = `
+  ...,
+  thumbnail->
+`
+
 export const seo = {
   type: 'object',
   name: 'seo',

@@ -1,7 +1,9 @@
 import {UserIcon} from '@sanity/icons'
 
 import type {ArrayQuery, BlockQuery, ReferenceQuery} from '~/shared/sanity'
+
 import type {ClientDocumentQuery} from '~/documents/client'
+import {CLIENT_DOCUMENT_FRAGMENT} from '~/documents/client'
 
 export interface ClientsBlockQuery extends BlockQuery {
   _type: typeof clients.name
@@ -9,6 +11,13 @@ export interface ClientsBlockQuery extends BlockQuery {
   heading: string
   items: ArrayQuery<ReferenceQuery<ClientDocumentQuery>>
 }
+
+export const CLIENTS_BLOCK_FRAGMENT = `
+  ...,
+  items[]->{
+    ${CLIENT_DOCUMENT_FRAGMENT}
+  }
+`
 
 const layouts = [{title: 'Simple', value: 'simple'}] as const
 
