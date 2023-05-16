@@ -24,6 +24,9 @@ import {BLOGS_BLOCK_FRAGMENT} from '~/objects/blocks/blogs'
 import type {TickerBlockQuery} from '~/objects/blocks/ticker'
 import {TICKER_BLOCK_FRAGMENT} from '~/objects/blocks/ticker'
 
+import type {SpacerBlockQuery} from '~/objects/blocks/spacer'
+import {SPACER_BLOCK_FRAGMENT} from '~/objects/blocks/spacer'
+
 export type BuilderQuery = ArrayQuery<
   | HeroBlockQuery
   | ContentBlockQuery
@@ -33,6 +36,7 @@ export type BuilderQuery = ArrayQuery<
   | ProjectsBlockQuery
   | BlogsBlockQuery
   | TickerBlockQuery
+  | SpacerBlockQuery
 >
 
 export const BUILDER_FRAGMENT = `
@@ -60,6 +64,9 @@ export const BUILDER_FRAGMENT = `
   },
   _type == "ticker" => {
     ${TICKER_BLOCK_FRAGMENT}
+  },
+  _type == "spacer" => {
+    ${SPACER_BLOCK_FRAGMENT}
   }
 `
 
@@ -76,5 +83,6 @@ export const builder = {
     {type: 'projects'},
     {type: 'blogs'},
     {type: 'ticker'},
+    {type: 'spacer'},
   ],
 } as const

@@ -13,43 +13,38 @@ export function Navigation() {
   const { close, toggle, isShow } = useDropdown();
 
   return (
-    <div className="fixed top-0 left-0 right-0 z-50 flex flex-row flex-wrap items-center justify-between overflow-visible p-4 md:py-16 md:px-8">
-      <div className="mb-4 flex w-full flex-row items-center space-x-1 rounded-full bg-white p-1 shadow md:mb-0 md:w-auto">
-        <div className="relative flex w-full flex-row -space-x-2">
-          {navigation.items?.map((item) => {
-            return (
-              <Link key={item._key} to={item.url}>
-                <p
-                  className="relative rounded-full border-2 border-transparent px-4 py-2 text-black transition-all hover:text-gray-700 data-active:border-gray-200 data-active:text-accent-600 hover:data-active:border-accent-600"
-                  data-active={pathname === item.url}
-                >
-                  {item.label}
-                </p>
-              </Link>
-            );
-          })}
-        </div>
-        <div className="-my-1 w-px self-stretch bg-gray-200" />
-        <Dropdown.Toggle isShow={isShow} onClose={close} onToggle={toggle}>
-          <button className="border-full relative flex flex-row items-center space-x-2 rounded-full px-4 py-2 text-black transition-all hover:bg-gray-200 data-show:bg-black data-show:text-white">
-            <span>Connect</span>
-            <i className="bx bx-chevron-down" />
-            <Dropdown.List isShow={isShow}>
-              <div className="absolute top-[140%] left-1/2 flex -translate-x-1/2 flex-col divide-y divide-gray-900 overflow-hidden rounded bg-gray-800 transition-all">
-                {navigation.connect?.map((item) => (
-                  <Link key={item._key} to={item.url}>
-                    <p className="whitespace-nowrap p-2 px-4 text-left text-white hover:bg-gray-700">
-                      {item.label}
-                    </p>
-                  </Link>
-                ))}
-              </div>
-            </Dropdown.List>
-          </button>
-        </Dropdown.Toggle>
+    <div className="bg-gray-950/50 sticky top-0 z-50 -mb-20 flex h-20 flex-row flex-wrap items-center justify-between overflow-visible px-8 backdrop-blur md:px-24">
+      <div className="relative flex gap-2">
+        {navigation.items?.map((item) => {
+          return (
+            <Link key={item._key} to={item.url}>
+              <p
+                className="rounded-full px-4 py-2 text-white transition-all hover:bg-gray-900 data-active:bg-gray-900  hover:data-active:bg-gray-800"
+                data-active={pathname === item.url}
+              >
+                {item.label}
+              </p>
+            </Link>
+          );
+        })}
       </div>
-      <p className="ml-4 text-white md:order-first">{navigation.heading}</p>
-      <p className="mr-4 text-white">{navigation.subheading}</p>
+      <Dropdown.Toggle isShow={isShow} onClose={close} onToggle={toggle}>
+        <button className="border-full relative flex flex-row items-center space-x-2 rounded-full bg-gray-900 px-4 py-2 text-white transition-all hover:bg-gray-800 data-show:bg-gray-800">
+          <span>Connect</span>
+          <i className="bx bx-chevron-down" />
+          <Dropdown.List isShow={isShow}>
+            <div className="absolute top-[140%] left-1/2 flex -translate-x-1/2 flex-col divide-y divide-gray-900 overflow-hidden rounded bg-gray-800 transition-all">
+              {navigation.connect?.map((item) => (
+                <Link key={item._key} to={item.url}>
+                  <p className="whitespace-nowrap p-2 px-4 text-left text-white hover:bg-gray-700">
+                    {item.label}
+                  </p>
+                </Link>
+              ))}
+            </div>
+          </Dropdown.List>
+        </button>
+      </Dropdown.Toggle>
     </div>
   );
 }

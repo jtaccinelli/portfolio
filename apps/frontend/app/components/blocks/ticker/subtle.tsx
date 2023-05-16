@@ -6,7 +6,7 @@ interface Props {
 
 export function TickerSubtleLayout({ content }: Props) {
   return (
-    <div className="flex h-16 items-center gap-2 overflow-hidden bg-gray-900 p-4 text-gray-500">
+    <div className="bg-gray-950/50 flex h-16 items-center gap-2 overflow-hidden p-4 text-gray-500">
       {Array(2)
         .fill(Array(10).fill(content.content))
         .map((child, index) => (

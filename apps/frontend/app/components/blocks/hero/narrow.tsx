@@ -7,10 +7,13 @@ interface Props {
 
 export function HeroNarrowLayout({ content }: Props) {
   return (
-    <div className="flex flex-col items-start justify-center space-y-8 overflow-hidden bg-black py-24 px-8 pt-36 md:px-24">
-      <h1 className="max-w-xl whitespace-pre-wrap text-3xl leading-relaxed">
+    <div className="bg-gray-950 flex flex-col items-start justify-center space-y-8 overflow-hidden py-24 px-8 pt-36 md:px-24">
+      {content.heading ? (
+        <h1 className="font-medium text-gray-600">{content.heading}</h1>
+      ) : null}
+      <p className="max-w-xl whitespace-pre-wrap text-3xl font-medium leading-relaxed">
         {content.body}
-      </h1>
+      </p>
       {content.ctas?.map((item) => (
         <CallToAction key={item._key} label={item.label} link={item.url} />
       ))}

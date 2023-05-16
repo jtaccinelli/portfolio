@@ -59,6 +59,11 @@ export const link = {
       name: 'url',
       title: 'URL',
       hidden: ({parent}: any) => parent?.variant !== 'url',
+      validation: (rule: Rule) =>
+        rule.uri({
+          scheme: ['https', 'http', 'mailto'],
+          allowRelative: true,
+        }),
     },
   ],
 } as const

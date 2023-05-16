@@ -15,7 +15,6 @@ export interface ProjectDocumentQuery extends DocumentQuery {
   _type: typeof project.name
   title: string
   handle: SlugQuery
-  subtitle: string
   blurb: string
   client: ReferenceQuery<ClientDocumentQuery>
   skills: ArrayQuery<ReferenceQuery<SkillDocumentQuery>>
@@ -58,11 +57,6 @@ export const project = {
       options: {
         source: 'title',
       },
-    },
-    {
-      type: 'string',
-      name: 'subtitle',
-      title: 'Subtitle',
     },
     {
       type: 'text',

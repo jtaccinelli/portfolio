@@ -8,11 +8,13 @@ interface Props {
 
 export function ContentSimpleLayout({ content }: Props) {
   return (
-    <div className="px-8 py-24 md:px-24">
+    <div className="p-8 md:px-24">
       <div className="flex max-w-xl flex-col items-start space-y-8">
-        <h3 className="text-3xl">{content.heading}</h3>
+        <h3 className="text-2xl font-medium">{content.heading}</h3>
         {content.body?.map((item, index) => (
-          <p key={index}>{item}</p>
+          <p key={index} className="text-gray-400">
+            {item}
+          </p>
         ))}
         <div className="flex flex-row space-x-4">
           {content.ctas?.map((item) => (

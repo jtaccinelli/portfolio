@@ -10,7 +10,6 @@ export interface SkillDocumentQuery extends DocumentQuery {
   _type: typeof skill.name
   title: string
   handle: SlugQuery
-  subtitle: string
   blurb: string
   seo: SeoQuery
 }
@@ -42,11 +41,6 @@ export const skill = {
       options: {
         source: 'title',
       },
-    },
-    {
-      type: 'string',
-      name: 'subtitle',
-      title: 'Subtitle',
     },
     {
       type: 'text',

@@ -14,9 +14,9 @@ module.exports = {
     extend: {
       colors: {
         gray: colors.stone,
-        accent: colors.orange,
+        accent: colors.red,
         black: {
-          DEFAULT: "#101010",
+          DEFAULT: "#060504",
         },
       },
       keyframes: {

@@ -88,15 +88,16 @@ export default function App() {
         <Meta />
         <Links />
       </head>
-      <body className="bg-gray-800 p-2 text-white md:p-8">
-        <div className="mx-auto max-w-7xl overflow-hidden rounded-md">
-          <Navigation />
+      <body className="h-screen bg-gray-800 p-2 text-white md:p-8">
+        <div className="relative mx-auto h-full max-w-7xl overflow-y-scroll rounded-md shadow-2xl">
           <div
             className={clsx(
-              "[&>*]:opacity-1 grid w-full grid-cols-1 divide-y-4 divide-gray-800 bg-gray-900 [&>*]:transition-opacity",
-              state === "loading" && "[&>*]:opacity-0"
+              "flex w-full flex-col bg-gray-900",
+              "[&>*:not(:first-child)]:opacity-1 [&>*:not(:first-child)]:transition-opacity",
+              state === "loading" && "[&>*:not(:first-child)]:opacity-0"
             )}
           >
+            <Navigation />
             <Outlet />
             <Footer />
           </div>

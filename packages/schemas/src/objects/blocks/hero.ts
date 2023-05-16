@@ -8,6 +8,7 @@ import {LINK_FRAGMENT} from '~/objects/link'
 export interface HeroBlockQuery extends BlockQuery {
   _type: typeof hero.name
   layout: (typeof layouts)[number]['value']
+  heading?: string
   body: string
   ctas: ArrayQuery<LinkQuery>
 }
@@ -39,6 +40,11 @@ export const hero = {
       options: {
         list: layouts,
       },
+    },
+    {
+      type: 'string',
+      name: 'heading',
+      title: 'Heading',
     },
     {
       type: 'text',

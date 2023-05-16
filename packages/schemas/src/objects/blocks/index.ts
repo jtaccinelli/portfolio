@@ -7,6 +7,18 @@ import {projects} from '~/objects/blocks/projects'
 import {skills} from '~/objects/blocks/skills'
 import {blogs} from '~/objects/blocks/blogs'
 import {ticker} from '~/objects/blocks/ticker'
+import {spacer} from '~/objects/blocks/spacer'
 
-export const blocks = [content, hero, cards, clients, projects, skills, blogs, ticker] as const
+export const blocks = [
+  content,
+  hero,
+  cards,
+  clients,
+  projects,
+  skills,
+  blogs,
+  ticker,
+  spacer,
+] as const
+
 export type BlockTypes = (typeof blocks)[number]['name']
