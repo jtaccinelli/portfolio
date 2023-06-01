@@ -15,7 +15,7 @@ function SimpleLayout({ content }: Props) {
         {content.cards?.map((item) => (
           <div key={item._key} className="flex flex-col items-start space-y-4">
             <p className="font-medium">{item.heading}</p>
-            <p className="h-full pb-8 text-gray-400">{item.body}</p>
+            <p className="h-full pb-8 text-gray-300">{item.body}</p>
             <CallToAction label={item.cta.label} link={item.cta.url} />
           </div>
         ))}

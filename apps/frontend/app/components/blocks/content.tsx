@@ -12,7 +12,7 @@ function SimpleLayout({ content }: Props) {
       <div className="flex max-w-xl flex-col items-start space-y-8">
         <h3 className="text-2xl font-medium">{content.heading}</h3>
         {content.body?.map((item, index) => (
-          <p key={index} className="text-gray-400">
+          <p key={index} className="text-gray-300">
             {item}
           </p>
         ))}
@@ -34,7 +34,7 @@ function GridLayout({ content }: Props) {
         {content.body?.map((item, index) => (
           <div key={index} className="flex flex-col space-y-4">
             <p className="font-medium">0{index + 1}</p>
-            <p className="text-gray-400">{item}</p>
+            <p className="text-gray-300">{item}</p>
           </div>
         ))}
       </div>
@@ -51,9 +51,12 @@ function ColumnsLayout({ content }: Props) {
   return (
     <div className="p-8 md:px-24">
       <h3 className="mb-8 text-2xl font-medium">{content.heading}</h3>
-      <div className="md:columns-3">
+      <div className="gap-8	md:columns-3">
         {content.body?.map((item, index) => (
-          <p key={index} className="mb-4 text-gray-400">
+          <p
+            key={index}
+            className="mb-4 break-inside-avoid-column leading-relaxed text-gray-300"
+          >
             {item}
           </p>
         ))}
