@@ -11,16 +11,16 @@ export function Footer() {
   const navigation = data.navigation as NavigationDocumentQuery;
 
   return (
-    <div className="grid grid-cols-1 gap-16 bg-accent-800 px-8 py-24 pb-32 md:px-24">
+    <div className="bg-accent-800 grid grid-cols-1 gap-16 px-8 py-24 pb-32 md:px-24">
       <div className="flex flex-col gap-2">
         <p className="font-medium text-white">Acknowledgment</p>
         <p className="max-w-xl">{footer.acknowledgement}</p>
       </div>
-      <div className="flex flex-col items-start space-y-2">
+      <div className="flex flex-col items-start gap-2">
         <p className="font-medium text-white">Connect</p>
         {navigation.connect?.map((item) => (
           <Link key={item._key} to={item.url}>
-            <p className="border-b-2 border-accent-700 transition-colors hover:border-accent-400">
+            <p className="border-accent-700 hover:border-accent-400 border-b-2 transition-colors">
               {item.label}
             </p>
           </Link>

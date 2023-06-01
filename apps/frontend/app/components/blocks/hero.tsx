@@ -10,9 +10,9 @@ interface Props {
 
 function SimpleLayout({ content }: Props) {
   return (
-    <div className="flex flex-col items-start justify-center space-y-8 overflow-hidden bg-gray-950 px-8 py-48 md:px-24">
+    <div className="flex flex-col items-start justify-center gap-8 overflow-hidden border-b border-gray-800 bg-gradient-to-bl from-gray-900 to-gray-950/50 px-8 py-48 md:px-24">
       {content.heading ? (
-        <h1 className="font-medium text-gray-600">{content.heading}</h1>
+        <h1 className="text-gray-600">{content.heading}</h1>
       ) : null}
       <p className="max-w-xl whitespace-pre-wrap text-3xl font-medium leading-relaxed">
         {content.body}
@@ -26,7 +26,7 @@ function SimpleLayout({ content }: Props) {
 
 function GraphicLayout({ content }: Props) {
   return (
-    <div className="relative flex flex-col items-start justify-center space-y-8 overflow-hidden bg-gray-950 px-8 py-48 md:px-24">
+    <div className="relative flex flex-col items-start justify-center gap-8 overflow-hidden border-b border-gray-800 bg-gradient-to-bl from-gray-900 to-gray-950/50 px-8 py-48 md:px-24">
       <div className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 scale-100 opacity-25 md:scale-150">
         <TextSpinner
           text="Design + Development +"
@@ -35,9 +35,9 @@ function GraphicLayout({ content }: Props) {
         />
       </div>
       {content.heading ? (
-        <h1 className="font-medium text-gray-600">{content.heading}</h1>
+        <h1 className="text-gray-600">{content.heading}</h1>
       ) : null}
-      <p className="max-w-xl whitespace-pre-wrap text-3xl font-medium leading-relaxed">
+      <p className="max-w-xl whitespace-pre-wrap text-3xl leading-relaxed">
         {content.body}
       </p>
       {content.ctas?.map((item) => (
@@ -49,9 +49,9 @@ function GraphicLayout({ content }: Props) {
 
 function NarrowLayout({ content }: Props) {
   return (
-    <div className="flex flex-col items-start justify-center space-y-8 overflow-hidden bg-gray-950 px-8 py-24 pt-36 md:px-24">
+    <div className="flex flex-col items-start justify-center gap-8 overflow-hidden border-b border-gray-800 bg-gradient-to-bl from-gray-900 to-gray-950/50 px-8 py-24 pt-36 md:px-24">
       {content.heading ? (
-        <h1 className="font-medium text-gray-600">{content.heading}</h1>
+        <h1 className="text-gray-600">{content.heading}</h1>
       ) : null}
       <p className="max-w-xl whitespace-pre-wrap text-3xl font-medium leading-relaxed">
         {content.body}
