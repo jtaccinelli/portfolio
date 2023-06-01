@@ -28,8 +28,8 @@ function SimpleLayout({ content }: Props) {
 
 function GridLayout({ content }: Props) {
   return (
-    <div className="flex flex-col gap-16 p-8 md:px-24">
-      <h3 className="max-w-xl text-3xl">{content.heading}</h3>
+    <div className="p-8 md:px-24">
+      <h3 className="text-2xl font-medium">{content.heading}</h3>
       <div className="grid grid-cols-3 gap-16">
         {content.body?.map((item, index) => (
           <div key={index} className="flex flex-col space-y-4">
@@ -47,11 +47,27 @@ function GridLayout({ content }: Props) {
   );
 }
 
+function ColumnsLayout({ content }: Props) {
+  return (
+    <div className="p-8 md:px-24">
+      <h3 className="mb-8 text-2xl font-medium">{content.heading}</h3>
+      <div className="md:columns-3">
+        {content.body?.map((item, index) => (
+          <p key={index} className="mb-4 text-gray-400">
+            {item}
+          </p>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 type Layouts = { [key in ContentBlockQuery["layout"]]: FC<Props> };
 
 const layouts: Layouts = {
   simple: SimpleLayout,
   grid: GridLayout,
+  columns: ColumnsLayout,
 };
 
 export function ContentBlock({ content }: Props) {

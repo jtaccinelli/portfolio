@@ -23,6 +23,7 @@ export const CONTENT_BLOCK_FRAGMENT = `
 const layouts = [
   {title: 'Simple', value: 'simple'},
   {title: 'Grid', value: 'grid'},
+  {title: 'Columns', value: 'columns'},
 ] as const
 
 export const content = {
