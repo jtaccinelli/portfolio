@@ -4,7 +4,7 @@ import {BlockQuery} from '~/shared/sanity'
 
 export interface SpacerBlockQuery extends BlockQuery {
   _type: typeof spacer.name
-  heights: (typeof heights)[number]['value']
+  height: (typeof heights)[number]['value']
 }
 
 export const SPACER_BLOCK_FRAGMENT = `
