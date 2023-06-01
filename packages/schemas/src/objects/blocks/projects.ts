@@ -13,8 +13,15 @@ export interface ProjectsBlockQuery extends BlockQuery {
 
 export const PROJECTS_BLOCK_FRAGMENT = `
   ...,
-  items[]->{
-    ${PROJECT_DOCUMENT_FRAGMENT}
+  count(items) > 0 => {
+    "items": items[]->{
+      ${PROJECT_DOCUMENT_FRAGMENT}
+    }
+  },
+  count(items) == 0 => {
+    "items": *[_type == "project"]{
+      ${PROJECT_DOCUMENT_FRAGMENT}
+    }
   }
 `
 

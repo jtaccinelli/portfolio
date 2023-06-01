@@ -14,8 +14,15 @@ export interface ClientsBlockQuery extends BlockQuery {
 
 export const CLIENTS_BLOCK_FRAGMENT = `
   ...,
-  items[]->{
-    ${CLIENT_DOCUMENT_FRAGMENT}
+  count(items) > 0 => {
+    "items": items[]->{
+      ${CLIENT_DOCUMENT_FRAGMENT}
+    }
+  },
+  count(items) == 0 => {
+    "items": *[_type == "client"]{
+      ${CLIENT_DOCUMENT_FRAGMENT}
+    }
   }
 `
 

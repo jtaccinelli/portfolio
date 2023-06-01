@@ -14,8 +14,15 @@ export interface BlogsBlockQuery extends BlockQuery {
 
 export const BLOGS_BLOCK_FRAGMENT = `
   ...,
-  items[]->{
-    ${BLOG_DOCUMENT_FRAGMENT}
+  count(items) > 0 => {
+    "items": items[]->{
+      ${BLOG_DOCUMENT_FRAGMENT}
+    }
+  },
+  count(items) == 0 => {
+    "items": *[_type == "blog"]{
+      ${BLOG_DOCUMENT_FRAGMENT}
+    }
   }
 `
 

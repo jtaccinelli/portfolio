@@ -14,8 +14,15 @@ export interface SkillsBlockQuery extends BlockQuery {
 
 export const SKILLS_BLOCK_FRAGMENT = `
   ...,
-  items[]->{
-    ${SKILL_DOCUMENT_FRAGMENT}
+  count(items) > 0 => {
+    "items": items[]->{
+      ${SKILL_DOCUMENT_FRAGMENT}
+    }
+  },
+  count(items) == 0 => {
+    "items": *[_type == "skill"]{
+      ${SKILL_DOCUMENT_FRAGMENT}
+    }
   }
 `
 
