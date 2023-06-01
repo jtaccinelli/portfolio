@@ -6,7 +6,7 @@ import { CardsBlock } from "~/app/components/blocks/cards";
 import { FallbackBlock } from "~/app/components/blocks/fallback";
 import { TickerBlock } from "~/app/components/blocks/ticker";
 import { ClientsBlock } from "~/app/components/blocks/clients";
-import { SpacerBlock } from "~/app/components/blocks/spacers";
+import { SpacerBlock } from "~/app/components/blocks/spacer";
 
 interface Props {
   content: BuilderQuery;
