@@ -1,7 +1,7 @@
-/** @type {import('tailwindcss').Config} */
-const colors = require("tailwindcss/colors");
+import type { Config } from "tailwindcss";
+import colors from "tailwindcss/colors";
 
-module.exports = {
+const config: Config = {
   content: ["./app/**/*.{js,ts,jsx,tsx}"],
   theme: {
     data: {
@@ -37,3 +37,5 @@ module.exports = {
   },
   plugins: [],
 };
+
+export default config;

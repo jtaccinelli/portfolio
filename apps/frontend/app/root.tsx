@@ -33,7 +33,7 @@ import { getSanityClient } from "~/app/lib/sanity";
 import { Navigation } from "~/app/components/globals/navigation";
 import { Footer } from "~/app/components/globals/footer";
 
-import styles from "./styles/index.css";
+import styles from "./styles/style.css";
 import fonts from "./styles/fonts.css";
 import icons from "boxicons/css/boxicons.min.css";
 
