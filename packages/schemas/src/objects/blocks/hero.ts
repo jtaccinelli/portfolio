@@ -16,6 +16,7 @@ export interface HeroBlockQuery extends BlockQuery {
 export const HERO_BLOCK_FRAGMENT = `
   ...,
   ctas[] {
+    _key,
     ${LINK_FRAGMENT}
   }
 `

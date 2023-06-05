@@ -15,6 +15,7 @@ export interface CardsBlockQuery extends BlockQuery {
 export const CARDS_BLOCK_FRAGMENT = `
   ...,
   cards[] {
+    _key,
     ${CARD_FRAGMENT}
   }
 `

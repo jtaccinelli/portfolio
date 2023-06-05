@@ -16,6 +16,7 @@ export interface ContentBlockQuery extends BlockQuery {
 export const CONTENT_BLOCK_FRAGMENT = `
   ...,
   ctas[] {
+    _key,
     ${LINK_FRAGMENT}
   }
 `
