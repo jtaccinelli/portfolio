@@ -14,7 +14,7 @@ function SimpleLayout({ content }: Props) {
       {content.heading ? (
         <h1 className="text-gray-600">{content.heading}</h1>
       ) : null}
-      <p className="max-w-xl whitespace-pre-wrap text-3xl font-medium leading-relaxed">
+      <p className="max-w-xl whitespace-pre-wrap text-3xl leading-relaxed">
         {content.body}
       </p>
       {content.ctas?.map((item) => (
@@ -53,7 +53,7 @@ function NarrowLayout({ content }: Props) {
       {content.heading ? (
         <h1 className="text-gray-600">{content.heading}</h1>
       ) : null}
-      <p className="max-w-xl whitespace-pre-wrap text-3xl font-medium leading-relaxed">
+      <p className="max-w-xl whitespace-pre-wrap text-3xl leading-relaxed">
         {content.body}
       </p>
       {content.ctas?.map((item) => (
