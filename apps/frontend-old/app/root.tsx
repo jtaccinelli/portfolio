@@ -89,19 +89,19 @@ export default function App() {
         <Links />
       </head>
       <body className="h-screen bg-gray-800 p-2 text-white md:p-8">
-        <div className="relative mx-auto h-full max-w-7xl overflow-y-scroll rounded-md shadow-2xl">
+        <main
+          id="main"
+          className="scrollbar-hidden relative mx-auto h-full max-w-7xl overflow-y-scroll rounded-md"
+        >
+          <Navigation />
           <div
-            className={clsx(
-              "flex w-full flex-col bg-gray-900",
-              "[&>*:not(:first-child)]:opacity-1 [&>*:not(:first-child)]:transition-opacity",
-              state === "loading" && "[&>*:not(:first-child)]:opacity-0"
-            )}
+            data-loading={state === "loading"}
+            className="[&>*]:opacity-1 flex w-full flex-col bg-gray-900 [&>*]:transition-opacity [&>*]:data-[loading=true]:opacity-0"
           >
-            <Navigation />
             <Outlet />
             <Footer />
           </div>
-        </div>
+        </main>
         <ScrollRestoration />
         <Scripts />
         <script

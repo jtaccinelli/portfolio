@@ -27,7 +27,7 @@ function SimpleLayout({ content }: Props) {
 function GraphicLayout({ content }: Props) {
   return (
     <div className="relative flex flex-col items-start justify-center gap-8 overflow-hidden border-b border-gray-800 bg-gradient-to-bl from-gray-900 to-gray-950/50 px-8 py-48 md:px-24">
-      <div className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 scale-100 opacity-25 md:scale-150">
+      <div className="pointer-events-none absolute bottom-1/4 right-1/4 translate-x-1/4 translate-y-1/4 scale-100 opacity-25 md:scale-150">
         <TextSpinner
           text="Design + Development +"
           repeats={7}

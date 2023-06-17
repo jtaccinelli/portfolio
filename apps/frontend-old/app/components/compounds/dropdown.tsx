@@ -92,7 +92,7 @@ function List({ children, className, isShow, ...props }: PropsList) {
     className: clsx(
       isShow
         ? "opacity-1 pointer-events-auto"
-        : "opacity-0 pointer-events-none translate-y-4",
+        : "opacity-0 pointer-events-none",
       children.props.className,
       className
     ),
