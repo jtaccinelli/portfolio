@@ -1,4 +1,3 @@
----
 import type { LoaderFunction } from "@remix-run/node";
 import { json } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
@@ -9,19 +8,19 @@ import { PAGE_QUERY } from "@portfolio/schemas";
 import { getSanityClient } from "@root/app/lib/sanity";
 import { ContentBuilder } from "@root/app/components/blocks/builder";
 
-const client = getSanityClient();
+export const loader: LoaderFunction = async () => {
+  const client = getSanityClient();
 
-const page = await client.fetch<PageDocumentQuery>(PAGE_QUERY, {
+  const page = await client.fetch<PageDocumentQuery>(PAGE_QUERY, {
     handle: "home",
-});
+  });
 
-return json({ page });
+  return json({ page });
+};
 
-const data = useLoaderData();
-const page = data.page as PageDocumentQuery;
+export default function Page() {
+  const data = useLoaderData();
+  const page = data.page as PageDocumentQuery;
 
----
-
-<Layout>
-    <ContentBuilder content={page.content} />
-</Layout>
+  return <ContentBuilder content={page.content} />;
+}

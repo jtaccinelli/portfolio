@@ -10,9 +10,10 @@ import { getSanityClient } from "@root/app/lib/sanity";
 import { ContentBuilder } from "@root/app/components/blocks/builder";
 
 const client = getSanityClient();
+const { handle } = Astro.params;
 
 const page = await client.fetch<PageDocumentQuery>(PAGE_QUERY, {
-    handle: "home",
+    handle: params.handle,
 });
 
 return json({ page });
