@@ -10,7 +10,7 @@ export interface BlogDocumentQuery extends DocumentQuery {
 export const blog: Collection = {
   name: "blog",
   label: "Blogs",
-  path: "src/content/posts",
+  path: "src/content/blogs",
   format: "json",
   fields: [
     {

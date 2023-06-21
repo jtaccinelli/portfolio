@@ -1,5 +1,8 @@
 import { defineConfig } from "tinacms";
 
+import { client } from "@tina/collections/client";
+import { blog } from "@tina/collections/blog";
+
 // Your hosting provider likely exposes this as an environment variable
 const branch = process.env.HEAD || "main";
 
@@ -20,6 +23,8 @@ export default defineConfig({
   },
   schema: {
     collections: [
+      blog,
+      client,
       {
         name: "post",
         label: "Posts",

@@ -1,14 +1,5 @@
-import type { CurrentUser, SanityDocument } from "sanity";
-
-import type { SchemaTypes } from "../../../../../portfolio/tina/schemas";
-import type { BlockTypes } from "@root/objects/blocks";
-
-export interface HiddenArgs {
-  document: SanityDocument | undefined;
-  parent: any;
-  value: any;
-  currentUser: Omit<CurrentUser, "role"> | null;
-}
+import type { SchemaTypes } from "@tina/schemas";
+import type { BlockTypes } from "@tina/objects/blocks";
 
 export interface ObjectQuery {
   _type: SchemaTypes;
