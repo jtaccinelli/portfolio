@@ -1,15 +1,6 @@
-import { url } from "@tina/objects/url";
-import type { DocumentQuery, SlugQuery } from "@tina/shared/sanity";
 import type { Collection } from "tinacms";
 
-export interface ClientDocumentQuery extends DocumentQuery {
-  _type: typeof client.name;
-  title: string;
-  handle: SlugQuery;
-  website?: string;
-  blurb: string;
-  logo: any; // TODO: Image Type
-}
+import { url } from "@tina/objects/url";
 
 export const client: Collection = {
   name: "client",
@@ -20,6 +11,7 @@ export const client: Collection = {
       type: "string",
       name: "title",
       label: "Title",
+      isTitle: true,
       required: true,
     },
     {

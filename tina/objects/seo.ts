@@ -1,35 +1,34 @@
-import type { Rule } from "sanity";
+import type { TinaField } from "tinacms";
 
-import type { ObjectQuery } from "@tina/shared/sanity";
-
-export interface SeoQuery extends ObjectQuery {
-  _type: typeof seo.name;
-  title: string;
-  description: string;
-  thumbnail: string;
-}
-
-export const seo = {
+export const seo: TinaField = {
   type: "object",
   name: "seo",
-  title: "SEO",
+  label: "SEO",
   fields: [
     {
       type: "string",
       name: "title",
-      title: "Title",
+      label: "Title",
+      required: true,
     },
     {
-      type: "text",
+      type: "string",
       name: "description",
-      title: "Description",
-      rows: 4,
-      validation: (rule: Rule) => rule.max(150),
+      label: "Description",
+      required: true,
+      ui: {
+        component: "textarea",
+        validate: (value) => {
+          if (value.length > 150) {
+            return "This should not be longer than 150 characters.";
+          }
+        },
+      },
     },
     {
       type: "image",
       name: "thumbnail",
-      title: "Thumbnail",
+      label: "Thumbnail",
     },
   ],
-} as const;
+};
