@@ -1,61 +1,39 @@
-import { EditIcon } from "@sanity/icons";
+import type { Template } from "tinacms";
 
-import type {
-  ArrayQuery,
-  BlockQuery,
-  ReferenceQuery,
-} from "@tina/shared/sanity";
-import type { BlogDocumentQuery } from "@tina/documents/blog";
-
-export interface BlogsBlockQuery extends BlockQuery {
-  _type: typeof blogs.name;
-  layout: (typeof layouts)[number]["value"];
-  heading: string;
-  items: ArrayQuery<ReferenceQuery<BlogDocumentQuery>>;
-}
-
-const layouts = [{ title: "Simple", value: "simple" }] as const;
-
-export const blogs = {
-  type: "object",
+export const blogs: Template = {
   name: "blogs",
-  title: "Blogs Block",
-  icon: EditIcon,
+  label: "Blogs Block",
   fields: [
     {
       type: "string",
       name: "layout",
-      title: "Layout",
-      initialValue: "simple",
-      options: {
-        list: layouts,
-      },
+      label: "Layout",
+      required: true,
+      options: [
+        {
+          label: "Simple",
+          value: "simple",
+        },
+      ],
     },
     {
       type: "string",
       name: "heading",
-      title: "Heading",
+      label: "Heading",
     },
     {
-      type: "array",
+      type: "object",
       name: "items",
-      title: "Items",
-      of: [
+      label: "Items",
+      list: true,
+      fields: [
         {
           type: "reference",
-          to: [{ type: "blog" }],
+          name: "blog",
+          label: "Blog",
+          collections: ["blog"],
         },
       ],
     },
   ],
-  preview: {
-    select: {
-      heading: "heading",
-    },
-    prepare: (selection: any) => ({
-      title: "Blogs Block",
-      subtitle: selection.heading as string,
-      media: EditIcon,
-    }),
-  },
-} as const;
+};

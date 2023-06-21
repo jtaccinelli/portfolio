@@ -1,52 +1,34 @@
-import { CopyIcon } from "@sanity/icons";
+import type { Template } from "tinacms";
 
-import type { ArrayQuery, BlockQuery } from "@tina/shared/sanity";
-import type { CardQuery } from "@tina/objects/card";
+import { card } from "@tina/objects/card";
 
-export interface CardsBlockQuery extends BlockQuery {
-  _type: typeof cards.name;
-  layout: (typeof layouts)[number]["value"];
-  heading: string;
-  cards: ArrayQuery<CardQuery>;
-}
-
-const layouts = [{ title: "Simple", value: "simple" }] as const;
-
-export const cards = {
-  type: "object",
+export const cards: Template = {
   name: "cards",
-  title: "Cards Block",
-  icon: CopyIcon,
+  label: "Cards Block",
   fields: [
     {
       type: "string",
       name: "layout",
-      title: "Layout",
-      initialValue: "simple",
-      options: {
-        list: layouts,
-      },
+      label: "Layout",
+      required: true,
+      options: [
+        {
+          label: "Simple",
+          value: "simple",
+        },
+      ],
     },
     {
       type: "string",
       name: "heading",
-      title: "Heading",
+      label: "Heading",
     },
     {
-      type: "array",
+      type: "object",
       name: "cards",
-      title: "Cards",
-      of: [{ type: "card" }],
+      label: "Cards",
+      list: true,
+      fields: [card],
     },
   ],
-  preview: {
-    select: {
-      heading: "heading",
-    },
-    prepare: (selection: any) => ({
-      title: "Cards Block",
-      subtitle: selection.heading,
-      media: CopyIcon,
-    }),
-  },
-} as const;
+};

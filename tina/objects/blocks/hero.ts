@@ -1,56 +1,35 @@
-import { ImageIcon } from "@sanity/icons";
+import type { Template } from "tinacms";
 
-import type { ArrayQuery, BlockQuery } from "@tina/shared/sanity";
-import type { LinkQuery } from "@tina/objects/link";
+import { link } from "@tina/objects/link";
 
-export interface HeroBlockQuery extends BlockQuery {
-  _type: typeof hero.name;
-  layout: (typeof layouts)[number]["value"];
-  body: string;
-  ctas: ArrayQuery<LinkQuery>;
-}
-
-const layouts = [
-  { title: "Simple", value: "simple" },
-  { title: "Graphic", value: "graphic" },
-] as const;
-
-export const hero = {
-  type: "object",
+export const hero: Template = {
   name: "hero",
-  title: "Hero Block",
-  icon: ImageIcon,
+  label: "Hero Block",
   fields: [
     {
       type: "string",
       name: "layout",
-      title: "Layout",
-      initialValue: "simple",
-      options: {
-        list: layouts,
+      label: "Layout",
+      required: true,
+      options: [
+        { label: "Simple", value: "simple" },
+        { label: "Graphic", value: "graphic" },
+      ],
+    },
+    {
+      type: "string",
+      name: "body",
+      label: "Body",
+      ui: {
+        component: "textarea",
       },
     },
     {
-      type: "text",
-      name: "body",
-      title: "Body",
-      rows: 4,
-    },
-    {
-      type: "array",
+      type: "object",
       name: "ctas",
-      title: "Calls to Action",
-      of: [{ type: "link" }],
+      label: "Calls to Action",
+      list: true,
+      fields: [link],
     },
   ],
-  preview: {
-    select: {
-      body: "body",
-    },
-    prepare: (selection: any) => ({
-      title: "Hero Block",
-      subtitle: selection.body,
-      media: ImageIcon,
-    }),
-  },
-} as const;
+};

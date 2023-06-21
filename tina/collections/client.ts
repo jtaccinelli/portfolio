@@ -6,6 +6,7 @@ export const client: Collection = {
   name: "client",
   label: "Clients",
   path: "src/content/clients",
+  format: "json",
   fields: [
     {
       type: "string",

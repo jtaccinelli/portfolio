@@ -1,95 +1,72 @@
-import type { Rule } from "sanity";
-import { PresentationIcon } from "@sanity/icons";
+import type { Collection } from "tinacms";
 
-import type {
-  ArrayQuery,
-  DocumentQuery,
-  ReferenceQuery,
-  SlugQuery,
-} from "@tina/shared/sanity";
+import { defineCustomField } from "@tina/utils";
 
-import type { ClientDocumentQuery } from "@tina/documents/client";
-import type { SkillDocumentQuery } from "@tina/documents/skill";
+import { seo } from "@tina/objects/seo";
+import { link } from "@tina/objects/link";
 
-import type { SeoQuery } from "@tina/objects/seo";
-
-export interface ProjectDocumentQuery extends DocumentQuery {
-  _type: typeof project.name;
-  title: string;
-  handle: SlugQuery;
-  subtitle: string;
-  blurb: string;
-  client: ReferenceQuery<ClientDocumentQuery>;
-  skills: ArrayQuery<ReferenceQuery<SkillDocumentQuery>>;
-  completed_on: any; // TODO: Date Data Type;
-  live_site: string;
-  seo: SeoQuery;
-}
-
-export const project = {
-  type: "document",
+export const project: Collection = {
   name: "project",
-  title: "Projects",
-  icon: PresentationIcon,
+  label: "Projects",
+  path: "src/content/projects",
+  format: "json",
   fields: [
     {
       type: "string",
       name: "title",
-      title: "Title",
-      validation: (rule: Rule) => rule.required(),
+      label: "Title",
+      isTitle: true,
+      required: true,
     },
     {
-      type: "slug",
+      type: "string",
       name: "handle",
-      title: "Handle",
-      validation: (rule: Rule) => rule.required(),
-      options: {
-        source: "title",
-      },
+      label: "Handle",
+      required: true,
     },
     {
       type: "string",
       name: "subtitle",
-      title: "Subtitle",
+      label: "Subtitle",
     },
     {
-      type: "text",
+      type: "string",
       name: "blurb",
-      title: "Blurb",
-      rows: 4,
+      label: "Blurb",
+      ui: {
+        component: "textarea",
+      },
     },
     {
       type: "reference",
       name: "client",
-      title: "Client",
-      to: [{ type: "client" }],
+      label: "Client",
+      collections: ["client"],
     },
     {
-      type: "array",
+      type: "object",
       name: "skills",
-      title: "Skills",
-      of: [
+      label: "Skills",
+      list: true,
+      fields: [
         {
           type: "reference",
-          to: [{ type: "skill" }],
+          name: "skill",
+          label: "Skill",
+          collections: ["skill"],
         },
       ],
     },
     {
-      type: "date",
-      name: "completed_on",
-      title: "Date Completed",
-      validation: (rule: Rule) => rule.required(),
+      type: "datetime",
+      name: "completedOn",
+      label: "Date Completed",
+      required: true,
     },
-    {
-      type: "url",
-      name: "live_site",
-      title: "Live Site",
-    },
-    {
-      type: "seo",
-      name: "seo",
-      title: "SEO",
-    },
+    defineCustomField(link, {
+      name: "liveSite",
+      label: "Live Site",
+    }),
+    seo,
   ],
-} as const;
+};

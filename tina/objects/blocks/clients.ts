@@ -1,61 +1,39 @@
-import { UserIcon } from "@sanity/icons";
+import type { Template } from "tinacms";
 
-import type {
-  ArrayQuery,
-  BlockQuery,
-  ReferenceQuery,
-} from "@tina/shared/sanity";
-import type { ClientDocumentQuery } from "@tina/documents/client";
-
-export interface ClientsBlockQuery extends BlockQuery {
-  _type: typeof clients.name;
-  layouts: (typeof layouts)[number]["value"];
-  heading: string;
-  items: ArrayQuery<ReferenceQuery<ClientDocumentQuery>>;
-}
-
-const layouts = [{ title: "Simple", value: "simple" }] as const;
-
-export const clients = {
-  type: "object",
+export const clients: Template = {
   name: "clients",
-  title: "Clients Block",
-  icon: UserIcon,
+  label: "Clients Block",
   fields: [
     {
       type: "string",
       name: "layout",
-      title: "Layout",
-      initialValue: layouts[0].value,
-      options: {
-        list: layouts,
-      },
+      label: "Layout",
+      required: true,
+      options: [
+        {
+          label: "Simple",
+          value: "simple",
+        },
+      ],
     },
     {
       type: "string",
       name: "heading",
-      title: "Heading",
+      label: "Heading",
     },
     {
-      type: "array",
+      type: "object",
       name: "items",
-      title: "Items",
-      of: [
+      label: "Items",
+      list: true,
+      fields: [
         {
           type: "reference",
-          to: [{ type: "client" }],
+          name: "client",
+          label: "Client",
+          collections: ["client"],
         },
       ],
     },
   ],
-  preview: {
-    select: {
-      heading: "heading",
-    },
-    prepare: (selection: any) => ({
-      title: "Client Block",
-      subtitle: selection.heading,
-      media: UserIcon,
-    }),
-  },
-} as const;
+};

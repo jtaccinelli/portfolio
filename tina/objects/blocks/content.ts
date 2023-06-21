@@ -1,62 +1,40 @@
-import { BlockContentIcon } from "@sanity/icons";
+import type { Template } from "tinacms";
 
-import type { ArrayQuery, BlockQuery } from "@tina/shared/sanity";
-import type { LinkQuery } from "@tina/objects/link";
+import { link } from "@tina/objects/link";
 
-export interface ContentBlockQuery extends BlockQuery {
-  _type: typeof content.name;
-  layout: (typeof layouts)[number]["value"];
-  heading: string;
-  body: ArrayQuery<string>;
-  ctas: ArrayQuery<LinkQuery>;
-}
-
-const layouts = [
-  { title: "Simple", value: "simple" },
-  { title: "Grid", value: "grid" },
-] as const;
-
-export const content = {
-  type: "object",
+export const content: Template = {
   name: "content",
-  title: "Content Block",
-  icon: BlockContentIcon,
+  label: "Content Block",
   fields: [
     {
       type: "string",
       name: "layout",
-      title: "Layout",
-      initialValue: "simple",
-      options: {
-        list: layouts,
-      },
+      label: "Layout",
+      options: [
+        { label: "Simple", value: "simple" },
+        { label: "Grid", value: "grid" },
+      ],
     },
     {
       type: "string",
       name: "heading",
-      title: "Heading",
+      label: "Heading",
     },
     {
-      type: "array",
+      type: "string",
       name: "body",
-      title: "Body",
-      of: [{ type: "text", rows: 4 }],
+      label: "Body",
+      list: true,
+      ui: {
+        component: "textarea",
+      },
     },
     {
-      type: "array",
+      type: "object",
       name: "ctas",
-      title: "Calls to Action",
-      of: [{ type: "link" }],
+      label: "Calls to Action",
+      list: true,
+      fields: [link],
     },
   ],
-  preview: {
-    select: {
-      heading: "heading",
-    },
-    prepare: (selection: any) => ({
-      title: "Content Block",
-      subtitle: selection.heading,
-      media: BlockContentIcon,
-    }),
-  },
-} as const;
+};

@@ -1,33 +1,30 @@
-import type { ObjectQuery } from "@tina/shared/sanity";
-import type { LinkQuery } from "@tina/objects/link";
+import type { TinaField } from "tinacms";
 
-export interface CardQuery extends ObjectQuery {
-  _type: typeof card.name;
-  heading: string;
-  body: string;
-  cta: LinkQuery;
-}
+import { defineCustomField } from "@tina/utils";
 
-export const card = {
+import { link } from "@tina/objects/link";
+
+export const card: TinaField = {
   type: "object",
   name: "card",
-  title: "Name",
+  label: "Card",
   fields: [
     {
       type: "string",
       name: "heading",
-      title: "Heading",
+      label: "Heading",
     },
     {
-      type: "text",
+      type: "string",
       name: "body",
-      title: "Body",
-      rows: 4,
+      label: "Body",
+      ui: {
+        component: "textarea",
+      },
     },
-    {
-      type: "link",
+    defineCustomField(link, {
       name: "cta",
-      title: "CTA",
-    },
+      label: "CTA",
+    }),
   ],
-} as const;
+};

@@ -1,61 +1,39 @@
-import { ControlsIcon } from "@sanity/icons";
+import type { Template } from "tinacms";
 
-import type {
-  ArrayQuery,
-  BlockQuery,
-  ReferenceQuery,
-} from "@tina/shared/sanity";
-import type { SkillDocumentQuery } from "@tina/documents/skill";
-
-export interface SkillsBlockQuery extends BlockQuery {
-  _type: typeof skills.name;
-  layout: (typeof layouts)[number]["value"];
-  heading: string;
-  items: ArrayQuery<ReferenceQuery<SkillDocumentQuery>>;
-}
-
-const layouts = [{ title: "Simple", value: "simple" }] as const;
-
-export const skills = {
-  type: "object",
+export const skills: Template = {
   name: "skills",
-  title: "Skills Block",
-  icon: ControlsIcon,
+  label: "Skills Block",
   fields: [
     {
       type: "string",
       name: "layout",
-      title: "Layout",
-      initialValue: "simple",
-      options: {
-        list: layouts,
-      },
+      label: "Layout",
+      required: true,
+      options: [
+        {
+          label: "Simple",
+          value: "simple",
+        },
+      ],
     },
     {
       type: "string",
       name: "heading",
-      title: "Heading",
+      label: "Heading",
     },
     {
-      type: "array",
-      name: "items",
-      title: "Items",
-      of: [
+      type: "object",
+      name: "skills",
+      label: "Skills",
+      list: true,
+      fields: [
         {
           type: "reference",
-          to: [{ type: "skill" }],
+          name: "skill",
+          label: "Skill",
+          collections: ["skill"],
         },
       ],
     },
   ],
-  preview: {
-    select: {
-      heading: "heading",
-    },
-    prepare: (selection: any) => ({
-      title: "Skills Block",
-      subtitle: selection.heading,
-      media: ControlsIcon,
-    }),
-  },
-} as const;
+};

@@ -1,53 +1,38 @@
-import type { Rule } from "sanity";
-import { ControlsIcon } from "@sanity/icons";
+import { seo } from "@tina/objects/seo";
+import type { Collection } from "tinacms";
 
-import type { DocumentQuery, SlugQuery } from "@tina/shared/sanity";
-import type { SeoQuery } from "@tina/objects/seo";
-
-export interface SkillDocumentQuery extends DocumentQuery {
-  _type: typeof skill.name;
-  title: string;
-  handle: SlugQuery;
-  subtitle: string;
-  blurb: string;
-  seo: SeoQuery;
-}
-
-export const skill = {
-  type: "document",
+export const skill: Collection = {
   name: "skill",
-  title: "Skills",
-  icon: ControlsIcon,
+  label: "Skills",
+  path: "src/content/skills",
+  format: "json",
   fields: [
     {
       type: "string",
       name: "title",
-      title: "Title",
+      label: "Title",
+      required: true,
+      isTitle: true,
     },
     {
-      type: "slug",
+      type: "string",
       name: "handle",
-      title: "Handle",
-      validation: (rule: Rule) => rule.required(),
-      options: {
-        source: "title",
-      },
+      label: "Handle",
+      required: true,
     },
     {
       type: "string",
       name: "subtitle",
-      title: "Subtitle",
+      label: "Subtitle",
     },
     {
-      type: "text",
+      type: "string",
       name: "blurb",
-      title: "Blurb",
-      rows: 4,
+      label: "Blurb",
+      ui: {
+        component: "textarea",
+      },
     },
-    {
-      type: "seo",
-      name: "seo",
-      title: "SEO",
-    },
+    seo,
   ],
-} as const;
+};

@@ -1,4 +1,5 @@
 import type { TinaField } from "tinacms";
+
 import { url } from "@tina/objects/url";
 
 export const link: TinaField = {
