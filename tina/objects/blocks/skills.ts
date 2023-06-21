@@ -4,8 +4,8 @@ import type {
   ArrayQuery,
   BlockQuery,
   ReferenceQuery,
-} from "@root/shared/sanity";
-import type { SkillDocumentQuery } from "@root/documents/skill";
+} from "@tina/shared/sanity";
+import type { SkillDocumentQuery } from "@tina/documents/skill";
 
 export interface SkillsBlockQuery extends BlockQuery {
   _type: typeof skills.name;

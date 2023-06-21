@@ -1,8 +1,8 @@
 import { CogIcon } from "@sanity/icons";
 
-import type { DocumentQuery } from "@root/shared/sanity";
+import type { DocumentQuery } from "@tina/shared/sanity";
 
-import type { SeoQuery } from "@root/objects/seo";
+import type { SeoQuery } from "@tina/objects/seo";
 
 export interface ConfigurationDocumentQuery extends DocumentQuery {
   _type: typeof configuration.name;

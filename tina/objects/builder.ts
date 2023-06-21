@@ -1,13 +1,13 @@
-import type { ArrayQuery } from "@root/shared/sanity";
+import type { ArrayQuery } from "@tina/shared/sanity";
 
-import type { HeroBlockQuery } from "@root/objects/blocks/hero";
-import type { ContentBlockQuery } from "@root/objects/blocks/content";
-import type { CardsBlockQuery } from "@root/objects/blocks/cards";
-import type { ClientsBlockQuery } from "@root/objects/blocks/clients";
-import type { SkillsBlockQuery } from "@root/objects/blocks/skills";
-import type { ProjectsBlockQuery } from "@root/objects/blocks/projects";
-import type { BlogsBlockQuery } from "@root/objects/blocks/blogs";
-import type { TickerBlockQuery } from "@root/objects/blocks/ticker";
+import type { HeroBlockQuery } from "@tina/objects/blocks/hero";
+import type { ContentBlockQuery } from "@tina/objects/blocks/content";
+import type { CardsBlockQuery } from "@tina/objects/blocks/cards";
+import type { ClientsBlockQuery } from "@tina/objects/blocks/clients";
+import type { SkillsBlockQuery } from "@tina/objects/blocks/skills";
+import type { ProjectsBlockQuery } from "@tina/objects/blocks/projects";
+import type { BlogsBlockQuery } from "@tina/objects/blocks/blogs";
+import type { TickerBlockQuery } from "@tina/objects/blocks/ticker";
 
 export type BuilderQuery = ArrayQuery<
   | HeroBlockQuery

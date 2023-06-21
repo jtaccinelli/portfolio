@@ -1,10 +1,10 @@
 import { DocumentsIcon } from "@sanity/icons";
 
-import type { DocumentQuery, SlugQuery } from "@root/shared/sanity";
+import type { DocumentQuery, SlugQuery } from "@tina/shared/sanity";
 
-import type { BuilderQuery } from "@root/objects/builder";
-import type { SeoQuery } from "@root/objects/seo";
-import { LINK_FRAGMENT } from "@root/objects/link";
+import type { BuilderQuery } from "@tina/objects/builder";
+import type { SeoQuery } from "@tina/objects/seo";
+import { LINK_FRAGMENT } from "@tina/objects/link";
 
 export interface PageDocumentQuery extends DocumentQuery {
   _type: typeof page.name;

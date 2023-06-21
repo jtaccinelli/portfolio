@@ -4,8 +4,8 @@ import type {
   ArrayQuery,
   BlockQuery,
   ReferenceQuery,
-} from "@root/shared/sanity";
-import type { BlogDocumentQuery } from "@root/documents/blog";
+} from "@tina/shared/sanity";
+import type { BlogDocumentQuery } from "@tina/documents/blog";
 
 export interface BlogsBlockQuery extends BlockQuery {
   _type: typeof blogs.name;

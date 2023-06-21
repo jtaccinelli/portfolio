@@ -1,7 +1,7 @@
 import { CopyIcon } from "@sanity/icons";
 
-import type { ArrayQuery, BlockQuery } from "@root/shared/sanity";
-import type { CardQuery } from "@root/objects/card";
+import type { ArrayQuery, BlockQuery } from "@tina/shared/sanity";
+import type { CardQuery } from "@tina/objects/card";
 
 export interface CardsBlockQuery extends BlockQuery {
   _type: typeof cards.name;

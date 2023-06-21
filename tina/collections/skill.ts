@@ -1,8 +1,8 @@
 import type { Rule } from "sanity";
 import { ControlsIcon } from "@sanity/icons";
 
-import type { DocumentQuery, SlugQuery } from "@root/shared/sanity";
-import type { SeoQuery } from "@root/objects/seo";
+import type { DocumentQuery, SlugQuery } from "@tina/shared/sanity";
+import type { SeoQuery } from "@tina/objects/seo";
 
 export interface SkillDocumentQuery extends DocumentQuery {
   _type: typeof skill.name;

@@ -1,9 +1,9 @@
 import { MenuIcon } from "@sanity/icons";
 
-import type { ArrayQuery, DocumentQuery } from "@root/shared/sanity";
+import type { ArrayQuery, DocumentQuery } from "@tina/shared/sanity";
 
-import type { LinkQuery } from "@root/objects/link";
-import { LINK_FRAGMENT } from "@root/objects/link";
+import type { LinkQuery } from "@tina/objects/link";
+import { LINK_FRAGMENT } from "@tina/objects/link";
 
 export interface NavigationDocumentQuery extends DocumentQuery {
   _type: typeof navigation.name;

@@ -1,6 +1,6 @@
 import { ArrowRightIcon } from "@sanity/icons";
 import { Rule } from "sanity";
-import { BlockQuery } from "@root/shared/sanity";
+import { BlockQuery } from "@tina/shared/sanity";
 
 export interface TickerBlockQuery extends BlockQuery {
   _type: typeof ticker.name;

@@ -1,6 +1,6 @@
 import type { Rule } from "sanity";
 
-import type { ObjectQuery } from "@root/shared/sanity";
+import type { ObjectQuery } from "@tina/shared/sanity";
 
 export interface SeoQuery extends ObjectQuery {
   _type: typeof seo.name;

@@ -4,8 +4,8 @@ import type {
   ArrayQuery,
   BlockQuery,
   ReferenceQuery,
-} from "@root/shared/sanity";
-import type { ClientDocumentQuery } from "@root/documents/client";
+} from "@tina/shared/sanity";
+import type { ClientDocumentQuery } from "@tina/documents/client";
 
 export interface ClientsBlockQuery extends BlockQuery {
   _type: typeof clients.name;

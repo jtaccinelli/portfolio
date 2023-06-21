@@ -6,12 +6,12 @@ import type {
   DocumentQuery,
   ReferenceQuery,
   SlugQuery,
-} from "@root/shared/sanity";
+} from "@tina/shared/sanity";
 
-import type { ClientDocumentQuery } from "@root/documents/client";
-import type { SkillDocumentQuery } from "@root/documents/skill";
+import type { ClientDocumentQuery } from "@tina/documents/client";
+import type { SkillDocumentQuery } from "@tina/documents/skill";
 
-import type { SeoQuery } from "@root/objects/seo";
+import type { SeoQuery } from "@tina/objects/seo";
 
 export interface ProjectDocumentQuery extends DocumentQuery {
   _type: typeof project.name;

@@ -1,12 +1,5 @@
-import type { Rule } from "sanity";
-
-import type { ObjectQuery } from "@root/shared/sanity";
-
-export interface LinkQuery extends ObjectQuery {
-  _type: typeof link.name;
-  label: string;
-  url: string;
-}
+import type { TinaField } from "tinacms";
+import { url } from "@tina/objects/url";
 
 export const LINK_FRAGMENT = `
   label,
@@ -22,49 +15,41 @@ export const LINK_FRAGMENT = `
   ),
 `;
 
-const variants = [
-  { title: "Reference", value: "reference" },
-  { title: "URL", value: "url" },
-] as const;
-
-export const link = {
+export const link: TinaField = {
   type: "object",
   name: "link",
-  title: "Link",
-  fields: [
+  label: "Link",
+  templates: [
     {
-      type: "string",
-      name: "label",
-      title: "Label",
-    },
-    {
-      type: "string",
-      name: "variant",
-      title: "Variant",
-      initialValue: "reference",
-      options: {
-        list: variants,
-      },
-      validation: (rule: Rule) => rule.required(),
-    },
-    {
-      type: "reference",
       name: "reference",
-      title: "Reference",
-      to: [
-        { type: "project" },
-        { type: "client" },
-        { type: "skill" },
-        { type: "page" },
-        { type: "blog" },
+      label: "Reference",
+      fields: [
+        {
+          type: "string",
+          name: "label",
+          label: "Label",
+        },
+        {
+          type: "reference",
+          name: "reference",
+          label: "Reference",
+          collections: ["project", "client", "skill", "page", "blog"],
+        },
       ],
-      hidden: ({ parent }: any) => parent?.variant !== "reference",
     },
     {
-      type: "url",
-      name: "url",
-      title: "URL",
-      hidden: ({ parent }: any) => parent?.variant !== "url",
+      name: "external",
+      label: "External URL",
+      fields: [
+        {
+          type: "string",
+          name: "label",
+          label: "Label",
+        },
+        Object.assign(url, {
+          required: true,
+        }),
+      ],
     },
   ],
-} as const;
+};

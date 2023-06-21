@@ -1,9 +1,8 @@
-import { BlockElementIcon } from "@sanity/icons";
+import type { ArrayQuery, DocumentQuery } from "@tina/shared/sanity";
 
-import type { ArrayQuery, DocumentQuery } from "@root/shared/sanity";
-
-import type { LinkQuery } from "@root/objects/link";
-import { LINK_FRAGMENT } from "@root/objects/link";
+import type { LinkQuery } from "@tina/objects/link";
+import { LINK_FRAGMENT } from "@tina/objects/link";
+import type { Collection } from "tinacms";
 
 export interface FooterDocumentQuery extends DocumentQuery {
   _type: typeof footer.name;
@@ -22,24 +21,25 @@ export const FOOTER_QUERY = `
 }
 `;
 
-export const footer = {
-  type: "document",
+export const footer: Collection = {
   name: "footer",
-  title: "Footer",
-  icon: BlockElementIcon,
+  label: "Footer",
+  path: "src/content/footer",
+  format: "json",
+  ui: {
+    allowedActions: {
+      create: false,
+      delete: false,
+    },
+  },
   fields: [
     {
       type: "string",
-      name: "title",
-      title: "Title",
-      hidden: true,
-      initialValue: "Footer",
-    },
-    {
-      type: "text",
       name: "acknowledgement",
-      title: "Acknowledgement",
-      rows: 4,
+      label: "Acknowledgement",
+      ui: {
+        component: "text-area",
+      },
     },
     {
       type: "array",
@@ -48,4 +48,4 @@ export const footer = {
       of: [{ type: "link" }],
     },
   ],
-} as const;
+};

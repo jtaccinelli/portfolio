@@ -1,3 +1,4 @@
+import { url } from "@tina/objects/url";
 import type { DocumentQuery, SlugQuery } from "@tina/shared/sanity";
 import type { Collection } from "tinacms";
 
@@ -27,18 +28,11 @@ export const client: Collection = {
       label: "Handle",
       required: true,
     },
-    {
-      type: "string",
+    Object.assign(url, {
       name: "website",
       label: "Website",
-      ui: {
-        validate: (value) => {
-          if (!Boolean(new URL(value))) {
-            return "This value should be a URL.";
-          }
-        },
-      },
-    },
+      required: true,
+    }),
     {
       type: "string",
       name: "blurb",

@@ -1,5 +1,5 @@
-import type { ObjectQuery } from "@root/shared/sanity";
-import type { LinkQuery } from "@root/objects/link";
+import type { ObjectQuery } from "@tina/shared/sanity";
+import type { LinkQuery } from "@tina/objects/link";
 
 export interface CardQuery extends ObjectQuery {
   _type: typeof card.name;

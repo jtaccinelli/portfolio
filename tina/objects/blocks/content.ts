@@ -1,7 +1,7 @@
 import { BlockContentIcon } from "@sanity/icons";
 
-import type { ArrayQuery, BlockQuery } from "@root/shared/sanity";
-import type { LinkQuery } from "@root/objects/link";
+import type { ArrayQuery, BlockQuery } from "@tina/shared/sanity";
+import type { LinkQuery } from "@tina/objects/link";
 
 export interface ContentBlockQuery extends BlockQuery {
   _type: typeof content.name;

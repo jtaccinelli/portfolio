@@ -4,8 +4,8 @@ import type {
   ArrayQuery,
   BlockQuery,
   ReferenceQuery,
-} from "@root/shared/sanity";
-import type { ProjectDocumentQuery } from "@root/documents/project";
+} from "@tina/shared/sanity";
+import type { ProjectDocumentQuery } from "@tina/documents/project";
 
 export interface ProjectsBlockQuery extends BlockQuery {
   _type: typeof projects.name;
