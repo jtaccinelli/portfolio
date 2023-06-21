@@ -1,12 +1,18 @@
 import type { Collection } from "tinacms";
 
-import { link } from "@tina/objects/link";
+import { link } from "../objects/link";
 
 export const navigation: Collection = {
   name: "navigation",
   label: "Navigation",
   path: "src/content/navigation",
   format: "json",
+  ui: {
+    allowedActions: {
+      create: false,
+      delete: false,
+    },
+  },
   fields: [
     {
       type: "string",

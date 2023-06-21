@@ -1,8 +1,8 @@
 import type { TinaField } from "tinacms";
 
-import { defineCustomField } from "@tina/utils";
+import { defineCustomField } from "../utils";
 
-import { link } from "@tina/objects/link";
+import { link } from "./link";
 
 export const card: TinaField = {
   type: "object",

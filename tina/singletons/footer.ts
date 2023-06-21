@@ -1,6 +1,6 @@
 import type { Collection } from "tinacms";
 
-import { link } from "@tina/objects/link";
+import { link } from "../objects/link";
 
 export const footer: Collection = {
   name: "footer",

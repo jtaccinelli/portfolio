@@ -1,6 +1,6 @@
 import type { Collection } from "tinacms";
 
-import { url } from "@tina/objects/url";
+import { url } from "../objects/url";
 
 export const client: Collection = {
   name: "client",
@@ -24,7 +24,6 @@ export const client: Collection = {
     Object.assign(url, {
       name: "website",
       label: "Website",
-      required: true,
     }),
     {
       type: "string",

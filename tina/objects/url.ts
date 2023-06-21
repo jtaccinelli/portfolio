@@ -6,7 +6,9 @@ export const url: TinaField = {
   label: "URL",
   ui: {
     validate: (value) => {
-      if (!Boolean(new URL(value))) {
+      try {
+        new URL(value);
+      } catch (error) {
         return "This value should be a URL.";
       }
     },

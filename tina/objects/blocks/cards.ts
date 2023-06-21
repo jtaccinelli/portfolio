@@ -1,6 +1,6 @@
 import type { Template } from "tinacms";
 
-import { card } from "@tina/objects/card";
+import { card } from "../card";
 
 export const cards: Template = {
   name: "cards",

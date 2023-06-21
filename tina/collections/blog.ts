@@ -11,12 +11,14 @@ export const blog: Collection = {
       name: "title",
       label: "Title",
       isTitle: true,
+      required: true,
     },
     {
       type: "rich-text",
       name: "content",
       label: "Content",
       isBody: true,
+      required: true,
     },
   ],
 };

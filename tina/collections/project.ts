@@ -1,9 +1,9 @@
 import type { Collection } from "tinacms";
 
-import { defineCustomField } from "@tina/utils";
+import { defineCustomField } from "../utils";
 
-import { seo } from "@tina/objects/seo";
-import { link } from "@tina/objects/link";
+import { seo } from "../objects/seo";
+import { link } from "../objects/link";
 
 export const project: Collection = {
   name: "project",

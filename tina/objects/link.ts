@@ -1,6 +1,6 @@
 import type { TinaField } from "tinacms";
 
-import { url } from "@tina/objects/url";
+import { url } from "./url";
 
 export const link: TinaField = {
   type: "object",
@@ -16,12 +16,12 @@ export const link: TinaField = {
           name: "label",
           label: "Label",
         },
-        {
-          type: "reference",
-          name: "reference",
-          label: "Reference",
-          collections: ["project", "client", "skill", "page", "blog"],
-        },
+        // {
+        //   type: "reference",
+        //   name: "reference",
+        //   label: "Reference",
+        //   collections: ["project", "client", "skill", "page", "blog"],
+        // },
       ],
     },
     {

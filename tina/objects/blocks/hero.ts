@@ -1,6 +1,6 @@
 import type { Template } from "tinacms";
 
-import { link } from "@tina/objects/link";
+import { link } from "../link";
 
 export const hero: Template = {
   name: "hero",

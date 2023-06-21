@@ -3,7 +3,7 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@tina/*": ["src/*"],
+      "@root/*": ["src/*"],
       "@tina/*": ["tina/*"]
     }
   }

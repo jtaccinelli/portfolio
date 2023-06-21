@@ -1,5 +1,7 @@
-import { seo } from "@tina/objects/seo";
 import type { Collection } from "tinacms";
+
+import { builder } from "../objects/builder";
+import { seo } from "../objects/seo";
 
 export const page: Collection = {
   name: "page",
@@ -20,11 +22,7 @@ export const page: Collection = {
       label: "Handle",
       required: true,
     },
-    {
-      type: "builder",
-      label: "content",
-      title: "Content",
-    },
+    builder,
     seo,
   ],
 };

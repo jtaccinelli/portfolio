@@ -1,13 +1,16 @@
 import { defineConfig } from "tinacms";
 
 // Regular Collections
-import { client } from "@tina/collections/client";
-import { blog } from "@tina/collections/blog";
+import { client } from "./collections/client";
+import { blog } from "./collections/blog";
+import { page } from "./collections/page";
+import { project } from "./collections/project";
+import { skill } from "./collections/skill";
 
 // Singletons Collections
-import { navigation } from "@tina/singletons/navigation";
-import { footer } from "@tina/singletons/footer";
-import { configuration } from "@tina/singletons/configuration";
+import { navigation } from "./singletons/navigation";
+import { footer } from "./singletons/footer";
+import { configuration } from "./singletons/configuration";
 
 // Your hosting provider likely exposes this as an environment variable
 const branch = process.env.HEAD || "main";
@@ -31,7 +34,10 @@ export default defineConfig({
     collections: [
       blog,
       client,
-      // SINGLETONS
+      // page,
+      project,
+      skill,
+      // // SINGLETONS
       navigation,
       footer,
       configuration,

@@ -1,5 +1,6 @@
-import { seo } from "@tina/objects/seo";
 import type { Collection } from "tinacms";
+
+import { seo } from "../objects/seo";
 
 export const skill: Collection = {
   name: "skill",
