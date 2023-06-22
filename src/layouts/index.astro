@@ -1,0 +1,37 @@
+---
+import Footer from '@root/components/globals/footer.astro';
+import Navigation from '@root/components/globals/navigation.astro';
+
+type Props = {
+    title: string;
+    description: string;
+}
+
+const { title, description } = Astro.props;
+
+const favicon = "data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🤖</text></svg>";
+---
+
+<html lang="en">
+	<head>
+        <title>{title}</title>
+        <meta name="description" content={description} />
+        <link rel="icon" href={favicon} />
+	</head>
+	<body class="bg-gray-800 p-2 text-white md:p-8">
+	  <main class="mx-auto max-w-7xl overflow-hidden rounded-md">
+		<Navigation />
+		<div
+		  class="grid w-full grid-cols-1 divide-y-4 divide-gray-800 bg-gray-900"
+		>
+          </slot>
+		  <Footer />
+		</div>
+	  </div>
+	  <script
+		defer
+		data-domain="jtaccinelli.com.au"
+		src="https://plausible.io/js/script.js"
+	  />
+	</body>
+  </html>

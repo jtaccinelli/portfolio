@@ -1,20 +1,26 @@
 {
   "name": "portfolio",
-  "version": "1.0.0",
-  "repository": "https://github.com/jtaccinelli/portfolio.git",
-  "author": "Jordan <jtaccinelli@gmail.com>",
-  "private": true,
-  "workspaces": {
-    "packages": [
-      "packages/*",
-      "apps/*"
-    ]
-  },
+  "type": "module",
+  "version": "0.0.1",
   "scripts": {
-    "build": "lerna run build",
-    "dev": "lerna run dev"
+    "dev:tina": "tinacms dev",
+    "dev:astro": "astro dev",
+    "dev": "run-p dev:*",
+    "build:tina": "tinacms build",
+    "build:astro": "astro build",
+    "build": "run-s build:*",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/tailwind": "^4.0.0",
+    "astro": "^2.6.5",
+    "boxicons": "^2.1.4",
+    "tailwindcss": "^3.0.24",
+    "tinacms": "^1.5.10"
   },
   "devDependencies": {
-    "lerna": "^6.5.1"
+    "@tinacms/cli": "^1.5.19",
+    "npm-run-all": "^4.1.5"
   }
 }

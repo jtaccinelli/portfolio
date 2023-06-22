@@ -1,0 +1,25 @@
+{
+  "title": "Test Page",
+  "handle": "test",
+  "builder": [
+    {
+      "layout": "simple",
+      "skills": [
+        {}
+      ],
+      "_template": "skills"
+    },
+    {
+      "layout": "simple",
+      "_template": "content"
+    },
+    {
+      "layout": "simple",
+      "body": "What the fuck",
+      "ctas": [
+        {}
+      ],
+      "_template": "hero"
+    }
+  ]
+}
