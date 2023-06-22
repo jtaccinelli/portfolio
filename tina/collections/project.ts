@@ -8,7 +8,7 @@ import { link } from "../objects/link";
 export const project: Collection = {
   name: "project",
   label: "Projects",
-  path: "src/content/projects",
+  path: "tina/content/projects",
   format: "json",
   fields: [
     {
@@ -33,6 +33,7 @@ export const project: Collection = {
       type: "string",
       name: "blurb",
       label: "Blurb",
+      required: true,
       ui: {
         component: "textarea",
       },

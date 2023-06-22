@@ -23,12 +23,8 @@ export const cards: Template = {
       name: "heading",
       label: "Heading",
     },
-    {
-      type: "object",
-      name: "cards",
-      label: "Cards",
+    Object.assign(card, {
       list: true,
-      fields: [card],
-    },
+    }),
   ],
 };

@@ -16,12 +16,12 @@ export const link: TinaField = {
           name: "label",
           label: "Label",
         },
-        // {
-        //   type: "reference",
-        //   name: "reference",
-        //   label: "Reference",
-        //   collections: ["project", "client", "skill", "page", "blog"],
-        // },
+        {
+          type: "reference",
+          name: "reference",
+          label: "Reference",
+          collections: ["project", "client", "skill", "page", "blog"],
+        },
       ],
     },
     {

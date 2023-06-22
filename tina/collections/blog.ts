@@ -3,7 +3,7 @@ import type { Collection } from "tinacms";
 export const blog: Collection = {
   name: "blog",
   label: "Blogs",
-  path: "src/content/blogs",
+  path: "tina/content/blogs",
   format: "json",
   fields: [
     {

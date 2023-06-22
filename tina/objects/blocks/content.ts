@@ -10,6 +10,7 @@ export const content: Template = {
       type: "string",
       name: "layout",
       label: "Layout",
+      required: true,
       options: [
         { label: "Simple", value: "simple" },
         { label: "Grid", value: "grid" },
@@ -24,7 +25,6 @@ export const content: Template = {
       type: "string",
       name: "body",
       label: "Body",
-      list: true,
       ui: {
         component: "textarea",
       },

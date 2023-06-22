@@ -5,7 +5,7 @@ import { url } from "../objects/url";
 export const client: Collection = {
   name: "client",
   label: "Clients",
-  path: "src/content/clients",
+  path: "tina/content/clients",
   format: "json",
   fields: [
     {

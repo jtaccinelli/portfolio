@@ -5,7 +5,7 @@ import { link } from "../objects/link";
 export const footer: Collection = {
   name: "footer",
   label: "Footer",
-  path: "src/content/footer",
+  path: "tina/content/footer",
   format: "json",
   ui: {
     allowedActions: {
@@ -19,7 +19,7 @@ export const footer: Collection = {
       name: "acknowledgement",
       label: "Acknowledgement",
       ui: {
-        component: "text-area",
+        component: "textarea",
       },
     },
     {

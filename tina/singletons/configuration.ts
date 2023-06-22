@@ -6,7 +6,7 @@ import { seo } from "../objects/seo";
 export const configuration: Collection = {
   name: "configuration",
   label: "Configuration",
-  path: "src/content/configuration",
+  path: "tina/content/configuration",
   format: "json",
   ui: {
     allowedActions: {

@@ -6,7 +6,7 @@ import { seo } from "../objects/seo";
 export const page: Collection = {
   name: "page",
   label: "Pages",
-  path: "src/content/pages",
+  path: "tina/content/pages",
   format: "json",
   fields: [
     {

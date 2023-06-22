@@ -34,7 +34,7 @@ export default defineConfig({
     collections: [
       blog,
       client,
-      // page,
+      page,
       project,
       skill,
       // // SINGLETONS

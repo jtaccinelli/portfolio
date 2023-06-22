@@ -23,8 +23,8 @@ export const clients: Template = {
     },
     {
       type: "object",
-      name: "items",
-      label: "Items",
+      name: "clients",
+      label: "Clients",
       list: true,
       fields: [
         {

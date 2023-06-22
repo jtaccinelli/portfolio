@@ -23,14 +23,14 @@ export const blogs: Template = {
     },
     {
       type: "object",
-      name: "items",
-      label: "Items",
+      name: "posts",
+      label: "Posts",
       list: true,
       fields: [
         {
           type: "reference",
-          name: "blog",
-          label: "Blog",
+          name: "post",
+          label: "Post",
           collections: ["blog"],
         },
       ],
