@@ -1,4 +1,23 @@
 {
   "heading": "Jordan Accinelli",
-  "subheading": "A guy"
+  "subheading": "Design Engineer",
+  "links": [
+    {
+      "label": "Home",
+      "reference": "tina/content/pages/home.json",
+      "_template": "reference"
+    }
+  ],
+  "connect": [
+    {
+      "label": "Send an Email",
+      "url": "mailto:info@jtaccinelli.com.au",
+      "_template": "external"
+    },
+    {
+      "label": "LinkedIn",
+      "url": "https://au.linkedin.com/in/jtaccinelli",
+      "_template": "external"
+    }
+  ]
 }

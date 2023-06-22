@@ -19,7 +19,7 @@ export const seo: TinaField = {
       ui: {
         component: "textarea",
         validate: (value) => {
-          if (value.length > 150) {
+          if (value?.length > 150) {
             return "This should not be longer than 150 characters.";
           }
         },

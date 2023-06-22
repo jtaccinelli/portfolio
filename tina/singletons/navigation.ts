@@ -1,6 +1,7 @@
 import type { Collection } from "tinacms";
 
 import { link } from "../objects/link";
+import { defineCustomField } from "..//utils";
 
 export const navigation: Collection = {
   name: "navigation",
@@ -26,19 +27,15 @@ export const navigation: Collection = {
       label: "Subheading",
       required: true,
     },
-    {
-      type: "object",
-      name: "items",
-      label: "Items",
+    defineCustomField(link, {
+      name: "links",
+      label: "Links",
       list: true,
-      fields: [link],
-    },
-    {
-      type: "object",
+    }),
+    defineCustomField(link, {
       name: "connect",
       label: "Connect",
       list: true,
-      fields: [link],
-    },
+    }),
   ],
 };
