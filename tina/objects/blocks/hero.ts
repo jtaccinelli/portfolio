@@ -1,6 +1,7 @@
 import type { Template } from "tinacms";
 
 import { link } from "../link";
+import { defineCustomField } from "../../utils";
 
 export const hero: Template = {
   name: "hero",
@@ -24,12 +25,16 @@ export const hero: Template = {
         component: "textarea",
       },
     },
-    {
-      type: "object",
+    defineCustomField(link, {
       name: "ctas",
       label: "Calls to Action",
       list: true,
-      fields: [link],
-    },
+      ui: {
+        itemProps: (item) => {
+          console.log(item);
+          return { label: `${item?.label} (${item?._template})` };
+        },
+      },
+    }),
   ],
 };

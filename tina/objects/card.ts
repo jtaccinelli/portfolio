@@ -25,6 +25,10 @@ export const card: TinaField = {
     defineCustomField(link, {
       name: "cta",
       label: "CTA",
+      list: true,
+      ui: {
+        max: 1,
+      },
     }),
   ],
 };

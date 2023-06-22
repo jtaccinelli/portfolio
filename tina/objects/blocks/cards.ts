@@ -1,6 +1,7 @@
 import type { Template } from "tinacms";
 
 import { card } from "../card";
+import { defineCustomField } from "../../utils";
 
 export const cards: Template = {
   name: "cards",
@@ -23,7 +24,9 @@ export const cards: Template = {
       name: "heading",
       label: "Heading",
     },
-    Object.assign(card, {
+    defineCustomField(card, {
+      name: "cards",
+      label: "Cards",
       list: true,
     }),
   ],
