@@ -17,12 +17,6 @@ export const skill: Collection = {
     },
     {
       type: "string",
-      name: "handle",
-      label: "Handle",
-      required: true,
-    },
-    {
-      type: "string",
       name: "subtitle",
       label: "Subtitle",
     },

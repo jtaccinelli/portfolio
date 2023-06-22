@@ -16,12 +16,6 @@ export const page: Collection = {
       isTitle: true,
       required: true,
     },
-    {
-      type: "string",
-      name: "handle",
-      label: "Handle",
-      required: true,
-    },
     builder,
     seo,
   ],

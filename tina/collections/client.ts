@@ -1,6 +1,7 @@
 import type { Collection } from "tinacms";
 
 import { url } from "../objects/url";
+import { defineCustomField } from "../utils";
 
 export const client: Collection = {
   name: "client",
@@ -15,13 +16,7 @@ export const client: Collection = {
       isTitle: true,
       required: true,
     },
-    {
-      type: "string",
-      name: "handle",
-      label: "Handle",
-      required: true,
-    },
-    Object.assign(url, {
+    defineCustomField(url, {
       name: "website",
       label: "Website",
     }),
