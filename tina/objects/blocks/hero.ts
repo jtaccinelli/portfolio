@@ -29,12 +29,6 @@ export const hero: Template = {
       name: "ctas",
       label: "Calls to Action",
       list: true,
-      ui: {
-        itemProps: (item) => {
-          console.log(item);
-          return { label: `${item?.label} (${item?._template})` };
-        },
-      },
     }),
   ],
 };

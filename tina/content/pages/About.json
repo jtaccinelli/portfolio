@@ -1,0 +1,10 @@
+{
+  "title": "About",
+  "builder": [
+    {
+      "layout": "simple",
+      "body": "Hello",
+      "_template": "hero"
+    }
+  ]
+}

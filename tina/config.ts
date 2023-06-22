@@ -37,7 +37,7 @@ export default defineConfig({
       page,
       project,
       skill,
-      // // SINGLETONS
+      // SINGLETONS
       navigation,
       footer,
       configuration,

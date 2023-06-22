@@ -8,9 +8,7 @@
     "dev": "run-p dev:*",
     "build:tina": "tinacms build",
     "build:astro": "astro build",
-    "build": "run-s build:*",
-    "preview": "astro preview",
-    "astro": "astro"
+    "build": "run-s build:*"
   },
   "dependencies": {
     "@astrojs/tailwind": "^4.0.0",
