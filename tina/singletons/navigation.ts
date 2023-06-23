@@ -6,7 +6,7 @@ import { defineCustomField } from "..//utils";
 export const navigation: Collection = {
   name: "navigation",
   label: "Navigation",
-  path: "tina/content/navigation",
+  path: "src/content/navigation",
   format: "json",
   ui: {
     allowedActions: {

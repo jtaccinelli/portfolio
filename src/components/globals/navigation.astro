@@ -1,6 +1,7 @@
 ---
 import { client } from "@tina/__generated__/client";
 import { Link, parseLinkHref } from "@root/lib/cms";
+import Dropdown from "@root/components/dropdown.astro";
 
 const { pathname } = Astro.url;
 
@@ -38,23 +39,25 @@ const { navigation } = request.data;
       }
     </div>
     <div class="-my-1 w-px self-stretch bg-gray-200"></div>
-    <!-- <Dropdown.Toggle isShow={isShow} onClose={close} onToggle={toggle}>
-      <button class="border-full relative flex flex-row items-center space-x-2 rounded-full px-4 py-2 text-black transition-all hover:bg-gray-200 data-show:bg-black data-show:text-white">
-        <span>Connect</span>
-        <i class="bx bx-chevron-down" />
-        <Dropdown.List isShow={isShow}>
-          <div class="absolute top-[140%] left-1/2 flex -translate-x-1/2 flex-col divide-y divide-gray-900 overflow-hidden rounded bg-gray-800 transition-all">
-            {navigation.connect?.map((item) => (
-              <Link key={item._key} to={item.url}>
-                <p class="whitespace-nowrap p-2 px-4 text-left text-white hover:bg-gray-700">
-                  {item.label}
-                </p>
-              </Link>
-            ))}
-          </div>
-        </Dropdown.List>
-      </button>
-    </Dropdown.Toggle> -->
+    <Dropdown>
+      <button slot="trigger"> Connect</button>
+      <div slot="menu" class="flex flex-col">
+        {
+          navigation.connect?.map((item) => {
+            if (!item) return;
+            const href = parseLinkHref(item as Link);
+            return (
+              <a
+                href={href}
+                class="whitespace-nowrap p-2 px-4 text-left text-white hover:bg-gray-700"
+              >
+                {item.label}
+              </a>
+            );
+          })
+        }
+      </div>
+    </Dropdown>
   </div>
   <p class="ml-4 text-white md:order-first">{navigation.heading}</p>
   <p class="mr-4 text-white">{navigation.subheading}</p>

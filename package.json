@@ -1,11 +1,12 @@
 {
   "name": "portfolio",
   "type": "module",
+  "license": "MIT",
   "version": "0.0.1",
   "scripts": {
     "dev:tina": "tinacms dev",
     "dev:astro": "astro dev",
-    "dev": "run-p dev:*",
+    "dev": "tinacms dev -c 'astro dev'",
     "build:tina": "tinacms build",
     "build:astro": "astro build",
     "build": "run-s build:*"

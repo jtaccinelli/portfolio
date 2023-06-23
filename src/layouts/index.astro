@@ -1,13 +1,12 @@
 ---
-import Footer from "@root/components/globals/footer.astro";
 import Navigation from "@root/components/globals/navigation.astro";
 
-import "~/styles/index.css";
-import "~/styles/fonts.css";
+import "@root/styles/index.css";
+import "@root/styles/fonts.css";
 
 type Props = {
-  title: string;
-  description: string;
+  title?: string;
+  description?: string;
 };
 
 const { title, description } = Astro.props;
@@ -29,7 +28,7 @@ const favicon =
         class="grid w-full grid-cols-1 divide-y-4 divide-gray-800 bg-gray-900"
       >
       </div>
-      <Footer />
+      <!-- <Footer /> -->
     </main>
   </body>
   <script
