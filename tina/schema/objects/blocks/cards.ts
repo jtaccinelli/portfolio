@@ -1,7 +1,7 @@
 import type { Template } from "tinacms";
 
 import { card } from "../card";
-import { defineCustomField } from "../../utils";
+import { defineCustomField } from "../../../utils";
 
 export const cards: Template = {
   name: "cards",

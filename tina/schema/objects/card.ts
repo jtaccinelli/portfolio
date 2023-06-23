@@ -1,6 +1,6 @@
 import type { TinaField } from "tinacms";
 
-import { defineCustomField } from "../utils";
+import { defineCustomField } from "../../utils";
 
 import { link } from "./link";
 

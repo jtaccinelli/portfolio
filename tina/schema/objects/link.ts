@@ -1,7 +1,7 @@
 import type { TinaField } from "tinacms";
 
 import { url } from "./url";
-import { defineCustomField } from "../utils";
+import { defineCustomField } from "../../utils";
 
 export const link: TinaField = {
   type: "object",

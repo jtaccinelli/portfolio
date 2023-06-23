@@ -1,7 +1,7 @@
 import type { Template } from "tinacms";
 
 import { link } from "../link";
-import { defineCustomField } from "../../utils";
+import { defineCustomField } from "../../../utils";
 
 export const hero: Template = {
   name: "hero",
