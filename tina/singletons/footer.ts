@@ -5,7 +5,7 @@ import { link } from "../objects/link";
 export const footer: Collection = {
   name: "footer",
   label: "Footer",
-  path: "tina/content/footer",
+  path: "src/content/footer",
   format: "json",
   ui: {
     allowedActions: {
