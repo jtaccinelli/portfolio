@@ -29,9 +29,7 @@
     {
       "layout": "simple",
       "heading": "Something specific, your way comes.",
-      "cards": [
-        {}
-      ],
+      "cards": [{}],
       "_template": "cards"
     }
   ]

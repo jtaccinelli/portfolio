@@ -4,9 +4,7 @@
   "builder": [
     {
       "layout": "simple",
-      "skills": [
-        {}
-      ],
+      "skills": [{}],
       "_template": "skills"
     },
     {
@@ -16,9 +14,7 @@
     {
       "layout": "simple",
       "body": "What the fuck",
-      "ctas": [
-        {}
-      ],
+      "ctas": [{}],
       "_template": "hero"
     }
   ]

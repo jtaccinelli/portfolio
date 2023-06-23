@@ -1,0 +1,19 @@
+---
+type Props = {
+  label: string;
+  class?: string;
+};
+
+const { label, class: className } = Astro.props;
+---
+
+<div class="group/dropdown relative">
+  <button class="rounded-full px-4 py-3">
+    {label}
+  </button>
+  <div class="group-focus-within: absolute left-0 top-full pt-2">
+    <div class:list={["flex flex-col", className]}>
+      <slot />
+    </div>
+  </div>
+</div>
