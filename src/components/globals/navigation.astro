@@ -1,12 +1,10 @@
 ---
-import { client } from "@tina/__generated__/client";
-import { Link, parseLinkHref } from "@root/lib/cms";
+import { parseLinkHref } from "@root/lib/cms";
 import Dropdown from "@root/components/dropdown.astro";
+import { getEntry } from "astro:content";
 
 const { pathname } = Astro.url;
-
-const request = await client.queries.navigation({ relativePath: "index.json" });
-const { navigation } = request.data;
+const { data } = await getEntry("navigation", "index");
 ---
 
 <div
@@ -17,9 +15,9 @@ const { navigation } = request.data;
   >
     <div class="relative flex w-full flex-row -space-x-2">
       {
-        navigation.links?.map((item) => {
+        data.links.map((item) => {
           if (!item) return;
-          const href = parseLinkHref(item as Link);
+          const href = parseLinkHref(item);
           return (
             <a
               href={href}
@@ -40,12 +38,12 @@ const { navigation } = request.data;
     </div>
     <div class="-my-1 w-px self-stretch bg-gray-200"></div>
     <Dropdown>
-      <button slot="trigger"> Connect</button>
-      <div slot="menu" class="flex flex-col">
+      <button class="text-black" slot="trigger">Connect</button>
+      <div slot="menu" class="flex flex-col rounded bg-gray-900 py-2">
         {
-          navigation.connect?.map((item) => {
+          data.connect.map((item) => {
             if (!item) return;
-            const href = parseLinkHref(item as Link);
+            const href = parseLinkHref(item);
             return (
               <a
                 href={href}
@@ -59,6 +57,6 @@ const { navigation } = request.data;
       </div>
     </Dropdown>
   </div>
-  <p class="ml-4 text-white md:order-first">{navigation.heading}</p>
-  <p class="mr-4 text-white">{navigation.subheading}</p>
+  <p class="ml-4 text-white md:order-first">{data.heading}</p>
+  <p class="mr-4 text-white">{data.subheading}</p>
 </div>}

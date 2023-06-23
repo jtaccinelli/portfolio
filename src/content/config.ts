@@ -1,7 +1,6 @@
 import type { Collection, TinaField } from "tinacms";
 import { schema as tinaSchema } from "@tina/schema";
 import { defineCollection, z } from "astro:content";
-import type { ZodAny } from "astro/zod";
 
 function mapField(field: TinaField) {
   let base;
@@ -38,8 +37,12 @@ function mapField(field: TinaField) {
 
   if (!base) return;
 
-  if (!field.required) base.optional();
-  if (field.list) base.array();
+  if (!field.required) base = z.optional(base);
+  if (field.list) base = z.array(base);
+
+  if (field.name === "links" || field.name === "connect") {
+    console.log(field.name, " => is list:", field.list);
+  }
 
   return base;
 }
