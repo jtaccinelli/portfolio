@@ -1,12 +1,12 @@
 import type { Collection } from "tinacms";
 
 import { url } from "../objects/url";
-import { defineCustomField } from "../utils";
+import { defineCustomField } from "../../utils";
 
 export const client: Collection = {
   name: "client",
   label: "Clients",
-  path: "tina/content/clients",
+  path: "tina/content/client",
   format: "json",
   fields: [
     {

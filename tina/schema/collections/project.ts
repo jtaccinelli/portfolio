@@ -1,6 +1,6 @@
 import type { Collection } from "tinacms";
 
-import { defineCustomField } from "../utils";
+import { defineCustomField } from "../../utils";
 
 import { seo } from "../objects/seo";
 import { link } from "../objects/link";
@@ -8,7 +8,7 @@ import { link } from "../objects/link";
 export const project: Collection = {
   name: "project",
   label: "Projects",
-  path: "tina/content/projects",
+  path: "tina/content/project",
   format: "json",
   fields: [
     {

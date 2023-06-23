@@ -5,7 +5,7 @@ import { seo } from "../objects/seo";
 export const skill: Collection = {
   name: "skill",
   label: "Skills",
-  path: "tina/content/skills",
+  path: "tina/content/skill",
   format: "json",
   fields: [
     {
