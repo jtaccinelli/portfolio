@@ -1,5 +1,5 @@
 ---
-import { parseLinkHref } from "@root/lib/cms";
+import { Link, parseLinkHref } from "@root/lib/cms";
 import Dropdown from "@root/components/dropdown.astro";
 import { getEntry } from "astro:content";
 
@@ -15,7 +15,7 @@ const { data } = await getEntry("navigation", "index");
   >
     <div class="relative flex w-full flex-row -space-x-2">
       {
-        data.links.map((item) => {
+        data.links.map((item: Link) => {
           if (!item) return;
           const href = parseLinkHref(item);
           return (
@@ -41,7 +41,7 @@ const { data } = await getEntry("navigation", "index");
       <button class="text-black" slot="trigger">Connect</button>
       <div slot="menu" class="flex flex-col rounded bg-gray-900 py-2">
         {
-          data.connect.map((item) => {
+          data.connect.map((item: Link) => {
             if (!item) return;
             const href = parseLinkHref(item);
             return (
