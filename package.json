@@ -4,19 +4,14 @@
   "license": "MIT",
   "version": "0.0.1",
   "scripts": {
-    "dev:tina": "tinacms dev",
-    "dev:astro": "astro dev",
-    "dev": "tinacms dev -c 'astro dev'",
-    "build:tina": "tinacms build",
-    "build:astro": "astro build",
-    "build": "run-s build:*"
+    "dev": "astro dev",
+    "build": "astro build"
   },
   "dependencies": {
     "@astrojs/tailwind": "^4.0.0",
     "astro": "^2.6.5",
     "boxicons": "^2.1.4",
-    "tailwindcss": "^3.0.24",
-    "tinacms": "^1.5.10"
+    "tailwindcss": "^3.0.24"
   },
   "devDependencies": {
     "@tinacms/cli": "^1.5.19",

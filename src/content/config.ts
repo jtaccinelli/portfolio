@@ -1,79 +1,143 @@
-import type { Collection, TinaField } from "tinacms";
-import { schema as tinaSchema } from "@tina/schema";
-import { defineCollection, z } from "astro:content";
+import { defineCollection, reference, z } from "astro:content";
 
-function mapField(field: TinaField) {
-  let base;
+// Generic Types
 
-  if (field.type === "object") {
-    if ("fields" in field && field.fields) {
-      const fields = convertFields(field.fields);
-      base = z.object(fields);
-    }
-    if ("templates" in field && field.templates) {
-      for (const [index, template] of field.templates.entries()) {
-        const fields = convertFields(template.fields);
-        if (index === 0) base = z.object(fields);
-        else base?.or(z.object(fields));
-      }
-    }
-  } else {
-    switch (field.type) {
-      case "reference":
-      case "image":
-      case "string":
-        base = z.string();
-        break;
-      case "number":
-        base = z.number();
-        break;
-      case "boolean":
-        base = z.boolean();
-        break;
-      case "datetime":
-        base = z.date();
-    }
-  }
+export const image = z.object({
+  url: z.string(),
+  alt: z.string(),
+});
 
-  if (!base) return;
+export const link = z.object({
+  url: z.string(),
+  label: z.string(),
+});
 
-  if (!field.required) base = z.optional(base);
-  if (field.list) base = z.array(base);
+export const seo = z.object({
+  title: z.string(),
+  description: z.string(),
+  image: z.string(),
+});
 
-  if (field.name === "links" || field.name === "connect") {
-    console.log(field.name, " => is list:", field.list);
-  }
+export const card = z.object({
+  heading: z.string(),
+  body: z.string(),
+  cta: link,
+});
 
-  return base;
-}
+// Blocks
 
-type ConvertedFields = {
-  [key: string]: ReturnType<typeof mapField>;
+export const blogs = z.object({
+  layout: z.enum(["simple"]),
+  heading: z.string(),
+  clients: z.array(reference("blog")),
+});
+
+export const cards = z.object({
+  layout: z.enum(["simple"]),
+  heading: z.string(),
+  items: z.array(card),
+});
+
+export const clients = z.object({
+  layout: z.enum(["simple"]),
+  heading: z.string(),
+  items: z.array(reference("client")),
+});
+
+export const content = z.object({
+  layout: z.enum(["simple", "grid"]),
+  heading: z.string(),
+  body: z.array(z.string()),
+  ctas: z.array(link),
+});
+
+export const hero = z.object({
+  layout: z.enum(["simple", "graphic"]),
+  body: z.array(z.string()),
+  ctas: z.array(link),
+});
+
+export const projects = z.object({
+  layout: z.enum(["simple"]),
+  heading: z.string(),
+  items: z.array(reference("project")),
+});
+
+export const skills = z.object({
+  layout: z.enum(["simple"]),
+  heading: z.string(),
+  items: z.array(reference("skill")),
+});
+
+export const ticker = z.object({
+  layout: z.enum(["subtle", "highlight"]),
+  content: z.string(),
+});
+
+export const builder = z.array(
+  z.union([hero, content, cards, clients, skills, projects, blogs, ticker])
+);
+
+// Actual Collections
+
+export const collections = {
+  blog: defineCollection({
+    type: "data",
+    schema: z.object({
+      title: z.string(),
+      content: z.string(),
+    }),
+  }),
+  client: defineCollection({
+    type: "data",
+    schema: z.object({
+      title: z.string(),
+      website: z.string(),
+      blurb: z.string(),
+      logo: image,
+    }),
+  }),
+  footer: defineCollection({
+    type: "data",
+    schema: z.object({
+      acknowledgement: z.string(),
+      links: z.array(link),
+    }),
+  }),
+  navigation: defineCollection({
+    type: "data",
+    schema: z.object({
+      heading: z.string(),
+      subheading: z.string(),
+      links: z.array(link),
+      connect: z.array(link),
+    }),
+  }),
+  page: defineCollection({
+    type: "data",
+    schema: z.object({
+      builder: builder,
+      seo: seo,
+    }),
+  }),
+  project: defineCollection({
+    type: "data",
+    schema: z.object({
+      title: z.string(),
+      subtitle: z.string(),
+      blurb: z.string(),
+      client: reference("client"),
+      skills: z.array(reference("skill")),
+      completedOn: z.date(),
+      liveSite: z.string(),
+    }),
+  }),
+  skill: defineCollection({
+    type: "data",
+    schema: z.object({
+      title: z.string(),
+      subtitle: z.string(),
+      blurb: z.string(),
+    }),
+  }),
 };
-
-function convertFields(fields: TinaField[]): ConvertedFields {
-  return fields.reduce((collection, field) => {
-    return Object.assign({}, collection, {
-      [field.name]: mapField(field),
-    });
-  }, {} satisfies ConvertedFields);
-}
-
-type ConvertedCollections = {
-  [key: string]: ReturnType<typeof defineCollection>;
-};
-
-function convertCollections(collections: Collection[]): ConvertedCollections {
-  return collections.reduce((schema, collection) => {
-    if (!collection.fields) return schema;
-    const fields = convertFields(collection.fields);
-    return Object.assign({}, schema, {
-      [collection.name]: defineCollection({
-        type: "data",
-        schema: z.object(fields),
-      }),
-    });
-  }, {});
-}
-
-export const collections = convertCollections(tinaSchema.collections);
