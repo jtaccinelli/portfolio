@@ -1,25 +1,28 @@
 ---
-import type { Block } from "@root/types";
+import type { CTA } from "@root/types";
 
 import Cta from "@root/components/cta.astro";
 
 type Props = {
-  content: Block<"content">;
+  layout: "simple" | "grid";
+  heading: string;
+  body: string[];
+  ctas: CTA[];
 };
 
-const { content } = Astro.props;
+const { layout, heading, body, ctas } = Astro.props;
 ---
 
 {
-  content.layout === "simple" && (
+  layout === "simple" && (
     <div class="px-8 py-24 md:px-24">
       <div class="flex max-w-xl flex-col items-start space-y-8">
-        <h3 class="text-3xl">{content.heading}</h3>
-        {content.body?.map((item) => (
+        <h3 class="text-3xl">{heading}</h3>
+        {body.map((item) => (
           <p>{item}</p>
         ))}
         <div class="flex flex-row space-x-4">
-          {content.ctas?.map((item) => (
+          {ctas.map((item) => (
             <Cta label={item.label} url={item.url} />
           ))}
         </div>
@@ -28,11 +31,11 @@ const { content } = Astro.props;
   )
 }
 {
-  content.layout === "grid" && (
+  layout === "grid" && (
     <div class="flex flex-col space-y-16 px-8 py-24 md:px-24">
-      <h3 class="max-w-xl text-3xl">{content.heading}</h3>
+      <h3 class="max-w-xl text-3xl">{heading}</h3>
       <div class="grid grid-cols-3 gap-16">
-        {content.body?.map((item, index) => (
+        {body.map((item, index) => (
           <div class="flex flex-col space-y-4">
             <p class="text-xl">0{index + 1}</p>
             <p>{item}</p>
@@ -40,7 +43,7 @@ const { content } = Astro.props;
         ))}
       </div>
       <div class="flex flex-row space-x-4">
-        {content.ctas?.map((item) => (
+        {ctas.map((item) => (
           <Cta label={item.label} url={item.url} />
         ))}
       </div>

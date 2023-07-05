@@ -24,68 +24,6 @@ export const card = z.object({
   cta: link,
 });
 
-// Blocks
-
-export const blogs = z.object({
-  type: z.enum(["blogs"]),
-  layout: z.enum(["simple"]),
-  heading: z.string(),
-  clients: z.array(reference("blog")),
-});
-
-export const cards = z.object({
-  type: z.enum(["cards"]),
-  layout: z.enum(["simple"]),
-  heading: z.string(),
-  items: z.array(card),
-});
-
-export const clients = z.object({
-  type: z.enum(["clients"]),
-  layout: z.enum(["simple"]),
-  heading: z.string(),
-  items: z.array(reference("client")),
-});
-
-export const content = z.object({
-  type: z.enum(["content"]),
-  layout: z.enum(["simple", "grid"]),
-  heading: z.string(),
-  body: z.array(z.string()),
-  ctas: z.array(link),
-});
-
-export const hero = z.object({
-  type: z.enum(["hero"]),
-  layout: z.enum(["simple", "graphic"]),
-  body: z.array(z.string()),
-  ctas: z.array(link),
-});
-
-export const projects = z.object({
-  type: z.enum(["projects"]),
-  layout: z.enum(["simple"]),
-  heading: z.string(),
-  items: z.array(reference("project")),
-});
-
-export const skills = z.object({
-  type: z.enum(["skills"]),
-  layout: z.enum(["simple"]),
-  heading: z.string(),
-  items: z.array(reference("skill")),
-});
-
-export const ticker = z.object({
-  type: z.enum(["ticker"]),
-  layout: z.enum(["subtle", "highlight"]),
-  content: z.string(),
-});
-
-export const builder = z.array(
-  z.union([hero, content, cards, clients, skills, projects, blogs, ticker])
-);
-
 // Actual Collections
 
 export const collections = {
@@ -118,13 +56,6 @@ export const collections = {
       subheading: z.string(),
       links: z.array(link),
       connect: z.array(link),
-    }),
-  }),
-  page: defineCollection({
-    type: "data",
-    schema: z.object({
-      builder: builder,
-      seo: seo,
     }),
   }),
   project: defineCollection({

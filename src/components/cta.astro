@@ -1,9 +1,7 @@
 ---
-interface Props {
-  label: string;
-  url: string;
-}
+import type { CTA } from "@root/types";
 
+type Props = CTA;
 const { label, url } = Astro.props;
 ---
 

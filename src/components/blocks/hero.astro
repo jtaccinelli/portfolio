@@ -1,17 +1,19 @@
 ---
-import type { Block } from "@root/types";
+import type { CTA } from "@root/types";
 import TextSpinner from "../text-spinner.astro";
 import Cta from "../cta.astro";
 
 type Props = {
-  content: Block<"hero">;
+  layout: "graphic" | "simple";
+  body: string;
+  ctas: CTA[];
 };
 
-const { content } = Astro.props;
+const { layout, body, ctas } = Astro.props;
 ---
 
 {
-  content.layout === "graphic" && (
+  layout === "graphic" && (
     <div class="relative flex flex-col items-start justify-center space-y-8 overflow-hidden bg-black px-8 py-48 md:px-24">
       <div class="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 scale-100 opacity-25 md:scale-150">
         <TextSpinner
@@ -21,21 +23,21 @@ const { content } = Astro.props;
         />
       </div>
       <h1 class="max-w-xl whitespace-pre-wrap text-3xl leading-relaxed">
-        {content.body}
+        {body}
       </h1>
-      {content.ctas?.map((item) => (
+      {ctas.map((item) => (
         <Cta label={item.label} url={item.url} />
       ))}
     </div>
   )
 }
 {
-  content.layout === "simple" && (
+  layout === "simple" && (
     <div class="flex flex-col items-start justify-center space-y-8 overflow-hidden bg-black px-8 py-48 md:px-24">
       <h1 class="max-w-xl whitespace-pre-wrap text-3xl leading-relaxed">
-        {content.body}
+        {body}
       </h1>
-      {content.ctas?.map((item) => (
+      {ctas.map((item) => (
         <Cta label={item.label} url={item.url} />
       ))}
     </div>
