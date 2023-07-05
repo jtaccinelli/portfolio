@@ -1,0 +1,32 @@
+---
+import type { Blocks } from "@root/types";
+
+import HeroBlock from "@root/components/blocks/hero.astro";
+import CardsBlock from "@root/components/blocks/cards.astro";
+import ContentBlock from "@root/components/blocks/content.astro";
+import TickerBlock from "@root/components/blocks/ticker.astro";
+import FallbackBlock from "@root/components/blocks/fallback.astro";
+
+type Props = {
+  content: Blocks[];
+};
+
+const { content } = Astro.props;
+---
+
+{
+  content?.map((item) => {
+    switch (item.type) {
+      case "hero":
+        return <HeroBlock content={item} />;
+      case "content":
+        return <ContentBlock content={item} />;
+      case "cards":
+        return <CardsBlock content={item} />;
+      case "ticker":
+        return <TickerBlock content={item} />;
+      default:
+        return <FallbackBlock content={item} />;
+    }
+  })
+}

@@ -3,19 +3,6 @@
   "builder": [
     {
       "layout": "simple",
-      "heading": "Designing & crafting considered digital experiences is my specialty.",
-      "body": "I'm a generalist by design - I've worked on digital projects from conception to delivery, and have at least dabbled in every stage of the process.\n\nIt means depending on your needs, I'm uniquely positioned to jump in wherever required to deliver value, or to help take your digital idea and make it a reality.",
-      "ctas": [
-        {
-          "label": "See Who I've Worked With",
-          "reference": "tina/content/pages/About.json",
-          "_template": "reference"
-        }
-      ],
-      "_template": "content"
-    },
-    {
-      "layout": "simple",
       "body": "Kia Ora! 👋\nI'm Jordan.\nI like making websites.",
       "ctas": [
         {
@@ -28,9 +15,16 @@
     },
     {
       "layout": "simple",
-      "heading": "Something specific, your way comes.",
-      "cards": [{}],
-      "_template": "cards"
+      "heading": "Designing & crafting considered digital experiences is my specialty.",
+      "body": "I'm a generalist by design - I've worked on digital projects from conception to delivery, and have at least dabbled in every stage of the process.\n\nIt means depending on your needs, I'm uniquely positioned to jump in wherever required to deliver value, or to help take your digital idea and make it a reality.",
+      "ctas": [
+        {
+          "label": "See Who I've Worked With",
+          "reference": "tina/content/pages/About.json",
+          "_template": "reference"
+        }
+      ],
+      "_template": "content"
     }
   ]
 }

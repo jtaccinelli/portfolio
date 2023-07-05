@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 @font-face {
   font-family: "custom";
   font-weight: 400;
@@ -20,4 +24,10 @@
   src: url("/fonts/bold.woff2") format("woff2"),
     url("/fonts/bold.woff") format("woff"),
     url("/fonts/bold.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "title";
+  font-weight: normal;
+  src: url("/fonts/regular.otf") format("opentype");
 }

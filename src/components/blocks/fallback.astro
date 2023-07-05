@@ -1,0 +1,15 @@
+---
+import type { Blocks } from "@root/types";
+
+type Props = {
+  content: Blocks;
+};
+
+const { content } = Astro.props;
+---
+
+<div>
+  <p>
+    This block type <pre>{content.type}</pre> is not supported.
+  </p>
+</div>

@@ -1,0 +1,28 @@
+---
+import type { Block } from "@root/types";
+
+import Cta from "@root/components/cta.astro";
+
+type Props = {
+  content: Block<"cards">;
+};
+
+const { content } = Astro.props;
+---
+
+{
+  content.layout === "simple" && (
+    <div class="flex flex-col gap-16 px-8 py-24 md:px-24">
+      <h3 class="max-w-xl text-3xl">{content.heading}</h3>
+      <div class="grid grid-cols-1 gap-24 md:grid-cols-3">
+        {content.items?.map((item) => (
+          <div class="flex flex-col items-start gap-4">
+            <p class="text-xl">{item.heading}</p>
+            <p class="h-full pb-8">{item.body}</p>
+            <Cta label={item.cta.label} url={item.cta.url} />
+          </div>
+        ))}
+      </div>
+    </div>
+  )
+}

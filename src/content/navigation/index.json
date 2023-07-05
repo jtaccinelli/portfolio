@@ -4,20 +4,17 @@
   "links": [
     {
       "label": "Home",
-      "reference": "tina/content/pages/home.json",
-      "_template": "reference"
+      "url": "/"
     }
   ],
   "connect": [
     {
       "label": "Send an Email",
-      "url": "mailto:info@jtaccinelli.com.au",
-      "_template": "external"
+      "url": "mailto:info@jtaccinelli.com.au"
     },
     {
       "label": "LinkedIn",
-      "url": "https://au.linkedin.com/in/jtaccinelli",
-      "_template": "external"
+      "url": "https://au.linkedin.com/in/jtaccinelli"
     }
   ]
 }

@@ -1,39 +1,42 @@
 ---
-import { Link, parseLinkHref } from "@root/lib/cms";
-import Dropdown from "@root/components/dropdown.astro";
 import { getEntry } from "astro:content";
+
+import Dropdown from "@root/components/dropdown.astro";
 
 const { pathname } = Astro.url;
 const { data } = await getEntry("navigation", "index");
 ---
 
 <div
-  class="fixed left-0 right-0 top-0 z-50 flex flex-row flex-wrap items-center justify-between overflow-visible p-4 md:px-8 md:py-16"
+  class:list={[
+    "fixed left-0 right-0 top-0 z-50",
+    "flex flex-row flex-wrap items-center justify-between",
+    "overflow-visible p-4",
+    "md:px-8 md:py-16",
+  ]}
 >
   <div
-    class="mb-4 flex w-full flex-row items-center space-x-1 rounded-full bg-white p-1 shadow md:mb-0 md:w-auto"
+    class:list={[
+      "mb-4 flex w-full flex-row items-center gap-1  bg-white p-1 shadow md:mb-0 md:w-auto rounded-full",
+    ]}
   >
     <div class="relative flex w-full flex-row -space-x-2">
       {
-        data.links.map((item: Link) => {
-          if (!item) return;
-          const href = parseLinkHref(item);
-          return (
-            <a
-              href={href}
-              class="
-                  relative rounded-full 
-                  border-2 border-transparent px-4 py-2 text-black 
-                  transition-all 
-                  hover:text-gray-700 
-                  data-active:border-gray-200 data-active:text-accent-600 
+        data.links.map((item) => (
+          <a
+            href={item.url}
+            class="
+                relative rounded-full 
+                border-2 border-transparent px-4 py-2 text-black 
+                transition-all 
+                hover:text-gray-700 
+                data-active:border-gray-200 data-active:text-accent-600 
                   hover:data-active:border-accent-600"
-              data-active={pathname === href}
-            >
-              {item?.label}
-            </a>
-          );
-        })
+            data-active={pathname === item.url}
+          >
+            {item.label}
+          </a>
+        ))
       }
     </div>
     <div class="-my-1 w-px self-stretch bg-gray-200"></div>
@@ -41,18 +44,14 @@ const { data } = await getEntry("navigation", "index");
       <button class="text-black" slot="trigger">Connect</button>
       <div slot="menu" class="flex flex-col rounded bg-gray-900 py-2">
         {
-          data.connect.map((item: Link) => {
-            if (!item) return;
-            const href = parseLinkHref(item);
-            return (
-              <a
-                href={href}
-                class="whitespace-nowrap p-2 px-4 text-left text-white hover:bg-gray-700"
-              >
-                {item.label}
-              </a>
-            );
-          })
+          data.connect.map((item) => (
+            <a
+              href={item.url}
+              class="whitespace-nowrap p-2 px-4 text-left text-white hover:bg-gray-700"
+            >
+              {item.label}
+            </a>
+          ))
         }
       </div>
     </Dropdown>

@@ -9,7 +9,7 @@ module.exports = {
       active: 'active="true"',
     },
     fontFamily: {
-      sans: ["custom", "helvetica", "sans-serif"],
+      sans: ["helvetica", "sans-serif"],
     },
     extend: {
       colors: {

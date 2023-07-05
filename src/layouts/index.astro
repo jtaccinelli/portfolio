@@ -1,8 +1,8 @@
 ---
 import Navigation from "@root/components/globals/navigation.astro";
+import Footer from "@root/components/globals/footer.astro";
 
-import "@root/styles/index.css";
-import "@root/styles/fonts.css";
+import "@root/style.css";
 
 type Props = {
   title?: string;
@@ -10,16 +10,16 @@ type Props = {
 };
 
 const { title, description } = Astro.props;
-
-const favicon =
-  "data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🤖</text></svg>";
 ---
 
 <html lang="en">
   <head>
     <title>{title}</title>
     <meta name="description" content={description} />
-    <link rel="icon" href={favicon} />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👋</text></svg>"
+    />
   </head>
   <body class="bg-gray-800 p-2 text-white md:p-8">
     <main class="mx-auto max-w-7xl overflow-hidden rounded-md">
@@ -29,7 +29,7 @@ const favicon =
       >
         <slot />
       </div>
-      <!-- <Footer /> -->
+      <Footer />
     </main>
   </body>
   <script

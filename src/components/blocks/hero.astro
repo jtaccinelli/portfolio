@@ -1,0 +1,43 @@
+---
+import type { Block } from "@root/types";
+import TextSpinner from "../text-spinner.astro";
+import Cta from "../cta.astro";
+
+type Props = {
+  content: Block<"hero">;
+};
+
+const { content } = Astro.props;
+---
+
+{
+  content.layout === "graphic" && (
+    <div class="relative flex flex-col items-start justify-center space-y-8 overflow-hidden bg-black px-8 py-48 md:px-24">
+      <div class="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 scale-100 opacity-25 md:scale-150">
+        <TextSpinner
+          text="Design + Development +"
+          repeats={7}
+          class="opacity-25"
+        />
+      </div>
+      <h1 class="max-w-xl whitespace-pre-wrap text-3xl leading-relaxed">
+        {content.body}
+      </h1>
+      {content.ctas?.map((item) => (
+        <Cta label={item.label} url={item.url} />
+      ))}
+    </div>
+  )
+}
+{
+  content.layout === "simple" && (
+    <div class="flex flex-col items-start justify-center space-y-8 overflow-hidden bg-black px-8 py-48 md:px-24">
+      <h1 class="max-w-xl whitespace-pre-wrap text-3xl leading-relaxed">
+        {content.body}
+      </h1>
+      {content.ctas?.map((item) => (
+        <Cta label={item.label} url={item.url} />
+      ))}
+    </div>
+  )
+}
