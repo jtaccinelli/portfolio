@@ -1,61 +1,37 @@
 ---
 import { getEntry } from "astro:content";
 
-import Dropdown from "@root/components/dropdown.astro";
+import Modal from "@root/components/modal.astro";
+import config from "@root/config";
+import Dropdown from "../dropdown.astro";
 
 const { pathname } = Astro.url;
 const { data } = await getEntry("navigation", "index");
 ---
 
-<div
-  class:list={[
-    "fixed left-0 right-0 top-0 z-50",
-    "flex flex-row flex-wrap items-center justify-between",
-    "overflow-visible p-4",
-    "md:px-8 md:py-16",
-  ]}
->
-  <div
-    class:list={[
-      "mb-4 flex w-full flex-row items-center gap-1  bg-white p-1 shadow md:mb-0 md:w-auto rounded-full",
-    ]}
-  >
-    <div class="relative flex w-full flex-row -space-x-2">
-      {
-        data.links.map((item) => (
-          <a
-            href={item.url}
-            class="
-                relative rounded-full 
-                border-2 border-transparent px-4 py-2 text-black 
-                transition-all 
-                hover:text-gray-700 
-                data-active:border-gray-200 data-active:text-accent-600 
-                  hover:data-active:border-accent-600"
-            data-active={pathname === item.url}
-          >
-            {item.label}
-          </a>
-        ))
-      }
-    </div>
-    <div class="-my-1 w-px self-stretch bg-gray-200"></div>
-    <Dropdown>
-      <button class="text-black" slot="trigger">Connect</button>
-      <div slot="menu" class="flex flex-col rounded bg-gray-900 py-2">
-        {
-          data.connect.map((item) => (
-            <a
-              href={item.url}
-              class="whitespace-nowrap p-2 px-4 text-left text-white hover:bg-gray-700"
-            >
-              {item.label}
-            </a>
-          ))
-        }
+<div class="sticky bottom-0 z-50 flex flex-col items-center px-8">
+  <div class="flex w-full max-w-6xl flex-col justify-end py-12">
+    <div class="flex items-center justify-between">
+      <div class="flex flex-col md:flex-row md:items-center md:gap-4">
+        <i
+          class={`bx ${config.brand.icon} text-accent-600 text-xl mb-4 md:mb-0`}
+        ></i>
+        <p class="font-bold">{config.brand.title}</p>
+        <p class="text-gray-500">{config.brand.subtitle}</p>
       </div>
-    </Dropdown>
+      <Modal>
+        <button
+          slot="trigger"
+          class="flex h-10 w-10 items-center justify-center rounded-full bg-accent-600 transition-all group-focus-within/modal:rotate-45 group-focus-within/modal:bg-gray-800"
+          ><i class="bx bx-plus"></i></button
+        >
+        <div
+          slot="menu"
+          class="mx-auto w-full max-w-6xl rounded-sm bg-gray-950 p-4"
+        >
+          <div class="bg-gray-950">test</div>
+        </div>
+      </Modal>
+    </div>
   </div>
-  <p class="ml-4 text-white md:order-first">{data.heading}</p>
-  <p class="mr-4 text-white">{data.subheading}</p>
-</div>}
+</div>

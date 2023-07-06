@@ -5,6 +5,14 @@
     {
       "label": "Home",
       "url": "/"
+    },
+    {
+      "label": "About",
+      "url": "/"
+    },
+    {
+      "label": "Test",
+      "url": "/"
     }
   ],
   "connect": [

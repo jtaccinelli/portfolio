@@ -47,6 +47,7 @@ export const collections = {
     type: "data",
     schema: z.object({
       acknowledgement: z.string(),
+      find: z.array(link),
     }),
   }),
   navigation: defineCollection({

@@ -3,6 +3,7 @@ import Navigation from "@root/components/globals/navigation.astro";
 import Footer from "@root/components/globals/footer.astro";
 
 import "@root/style.css";
+import "boxicons/css/boxicons.min.css";
 
 type Props = {
   title?: string;
@@ -21,16 +22,14 @@ const { title, description } = Astro.props;
       href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👋</text></svg>"
     />
   </head>
-  <body class="bg-gray-800 p-2 text-white md:p-8">
+  <body class="bg-gray-900 text-white">
     <main class="mx-auto max-w-7xl overflow-hidden rounded-md">
-      <Navigation />
-      <div
-        class="grid w-full grid-cols-1 divide-y-4 divide-gray-800 bg-gray-900"
-      >
+      <div class="grid h-screen w-full grid-cols-1 divide-y-4">
         <slot />
       </div>
-      <Footer />
     </main>
+    <Navigation />
+    <Footer />
   </body>
   <script
     defer

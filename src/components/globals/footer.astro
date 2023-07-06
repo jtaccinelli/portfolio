@@ -1,27 +1,37 @@
 ---
+import config from "@root/config";
 import { getEntry } from "astro:content";
 
 const { data: navigation } = await getEntry("navigation", "index");
 const { data: footer } = await getEntry("footer", "index");
 ---
 
-<div
-  class="grid grid-cols-1 gap-16 bg-black px-8 py-24 pb-32 md:grid-cols-3 md:px-24"
->
-  <div class="flex flex-col items-start space-y-2">
-    <p class="font-medium text-white">Connect</p>
-    {
-      navigation?.connect?.map((item: any) => (
-        <a href={item.url}>
-          <p class="border-b-2 border-gray-700 transition-colors hover:border-red-600">
+<div class="flex flex-col items-center bg-gray-950 px-8">
+  <div
+    class="grid w-full max-w-6xl grid-cols-1 gap-16 py-24 pb-24 md:grid-cols-3"
+  >
+    <div class="flex flex-col items-start space-y-2">
+      <p class="font-bold text-white">Find Me</p>
+      {
+        footer.find.map((item: any) => (
+          <a
+            href={item.url}
+            class="border-b-2 border-gray-700 transition-colors hover:border-red-600"
+          >
             {item.label}
-          </p>
-        </a>
-      ))
-    }
-  </div>
-  <div class="flex flex-col space-y-2">
-    <p class="font-medium text-white">Acknowledgment</p>
-    <p>{footer?.acknowledgement}</p>
+          </a>
+        ))
+      }
+    </div>
+    <div class="flex flex-col gap-2 md:col-span-2 md:items-end md:text-right">
+      <p class="font-bold text-white">Acknowledgment</p>
+      <p>{footer?.acknowledgement}</p>
+    </div>
+    <div
+      class="flex flex-col justify-between border-t border-gray-800 py-4 text-gray-700 md:col-span-3 md:flex-row md:gap-12"
+    >
+      <p>@2022 Jordan Accinelli</p>
+      <p>Made with Coffee, Stress & Magic</p>
+    </div>
   </div>
 </div>

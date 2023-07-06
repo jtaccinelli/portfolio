@@ -15,9 +15,6 @@ module.exports = {
       colors: {
         gray: colors.stone,
         accent: colors.orange,
-        black: {
-          DEFAULT: "#101010",
-        },
       },
       keyframes: {
         scroll: {
