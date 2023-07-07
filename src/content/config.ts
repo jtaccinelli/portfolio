@@ -10,6 +10,7 @@ export const image = z.object({
 export const link = z.object({
   url: z.string(),
   label: z.string(),
+  blurb: z.string().optional(),
 });
 
 export const seo = z.object({
@@ -43,20 +44,12 @@ export const collections = {
       logo: image,
     }),
   }),
-  footer: defineCollection({
+  links: defineCollection({
     type: "data",
     schema: z.object({
-      acknowledgement: z.string(),
-      find: z.array(link),
-    }),
-  }),
-  navigation: defineCollection({
-    type: "data",
-    schema: z.object({
-      heading: z.string(),
-      subheading: z.string(),
-      links: z.array(link),
+      pages: z.array(link),
       connect: z.array(link),
+      find: z.array(link),
     }),
   }),
   project: defineCollection({

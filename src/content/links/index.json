@@ -1,0 +1,35 @@
+{
+  "pages": [
+    {
+      "label": "About",
+      "blurb": "Get to know me better.",
+      "url": "/"
+    },
+    {
+      "label": "Showcase",
+      "blurb": "Some projects and clients.",
+      "url": "/"
+    },
+    {
+      "label": "Contact",
+      "blurb": "Get in touch with me.",
+      "url": "/"
+    }
+  ],
+  "connect": [
+    {
+      "label": "Send an Email",
+      "url": "mailto:info@jtaccinelli.com.au"
+    }
+  ],
+  "find": [
+    {
+      "label": "LinkedIn",
+      "url": "https://au.linkedin.com/in/jtaccinelli"
+    },
+    {
+      "label": "GitHub",
+      "url": "https://au.linkedin.com/in/jtaccinelli"
+    }
+  ]
+}

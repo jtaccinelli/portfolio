@@ -3,10 +3,8 @@ import { getEntry } from "astro:content";
 
 import Modal from "@root/components/modal.astro";
 import config from "@root/config";
-import Dropdown from "../dropdown.astro";
 
-const { pathname } = Astro.url;
-const { data } = await getEntry("navigation", "index");
+const { data: links } = await getEntry("links", "index");
 ---
 
 <div class="sticky bottom-0 z-50 flex flex-col items-center px-8">
@@ -25,11 +23,22 @@ const { data } = await getEntry("navigation", "index");
           class="flex h-10 w-10 items-center justify-center rounded-full bg-accent-600 transition-all group-focus-within/modal:rotate-45 group-focus-within/modal:bg-gray-800"
           ><i class="bx bx-plus"></i></button
         >
-        <div
-          slot="menu"
-          class="mx-auto w-full max-w-6xl rounded-sm bg-gray-950 p-4"
-        >
-          <div class="bg-gray-950">test</div>
+        <div slot="menu" class="px-8 pt-8">
+          <div
+            class="mx-auto grid w-full max-w-6xl -translate-y-8 grid-cols-1 gap-8 rounded-sm bg-gray-800 p-8 transition-transform group-focus-within/modal:translate-y-0 md:grid-cols-3"
+          >
+            {
+              links.pages.map((link) => (
+                <a
+                  href={link.url}
+                  class="relative after:absolute after:-inset-2 after:-z-10 after:rounded-sm after:bg-transparent after:transition-all hover:after:-inset-4 hover:after:bg-gray-900"
+                >
+                  <p class="font-bold text-white">{link.label}</p>
+                  <p class="text-gray-500">{link.blurb}</p>
+                </a>
+              ))
+            }
+          </div>
         </div>
       </Modal>
     </div>
