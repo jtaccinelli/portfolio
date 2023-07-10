@@ -7,33 +7,36 @@ import config from "@root/config";
 const { data: links } = await getEntry("links", "index");
 ---
 
-<div class="sticky bottom-0 z-50 flex flex-col items-center px-8">
-  <div class="flex w-full max-w-6xl flex-col justify-end py-12">
+<div
+  class="to-1/2 pointer-events-none sticky bottom-0 left-0 right-0 z-50 flex flex-col items-center bg-gradient-to-t from-gray-900 from-25% to-transparent px-8 py-12"
+>
+  <div class="flex w-full max-w-6xl flex-col justify-end">
     <div class="flex items-center justify-between">
       <div class="flex flex-col md:flex-row md:items-center md:gap-4">
-        <i
-          class={`bx ${config.brand.icon} text-accent-600 text-xl mb-4 md:mb-0`}
-        ></i>
-        <p class="font-bold">{config.brand.title}</p>
+        <p>🤖</p>
+        <p class="font-semibold">{config.brand.title}</p>
         <p class="text-gray-500">{config.brand.subtitle}</p>
       </div>
       <Modal>
         <button
           slot="trigger"
-          class="flex h-10 w-10 items-center justify-center rounded-full bg-accent-600 transition-all group-focus-within/modal:rotate-45 group-focus-within/modal:bg-gray-800"
-          ><i class="bx bx-plus"></i></button
+          class="pointer-events-auto flex h-10 w-10 items-center justify-center rounded-full bg-accent-600 transition-all group-focus-within/modal:bg-gray-800"
         >
+          <i
+            class="bx bx-plus transition-all group-focus-within/modal:rotate-45"
+          ></i>
+        </button>
         <div slot="menu" class="px-8 pt-8">
           <div
-            class="mx-auto grid w-full max-w-6xl -translate-y-8 grid-cols-1 gap-8 rounded-sm bg-gray-800 p-8 transition-transform group-focus-within/modal:translate-y-0 md:grid-cols-3"
+            class="mx-auto grid w-full max-w-6xl -translate-y-8 grid-cols-1 gap-8 rounded-sm bg-gray-950/75 p-8 backdrop-blur transition-transform group-focus-within/modal:translate-y-0 md:grid-cols-3"
           >
             {
               links.pages.map((link) => (
                 <a
                   href={link.url}
-                  class="relative after:absolute after:-inset-2 after:-z-10 after:rounded-sm after:bg-transparent after:transition-all hover:after:-inset-4 hover:after:bg-gray-900"
+                  class="relative after:absolute after:-inset-2 after:-z-10 after:rounded-sm after:bg-transparent after:transition-all hover:after:-inset-4 hover:after:bg-white/5"
                 >
-                  <p class="font-bold text-white">{link.label}</p>
+                  <p class="font-semibold text-white">{link.label}</p>
                   <p class="text-gray-500">{link.blurb}</p>
                 </a>
               ))

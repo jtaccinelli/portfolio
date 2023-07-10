@@ -4,32 +4,17 @@ type Props = {
   content: string[];
 };
 
-const { layout, content } = Astro.props;
+const { content } = Astro.props;
 ---
 
-{
-  layout === "highlight" && (
-    <div class="flex h-16 items-center gap-2 overflow-hidden bg-accent-600 p-4 text-white">
-      {Array(2)
-        .fill(Array(10).fill(content))
-        .map((child, index) => (
-          <p class="flex min-w-full flex-shrink-0 animate-scroll justify-around">
-            {child}
-          </p>
-        ))}
-    </div>
-  )
-}
-{
-  layout === "subtle" && (
-    <div class="flex h-16 items-center gap-2 overflow-hidden bg-gray-900 p-4 text-gray-500">
-      {Array(2)
-        .fill(Array(10).fill(content))
-        .map((child, index) => (
-          <p class="flex min-w-full flex-shrink-0 animate-scroll justify-around">
-            {child}
-          </p>
-        ))}
-    </div>
-  )
-}
+<div class="flex h-16 items-center gap-2 overflow-hidden p-4 text-gray-500">
+  {
+    Array(2)
+      .fill(Array(10).fill(content))
+      .map((child) => (
+        <p class="flex min-w-full flex-shrink-0 animate-scroll justify-around">
+          {child}
+        </p>
+      ))
+  }
+</div>

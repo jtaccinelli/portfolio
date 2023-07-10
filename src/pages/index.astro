@@ -1,21 +1,37 @@
 ---
+import Content from "@root/components/blocks/content.astro";
 import Layout from "@root/layouts/index.astro";
-// import type { PageDocumentQuery } from "@portfolio/schemas";
-// import { PAGE_QUERY } from "@portfolio/schemas";
-
-// import { getSanityClient } from "@root/app/lib/sanity";
-// import { ContentBuilder } from "@root/app/components/blocks/builder";
-
-// const client = getSanityClient();
-
-// const page = await client.fetch<PageDocumentQuery>(PAGE_QUERY, {
-//     handle: "home",
-// });
-
-// return json({ page });
-
-// const data = useLoaderData();
-// const page = data.page as PageDocumentQuery;
+import Header from "@root/components/blocks/header.astro";
+import Hero from "@root/components/blocks/hero.astro";
 ---
 
-<Layout>Test</Layout>
+<Layout>
+  <Hero
+    heading="Kia Ora! I'm Jordan."
+    blurb="I like making things people like using."
+    emoji="🤖"
+    cta={{
+      label: "Get to business",
+      url: "#contact",
+    }}
+  />
+  <Header id="about" text="About" />
+  <Content
+    heading="Designing & crafting considered digital experiences is my specialty."
+    body={[
+      "I'm a generalist by design - I've worked on digital projects from conception to delivery, and have at least dabbled in every stage of the process.",
+      "It means depending on your needs, I'm uniquely positioned to jump in wherever required to deliver value, or to help take your digital idea and make it a reality.",
+      "I strongly value projects that give back to the community, and projects that help support local business and meaningful causes.",
+    ]}
+  />
+  <Header id="showcase" text="Showcase" />
+  <Content
+    heading="Designing & crafting considered digital experiences is my specialty."
+    body={[
+      "I'm a generalist by design - I've worked on digital projects from conception to delivery, and have at least dabbled in every stage of the process.",
+      "It means depending on your needs, I'm uniquely positioned to jump in wherever required to deliver value, or to help take your digital idea and make it a reality.",
+    ]}
+  />
+  <Header id="faqs" text="FAQs" />
+  <Header id="contact" text="Contact" />
+</Layout>

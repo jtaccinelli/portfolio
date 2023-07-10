@@ -3,17 +3,17 @@
     {
       "label": "About",
       "blurb": "Get to know me better.",
-      "url": "/"
+      "url": "#about"
     },
     {
       "label": "Showcase",
       "blurb": "Some projects and clients.",
-      "url": "/"
+      "url": "#showcase"
     },
     {
       "label": "Contact",
       "blurb": "Get in touch with me.",
-      "url": "/"
+      "url": "#contact"
     }
   ],
   "connect": [

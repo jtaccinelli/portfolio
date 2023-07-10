@@ -1,45 +1,20 @@
 ---
 import type { CTA } from "@root/types";
-import TextSpinner from "../text-spinner.astro";
 import Cta from "../cta.astro";
 
 type Props = {
-  layout: "graphic" | "simple";
-  body: string;
-  ctas: CTA[];
+  heading: string;
+  blurb: string;
+  emoji: string;
+  cta?: CTA;
 };
 
-const { layout, body, ctas } = Astro.props;
+const { heading, blurb, emoji, cta } = Astro.props;
 ---
 
-{
-  layout === "graphic" && (
-    <div class="relative flex flex-col items-start justify-center space-y-8 overflow-hidden bg-black px-8 py-48 md:px-24">
-      <div class="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 scale-100 opacity-25 md:scale-150">
-        <TextSpinner
-          text="Design + Development +"
-          repeats={7}
-          class="opacity-25"
-        />
-      </div>
-      <h1 class="max-w-xl whitespace-pre-wrap text-3xl leading-relaxed">
-        {body}
-      </h1>
-      {ctas.map((item) => (
-        <Cta label={item.label} url={item.url} />
-      ))}
-    </div>
-  )
-}
-{
-  layout === "simple" && (
-    <div class="flex flex-col items-start justify-center space-y-8 overflow-hidden bg-black px-8 py-48 md:px-24">
-      <h1 class="max-w-xl whitespace-pre-wrap text-3xl leading-relaxed">
-        {body}
-      </h1>
-      {ctas.map((item) => (
-        <Cta label={item.label} url={item.url} />
-      ))}
-    </div>
-  )
-}
+<div class="flex flex-col items-start gap-4 py-16 md:px-8">
+  <span aria-label="Emoji" class="text-2xl font-medium">{emoji}</span>
+  <h1 class="text-2xl font-medium">{heading}</h1>
+  <p class="mb-12 text-2xl font-medium text-gray-500">{blurb}</p>
+  {cta ? <Cta label={cta.label} url={cta.url} /> : null}
+</div>

@@ -9,12 +9,12 @@ module.exports = {
       active: 'active="true"',
     },
     fontFamily: {
-      sans: ["helvetica", "sans-serif"],
+      sans: ["font", "verdana", "sans-serif"],
     },
     extend: {
       colors: {
         gray: colors.stone,
-        accent: colors.orange,
+        accent: colors.amber,
       },
       keyframes: {
         scroll: {

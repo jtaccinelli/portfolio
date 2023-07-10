@@ -28,22 +28,6 @@ export const card = z.object({
 // Actual Collections
 
 export const collections = {
-  blog: defineCollection({
-    type: "data",
-    schema: z.object({
-      title: z.string(),
-      content: z.string(),
-    }),
-  }),
-  client: defineCollection({
-    type: "data",
-    schema: z.object({
-      title: z.string(),
-      website: z.string(),
-      blurb: z.string(),
-      logo: image,
-    }),
-  }),
   links: defineCollection({
     type: "data",
     schema: z.object({
@@ -56,20 +40,10 @@ export const collections = {
     type: "data",
     schema: z.object({
       title: z.string(),
-      subtitle: z.string(),
       blurb: z.string(),
-      client: reference("client"),
-      skills: z.array(reference("skill")),
-      completedOn: z.date(),
-      liveSite: z.string(),
-    }),
-  }),
-  skill: defineCollection({
-    type: "data",
-    schema: z.object({
-      title: z.string(),
-      subtitle: z.string(),
-      blurb: z.string(),
+      type: z.string(),
+      client: z.string(),
+      url: z.string(),
     }),
   }),
 };

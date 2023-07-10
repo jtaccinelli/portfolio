@@ -1,0 +1,12 @@
+---
+type Props = {
+  id: string;
+  text: string;
+};
+
+const { id, text } = Astro.props;
+---
+
+<a href={`#${id}`} class="sticky top-8 scroll-smooth rounded bg-gray-800 p-4">
+  <h3 id={id} class="font-medium">{text}</h3>
+</a>

@@ -15,6 +15,8 @@ const { title, description } = Astro.props;
 
 <html lang="en">
   <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>{title}</title>
     <meta name="description" content={description} />
     <link
@@ -22,9 +24,9 @@ const { title, description } = Astro.props;
       href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👋</text></svg>"
     />
   </head>
-  <body class="bg-gray-900 text-white">
-    <main class="mx-auto max-w-7xl overflow-hidden rounded-md">
-      <div class="grid h-screen w-full grid-cols-1 divide-y-4">
+  <body class="scroll-smooth bg-gray-900 text-white">
+    <main class="p-8">
+      <div class="mx-auto flex min-h-screen w-full max-w-6xl flex-col gap-4">
         <slot />
       </div>
     </main>

@@ -1,52 +1,13 @@
 ---
-import type { CTA } from "@root/types";
-
-import Cta from "@root/components/cta.astro";
-
 type Props = {
-  layout: "simple" | "grid";
   heading: string;
   body: string[];
-  ctas: CTA[];
 };
 
-const { layout, heading, body, ctas } = Astro.props;
+const { heading, body } = Astro.props;
 ---
 
-{
-  layout === "simple" && (
-    <div class="px-8 py-24 md:px-24">
-      <div class="flex max-w-xl flex-col items-start space-y-8">
-        <h3 class="text-3xl">{heading}</h3>
-        {body.map((item) => (
-          <p>{item}</p>
-        ))}
-        <div class="flex flex-row space-x-4">
-          {ctas.map((item) => (
-            <Cta label={item.label} url={item.url} />
-          ))}
-        </div>
-      </div>
-    </div>
-  )
-}
-{
-  layout === "grid" && (
-    <div class="flex flex-col space-y-16 px-8 py-24 md:px-24">
-      <h3 class="max-w-xl text-3xl">{heading}</h3>
-      <div class="grid grid-cols-3 gap-16">
-        {body.map((item, index) => (
-          <div class="flex flex-col space-y-4">
-            <p class="text-xl">0{index + 1}</p>
-            <p>{item}</p>
-          </div>
-        ))}
-      </div>
-      <div class="flex flex-row space-x-4">
-        {ctas.map((item) => (
-          <Cta label={item.label} url={item.url} />
-        ))}
-      </div>
-    </div>
-  )
-}
+<div class="flex max-w-xl flex-col items-start gap-4 py-12 md:px-8">
+  <h3 class="pb-10 text-xl font-semibold">{heading}</h3>
+  {body.map((item) => <p>{item}</p>)}
+</div>
