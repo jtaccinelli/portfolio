@@ -1,15 +1,43 @@
 ---
+import IconButton from "../icon-button.astro";
 type Props = {
   id: string;
   text: string;
 };
 
 const { id, text } = Astro.props;
+const { hostname } = Astro.url;
+
+const copyId = `copy-${id}`;
+const linkId = `#${id}`;
 ---
 
 <a
-  href={`#${id}`}
-  class="sticky top-0 rounded border-b-2 border-gray-800 bg-gray-900 p-8"
+  href={linkId}
+  class="sticky top-0 flex justify-between rounded border-b-2 border-gray-800 bg-gray-900 p-8"
 >
   <h3 id={id} class="font-bold">{text}</h3>
+  <copy-link data-id={id} data-hostname={hostname}>
+    <IconButton icon="bx-link-alt" />
+  </copy-link>
 </a>
+
+<script>
+  class CopyLink extends HTMLElement {
+    constructor() {
+      super();
+
+      const id = this.dataset.id;
+      const hostname = this.dataset.hostname;
+
+      function handleClick() {
+        navigator.clipboard.writeText(`${hostname}/#${id}`);
+      }
+
+      const button = this.querySelector("button");
+      button?.addEventListener("click", handleClick);
+    }
+  }
+
+  customElements.define("copy-link", CopyLink);
+</script>
