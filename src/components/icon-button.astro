@@ -1,0 +1,17 @@
+---
+type Props = {
+  icon: string;
+  class?: string;
+};
+
+const { icon, class: className } = Astro.props;
+---
+
+<button
+  class:list={[
+    "pointer-events-auto -m-4 flex items-center justify-center rounded-full bg-transparent p-4 transition-all hover:bg-gray-800",
+    className,
+  ]}
+>
+  <i class:list={["bx text-2xl transition-all", icon]}></i>
+</button>
