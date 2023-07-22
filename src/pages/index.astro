@@ -3,17 +3,14 @@ import Content from "@root/components/blocks/content.astro";
 import Layout from "@root/layouts/index.astro";
 import Header from "@root/components/blocks/header.astro";
 import Hero from "@root/components/blocks/hero.astro";
+import Contact from "@root/components/blocks/contact.astro";
 ---
 
 <Layout>
   <Hero
-    heading="Kia Ora! I'm Jordan."
-    blurb="I like making things people like using."
+    heading="I'm Jordan!"
+    blurb="I like making things people like using"
     emoji="🤖"
-    cta={{
-      label: "Get to business",
-      url: "#contact",
-    }}
   />
   <Header id="about" text="About" />
   <Content
@@ -28,10 +25,14 @@ import Hero from "@root/components/blocks/hero.astro";
   <Content
     heading="Designing & crafting considered digital experiences is my specialty."
     body={[
-      "I'm a generalist by design - I've worked on digital projects from conception to delivery, and have at least dabbled in every stage of the process.",
-      "It means depending on your needs, I'm uniquely positioned to jump in wherever required to deliver value, or to help take your digital idea and make it a reality.",
+      "If you like what you've seen here, you can leave your details in the form below, and I'll get back to you as soon as I can.",
     ]}
   />
   <Header id="faqs" text="FAQs" />
   <Header id="contact" text="Contact" />
+
+  <Contact
+    heading="Let's get to know each other."
+    blurb="If you like what you've seen here, you can leave your details in the form below, and I'll get back to you as soon as I can."
+  />
 </Layout>

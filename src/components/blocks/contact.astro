@@ -1,0 +1,59 @@
+---
+type Props = {
+  heading: string;
+  blurb: string;
+};
+
+const { heading, blurb } = Astro.props;
+---
+
+<div class="group flex flex-col items-start gap-8 py-12 md:flex-row md:px-8">
+  <div class="flex flex-col gap-6 md:basis-1/2">
+    <h3 class="text-xl font-semibold">{heading}</h3>
+    <p>{blurb}</p>
+    <hr class="border-b border-gray-700 bg-transparent" />
+    <p>Otherwise, you can contact me through the following methods.</p>
+  </div>
+  <form
+    id="contact-form"
+    action="?contact=true"
+    class="group flex w-full flex-col items-start gap-4 md:basis-1/2"
+    data-netlify="true"
+  >
+    <div class="flex w-full flex-col gap-2">
+      <label for="name" class="font-medium">Name</label>
+      <input
+        type="text"
+        name="name"
+        id="name"
+        required
+        class="rounded bg-gray-800 p-2"
+      />
+    </div>
+    <div class="flex w-full flex-col gap-2">
+      <label for="email" class="font-medium">Email</label>
+      <input
+        type="email"
+        name="email"
+        id="email"
+        required
+        class="rounded bg-gray-800 p-2"
+      />
+    </div>
+    <div class="flex w-full flex-col gap-2">
+      <label for="message" class="font-medium">Message</label>
+      <textarea
+        name="message"
+        id="message"
+        rows="4"
+        required
+        class="rounded bg-gray-800 p-2"></textarea>
+    </div>
+    <button
+      type="submit"
+      class="mt-4 rounded bg-accent-600 px-4 py-3 font-medium text-white transition-all hover:bg-accent-700"
+    >
+      Get in touch
+    </button>
+  </form>
+</div>

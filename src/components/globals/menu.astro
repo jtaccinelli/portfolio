@@ -1,0 +1,46 @@
+---
+import { getEntry } from "astro:content";
+
+import Modal from "@root/components/modal.astro";
+import config from "@root/config";
+import Footer from "./footer.astro";
+
+const { data: links } = await getEntry("links", "index");
+---
+
+<div
+  class="sticky inset-x-0 bottom-0 flex h-24 items-center justify-between border-t-2 border-gray-800 bg-gray-900 px-8"
+>
+  <div class="flex items-center gap-8">
+    <Modal>
+      <button
+        slot="trigger"
+        class="pointer-events-auto -m-4 flex items-center justify-center rounded-full bg-gray-900 p-4 transition-all hover:bg-gray-800 group-focus-within/modal:bg-gray-700"
+      >
+        <i class="bx bx-menu text-2xl transition-all"></i>
+      </button>
+      <div slot="menu" class="absolute inset-0 p-4 md:p-12">
+        <div
+          class="mx-auto flex h-full w-full max-w-6xl flex-col items-start justify-center gap-8 rounded bg-gray-950/80 p-24 backdrop-blur-lg"
+        >
+          {
+            links.pages.map((link) => (
+              <a
+                href={link.url}
+                class="relative after:absolute after:-inset-2 after:-z-10 after:rounded-sm after:bg-transparent after:transition-all hover:after:-inset-4 hover:after:bg-white/5"
+              >
+                <p class="font-semibold text-white">{link.label}</p>
+                <p class="text-gray-500">{link.blurb}</p>
+              </a>
+            ))
+          }
+        </div>
+      </div>
+    </Modal>
+    <div class="flex flex-col">
+      <p class="font-semibold">Jordan Accinelli</p>
+      <p class="text-gray-500">Website Enthusiast</p>
+    </div>
+  </div>
+  <button> </button>
+</div>

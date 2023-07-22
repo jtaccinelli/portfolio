@@ -1,40 +1,44 @@
 ---
-import Navigation from "@root/components/globals/navigation.astro";
 import Footer from "@root/components/globals/footer.astro";
 
 import "@root/style.css";
 import "boxicons/css/boxicons.min.css";
+import Menu from "@root/components/globals/menu.astro";
 
 type Props = {
   title?: string;
   description?: string;
 };
 
+const icon =
+  "data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👋</text></svg>";
+
 const { title, description } = Astro.props;
 ---
 
-<html lang="en">
+<html lang="en" class="h-full w-full">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>{title}</title>
     <meta name="description" content={description} />
-    <link
-      rel="icon"
-      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👋</text></svg>"
-    />
+    <link rel="icon" href={icon} />
   </head>
-  <body class="scroll-smooth bg-gray-900 text-white">
-    <main class="p-8">
-      <div class="mx-auto flex min-h-screen w-full max-w-6xl flex-col gap-4">
+  <body
+    class="flex h-full w-full flex-col items-center justify-center bg-gray-800 p-4 text-white md:p-12"
+  >
+    <div
+      class="relative h-full w-full max-w-6xl overflow-y-scroll scroll-smooth rounded bg-gray-900"
+    >
+      <main class="flex flex-col">
         <slot />
-      </div>
-    </main>
-    <Navigation />
-    <Footer />
+      </main>
+      <Menu />
+      <Footer />
+    </div>
   </body>
-  <script
-    defer
-    data-domain="jtaccinelli.com.au"
-    src="https://plausible.io/js/script.js"></script>
 </html>
+<script
+  defer
+  data-domain="jtaccinelli.com.au"
+  src="https://plausible.io/js/script.js"></script>

@@ -9,26 +9,15 @@ module.exports = {
       active: 'active="true"',
     },
     fontFamily: {
-      sans: ["font", "verdana", "sans-serif"],
+      sans: ["font", "arial", "sans-serif"],
     },
     extend: {
       colors: {
-        gray: colors.stone,
-        accent: colors.amber,
-      },
-      keyframes: {
-        scroll: {
-          "0%": {
-            transform: "translateX(0)",
-          },
-          "100%": {
-            transform: "translateX(calc(-100%))",
-          },
-        },
+        gray: colors.neutral,
+        accent: colors.emerald,
       },
       animation: {
-        "text-spin": "spin 60s linear infinite",
-        scroll: "scroll 30s linear infinite",
+        "spin-slow": "spin 10s linear infinite",
       },
     },
   },
