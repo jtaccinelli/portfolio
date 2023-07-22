@@ -7,7 +7,7 @@ type Props = {
 const { heading, body } = Astro.props;
 ---
 
-<div class="flex max-w-xl flex-col items-start gap-4 px-8 py-12">
+<div class="flex max-w-xl flex-col items-start gap-4 px-8 py-24">
   <h3 class="pb-10 text-xl font-semibold">{heading}</h3>
   {body.map((item) => <p>{item}</p>)}
 </div>

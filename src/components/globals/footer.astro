@@ -5,27 +5,17 @@ import Cta from "../cta.astro";
 const { data: links } = await getEntry("links", "index");
 ---
 
-<div class="flex flex-col items-center bg-gray-950 px-8">
-  <div class="grid w-full max-w-6xl grid-cols-1 gap-16 pt-24 md:grid-cols-3">
-    <div class="flex flex-col items-start gap-4">
-      <p class="mb-4 font-semibold text-white">Find Me</p>
-      {links.find.map((item: any) => <Cta label={item.label} url={item.url} />)}
-    </div>
-    <div class="flex flex-col gap-2 md:col-span-2 md:items-end md:text-right">
-      <p class="font-semibold">Acknowledgment</p>
-      <p>
-        In the spirit of reconciliation, I acknowledges the Traditional
-        Custodians of country throughout Australia and their connections to
-        land, sea and community. We pay our respect to their Elders past and
-        present and extend that respect to all Aboriginal and Torres Strait
-        Islander peoples today.
-      </p>
-    </div>
-    <div
-      class="flex flex-col justify-between py-8 text-gray-700 md:col-span-3 md:flex-row md:gap-12"
-    >
-      <p>@2022 Jordan Accinelli</p>
-      <p>Made with Coffee, Stress & Magic</p>
-    </div>
+<div class="flex items-center justify-between bg-gray-950 p-8">
+  <span class="text-gray-700">Made with stress, coffee and magic</span>
+  <div class="flex gap-4 text-white">
+    {
+      links.find.map((item: any) => (
+        <a
+          aria-label={item.label}
+          href={item.url}
+          class:list={["text-white bx text-xl", item.icon]}
+        />
+      ))
+    }
   </div>
 </div>

@@ -10,6 +10,7 @@ export const image = z.object({
 export const link = z.object({
   url: z.string(),
   label: z.string(),
+  icon: z.string().optional(),
   blurb: z.string().optional(),
 });
 

@@ -1,13 +1,15 @@
 ---
 type Props = {
   icon: string;
+  id?: string;
   class?: string;
 };
 
-const { icon, class: className } = Astro.props;
+const { icon, class: className, id } = Astro.props;
 ---
 
 <button
+  {id}
   class:list={[
     "pointer-events-auto -m-4 flex items-center justify-center rounded-full bg-transparent p-4 transition-all hover:bg-gray-800",
     className,

@@ -25,11 +25,13 @@
   "find": [
     {
       "label": "LinkedIn",
-      "url": "https://au.linkedin.com/in/jtaccinelli"
+      "url": "https://au.linkedin.com/in/jtaccinelli",
+      "icon": "bxl-linkedin"
     },
     {
       "label": "GitHub",
-      "url": "https://au.linkedin.com/in/jtaccinelli"
+      "url": "https://au.linkedin.com/in/jtaccinelli",
+      "icon": "bxl-github"
     }
   ]
 }
