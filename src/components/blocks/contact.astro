@@ -9,21 +9,18 @@ type Props = {
 const { heading, blurb } = Astro.props;
 
 const { data: links } = await getEntry("links", "index");
+const contacts = links.connect.concat(links.find);
 ---
 
-<div class="group flex flex-col items-start gap-8 px-8 py-24 md:flex-row">
-  <div class="flex flex-col gap-6 md:basis-1/2">
+<div class="group flex max-w-xl flex-col items-start gap-8 px-8 py-24">
+  <div class="flex flex-col gap-6">
     <h3 class="text-xl font-semibold">{heading}</h3>
     <p>{blurb}</p>
-    <p>Otherwise, you can contact me through the following methods.</p>
-    <div class="flex gap-4">
-      {links.connect.map((link) => <div>test</div>)}
-    </div>
   </div>
   <form
     id="contact-form"
     action="?contact=true"
-    class="group flex w-full flex-col items-start gap-4 md:basis-1/2"
+    class="group flex w-full flex-col items-start gap-4 border-b-2 border-gray-800 pb-8"
     data-netlify="true"
   >
     <div class="flex w-full flex-col gap-2">
@@ -33,7 +30,7 @@ const { data: links } = await getEntry("links", "index");
         name="name"
         id="name"
         required
-        class="rounded bg-gray-800 p-2"
+        class="rounded bg-gray-950 p-2"
       />
     </div>
     <div class="flex w-full flex-col gap-2">
@@ -43,7 +40,7 @@ const { data: links } = await getEntry("links", "index");
         name="email"
         id="email"
         required
-        class="rounded bg-gray-800 p-2"
+        class="rounded bg-gray-950 p-2"
       />
     </div>
     <div class="flex w-full flex-col gap-2">
@@ -53,7 +50,7 @@ const { data: links } = await getEntry("links", "index");
         id="message"
         rows="4"
         required
-        class="rounded bg-gray-800 p-2"></textarea>
+        class="rounded bg-gray-950 p-2"></textarea>
     </div>
     <button
       type="submit"
@@ -62,4 +59,22 @@ const { data: links } = await getEntry("links", "index");
       Get in touch
     </button>
   </form>
+  <div class="flex w-full flex-col gap-6">
+    <p class="mt-4">
+      Otherwise, you can contact me through the following methods.
+    </p>
+    <div class="flex w-full flex-col gap-2">
+      {
+        contacts.map((link) => (
+          <a
+            href={link.url}
+            class="flex items-center justify-between gap-4 rounded bg-gray-800 p-4"
+          >
+            <span class="font-medium">{link.label}</span>
+            <span class:list={["bx", link.icon]} />
+          </a>
+        ))
+      }
+    </div>
+  </div>
 </div>

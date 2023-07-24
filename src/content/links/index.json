@@ -19,7 +19,8 @@
   "connect": [
     {
       "label": "Send an Email",
-      "url": "mailto:info@jtaccinelli.com.au"
+      "url": "mailto:info@jtaccinelli.com.au",
+      "icon": "bxs-envelope"
     }
   ],
   "find": [
