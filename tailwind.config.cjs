@@ -16,8 +16,17 @@ module.exports = {
         gray: colors.neutral,
         accent: colors.emerald,
       },
+      keyframes: {
+        reveal: {
+          "0%": { opacity: 0 },
+          "10%": { opacity: 100 },
+          "90%": { opacity: 100 },
+          "100%": { opacity: 0 },
+        },
+      },
       animation: {
         "spin-slow": "spin 10s linear infinite",
+        reveal: "reveal 3s ease forwards",
       },
     },
   },

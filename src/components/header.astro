@@ -17,7 +17,7 @@ const linkId = `#${id}`;
   class="sticky top-0 flex justify-between rounded border-b-2 border-gray-800 bg-gray-900 p-8"
 >
   <h3 id={id} class="font-bold">{text}</h3>
-  <copy-link data-id={id} data-hostname={hostname}>
+  <copy-link data-id={id} data-hostname={hostname} data-text={text}>
     <IconButton icon="bx-link-alt" />
   </copy-link>
 </a>
@@ -29,8 +29,20 @@ const linkId = `#${id}`;
 
       const id = this.dataset.id;
       const hostname = this.dataset.hostname;
+      const text = this.dataset.text;
 
       function handleClick() {
+        const updateToastEvent = new CustomEvent<{ message: string }>(
+          "updatetoast",
+          {
+            detail: {
+              message: `Copied ${text} link!`,
+            },
+          }
+        );
+
+        const toast = document.getElementById("toast");
+        toast?.dispatchEvent(updateToastEvent);
         navigator.clipboard.writeText(`${hostname}/#${id}`);
       }
 

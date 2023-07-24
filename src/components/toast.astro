@@ -1,0 +1,22 @@
+<div id="toast" class="sticky bottom-24 flex justify-end p-4 opacity-0">
+  <p class="rounded-sm bg-accent-600 p-2">Copied!</p>
+</div>
+
+<script>
+  const toast = document.getElementById("toast");
+  const message = toast?.querySelector("p");
+
+  toast?.addEventListener("updatetoast", ((
+    event: CustomEvent<{ message: string }>
+  ) => {
+    if (message) {
+      message.innerText = event.detail.message;
+    }
+    if (toast) {
+      toast.classList.add("animate-reveal");
+      setTimeout(() => {
+        toast.classList.remove("animate-reveal");
+      }, 3000);
+    }
+  }) as EventListener);
+</script>
