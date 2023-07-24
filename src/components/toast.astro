@@ -13,10 +13,11 @@
       message.innerText = event.detail.message;
     }
     if (toast) {
-      toast.classList.add("animate-reveal");
-      setTimeout(() => {
+      if (toast.classList.contains("animate-reveal")) {
         toast.classList.remove("animate-reveal");
-      }, 3000);
+        void toast.offsetWidth;
+      }
+      toast.classList.add("animate-reveal");
     }
   }) as EventListener);
 </script>
