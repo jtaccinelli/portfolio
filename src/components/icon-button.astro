@@ -3,9 +3,10 @@ type Props = {
   icon: string;
   id?: string;
   class?: string;
+  label?: string;
 };
 
-const { icon, class: className, id } = Astro.props;
+const { icon, class: className, id, label } = Astro.props;
 ---
 
 <button
@@ -14,6 +15,7 @@ const { icon, class: className, id } = Astro.props;
     "pointer-events-auto -m-4 flex items-center justify-center rounded-full bg-transparent p-4 transition-all hover:bg-gray-800",
     className,
   ]}
+  aria-label={label}
 >
   <i class:list={["bx text-2xl transition-all", icon]}></i>
 </button>
