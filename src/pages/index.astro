@@ -6,6 +6,7 @@ import Hero from "@root/components/hero.astro";
 import Contact from "@root/components/contact.astro";
 import Spacer from "@root/components/spacer.astro";
 import Faqs from "@root/components/faqs.astro";
+import Projects from "@root/components/projects.astro";
 ---
 
 <Layout>
@@ -14,8 +15,10 @@ import Faqs from "@root/components/faqs.astro";
     blurb="I like making things people like using"
     emoji="🤖"
   />
-  <Header id="showcase" text="Showcase" />
-  <Spacer />
+  <Header id="projects" text="Projects" />
+  <Projects />
+  <Header id="roles" text="Professional History" />
+  <Projects />
   <Header id="about" text="About" />
   <Spacer />
   <Content>
@@ -58,7 +61,6 @@ import Faqs from "@root/components/faqs.astro";
       know.
     </p>
   </Content>
-  <Spacer />
   <Spacer />
   <Header id="faqs" text="FAQs" />
   <Spacer />

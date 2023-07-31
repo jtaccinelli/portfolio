@@ -1,0 +1,23 @@
+---
+import { getCollection } from "astro:content";
+
+const projects = await getCollection("projects");
+---
+
+<div class="flex max-w-lg flex-col gap-8 p-8">
+  {
+    projects.map((project) => (
+      <div class="flex flex-col gap-2">
+        <p class="font-semibold">{project.data.title}</p>
+        <p class="text-gray-500">{project.data.blurb}</p>
+        <div class="flex items-center gap-2 whitespace-nowrap py-2">
+          {project.data.tools.map((tool) => (
+            <p class="whitespace-nowrap rounded bg-gray-800 px-2 py-1">
+              {tool}
+            </p>
+          ))}
+        </div>
+      </div>
+    ))
+  }
+</div>

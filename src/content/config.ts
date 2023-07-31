@@ -47,7 +47,7 @@ export const collections = {
       end: z.string().optional(),
     }),
   }),
-  project: defineCollection({
+  projects: defineCollection({
     type: "data",
     schema: z.object({
       title: z.string(),
