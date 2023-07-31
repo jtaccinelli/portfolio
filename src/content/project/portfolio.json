@@ -1,0 +1,7 @@
+{
+  "title": "My Portflio",
+  "blurb": "What your eyes are currently gracing.",
+  "type": "Mini Project",
+  "url": "https://jtaccinelli.com.au",
+  "tools": ["Astro", "Tailwind CSS"]
+}

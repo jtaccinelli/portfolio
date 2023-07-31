@@ -1,7 +1,7 @@
 {
   "title": "Safer Streets",
-  "blurb": "A community run project to advocate for vehicle and pedestrian safety",
-  "type": "",
-  "client": "The Gabba Council",
-  "url": "https://saferstreets.info"
+  "blurb": "Done with the Gabba Council, a community run project to advocate for vehicle and pedestrian safety.",
+  "type": "Community Initiative",
+  "url": "https://saferstreets.info",
+  "tools": ["React", "Remix", "MapLibre", "MapTiler", "Tailwind CSS"]
 }

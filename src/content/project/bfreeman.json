@@ -1,0 +1,7 @@
+{
+  "title": "Beth Freeman",
+  "blurb": "A micro portfolio for a copywriter",
+  "type": "Mini Project",
+  "url": "https://bfreeman.me",
+  "tools": ["Astro", "Tailwind CSS"]
+}

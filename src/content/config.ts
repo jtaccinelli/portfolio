@@ -37,14 +37,24 @@ export const collections = {
       find: z.array(link),
     }),
   }),
+  roles: defineCollection({
+    type: "data",
+    schema: z.object({
+      title: z.string(),
+      employer: z.string(),
+      summary: z.string(),
+      start: z.string(),
+      end: z.string().optional(),
+    }),
+  }),
   project: defineCollection({
     type: "data",
     schema: z.object({
       title: z.string(),
       blurb: z.string(),
       type: z.string(),
-      client: z.string(),
       url: z.string(),
+      tools: z.string().array(),
     }),
   }),
 };
