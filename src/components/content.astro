@@ -1,13 +1,16 @@
 ---
 type Props = {
-  heading: string;
-  body: string[];
+  heading?: string;
 };
 
-const { heading, body } = Astro.props;
+const { heading } = Astro.props;
 ---
 
-<div class="flex max-w-xl flex-col items-start gap-4 px-8 py-24">
-  <h3 class="pb-10 text-xl font-semibold">{heading}</h3>
-  {body.map((item) => <p>{item}</p>)}
+<div class="flex max-w-xl flex-col items-start gap-4 px-8 py-10">
+  {
+    heading ? (
+      <h3 class="pb-4 text-xl font-semibold text-white">{heading}</h3>
+    ) : null
+  }
+  <slot />
 </div>
