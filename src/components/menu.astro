@@ -25,7 +25,7 @@ const { data: links } = await getEntry("links", "index");
                 links.pages.map((link) => (
                   <a
                     href={link.url}
-                    class="relative after:absolute after:-inset-2 after:-z-10 after:rounded-sm after:bg-transparent after:transition-all hover:after:-inset-4 hover:after:bg-white/5"
+                    class="relative after:absolute after:-inset-2 after:-z-10 after:rounded-sm after:bg-transparent after:transition-all target:after:bg-white/5 hover:after:-inset-4 hover:after:bg-white/5"
                   >
                     <p class="font-semibold text-white">{link.label}</p>
                     <p class="text-gray-500">{link.blurb}</p>
@@ -42,5 +42,4 @@ const { data: links } = await getEntry("links", "index");
       <p class="text-gray-500">Website Enthusiast</p>
     </div>
   </div>
-  <button> </button>
 </div>
