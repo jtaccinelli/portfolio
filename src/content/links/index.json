@@ -2,13 +2,18 @@
   "pages": [
     {
       "label": "About",
-      "blurb": "Get to know me better.",
+      "blurb": "Learn a little more about who I am.",
       "url": "#about"
     },
     {
       "label": "Showcase",
-      "blurb": "Some projects and clients.",
+      "blurb": "Discover what I've worked on.",
       "url": "#showcase"
+    },
+    {
+      "label": "FAQs",
+      "blurb": "Questions I like to pretend I get often.",
+      "url": "#faqs"
     },
     {
       "label": "Contact",
