@@ -3,6 +3,7 @@ import { getEntry } from "astro:content";
 
 import Modal from "@root/components/modal.astro";
 import IconButton from "@root/components/icon-button.astro";
+import Icon from "@root/icons/icon.astro";
 
 const { data: links } = await getEntry("links", "index");
 ---
@@ -12,7 +13,9 @@ const { data: links } = await getEntry("links", "index");
 >
   <div class="flex items-center gap-8">
     <Modal>
-      <IconButton slot="trigger" icon="bx-menu" />
+      <IconButton slot="trigger">
+        <Icon icon="menu" class="h-5 w-5 text-white" />
+      </IconButton>
       <div slot="menu" class="absolute inset-0 md:p-12">
         <div
           class="mx-auto flex h-full w-full max-w-3xl flex-col items-start justify-center p-4"

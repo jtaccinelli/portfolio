@@ -1,0 +1,28 @@
+---
+import EmailIcon from "./email.astro";
+import GithubIcon from "./github.astro";
+import LinkAltIcon from "./link-alt.astro";
+import LinkExternalIcon from "./link-external.astro";
+import LinkedInIcon from "./linkedin.astro";
+import MenuIcon from "./menu.astro";
+
+const icons = {
+  email: EmailIcon,
+  github: GithubIcon,
+  "link-alt": LinkAltIcon,
+  "link-external": LinkExternalIcon,
+  linkedin: LinkedInIcon,
+  menu: MenuIcon,
+};
+
+type Props = {
+  icon: keyof typeof icons;
+  class?: string;
+};
+
+const { icon, class: className } = Astro.props;
+
+const Component = icons[icon];
+---
+
+<Component class={className} />

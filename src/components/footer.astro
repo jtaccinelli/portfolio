@@ -1,6 +1,6 @@
 ---
 import { getEntry } from "astro:content";
-import Cta from "./cta.astro";
+import Icon from "@root/icons/icon.astro";
 
 const { data: links } = await getEntry("links", "index");
 ---
@@ -10,11 +10,9 @@ const { data: links } = await getEntry("links", "index");
   <div class="flex gap-4 text-white">
     {
       links.find.map((item: any) => (
-        <a
-          aria-label={item.label}
-          href={item.url}
-          class:list={["text-white bx text-xl", item.icon]}
-        />
+        <a aria-label={item.label} href={item.url}>
+          <Icon icon={item.icon as any} class="h-5 w-5 text-white" />
+        </a>
       ))
     }
   </div>

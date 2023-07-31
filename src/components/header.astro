@@ -1,5 +1,7 @@
 ---
+import Icon from "@root/icons/icon.astro";
 import IconButton from "./icon-button.astro";
+
 type Props = {
   id: string;
   text: string;
@@ -16,7 +18,9 @@ const linkId = `#${id}`;
 >
   <h3 id={id} class="font-bold">{text}</h3>
   <copy-link data-id={id} data-text={text}>
-    <IconButton icon="bx-link-alt" label={`Copy ${text} Link`} />
+    <IconButton label={`Copy ${text} Link`}>
+      <Icon icon="link-alt" class="h-6 w-6 text-white" />
+    </IconButton>
   </copy-link>
 </a>
 

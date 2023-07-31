@@ -30,19 +30,19 @@
     {
       "label": "Send an Email",
       "url": "mailto:info@jtaccinelli.com.au",
-      "icon": "bxs-envelope"
+      "icon": "email"
     }
   ],
   "find": [
     {
       "label": "LinkedIn",
       "url": "https://au.linkedin.com/in/jtaccinelli",
-      "icon": "bxl-linkedin"
+      "icon": "linkedin"
     },
     {
       "label": "GitHub",
       "url": "https://au.linkedin.com/in/jtaccinelli",
-      "icon": "bxl-github"
+      "icon": "github"
     }
   ]
 }
