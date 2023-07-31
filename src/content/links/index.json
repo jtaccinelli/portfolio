@@ -1,6 +1,11 @@
 {
   "pages": [
     {
+      "label": "About",
+      "blurb": "Learn a little more about who I am.",
+      "url": "#about"
+    },
+    {
       "label": "Projects",
       "blurb": "See how I spend my free time.",
       "url": "#projects"
@@ -9,11 +14,6 @@
       "label": "Notable Roles",
       "blurb": "Discover where I've worked.",
       "url": "#roles"
-    },
-    {
-      "label": "About",
-      "blurb": "Learn a little more about who I am.",
-      "url": "#about"
     },
     {
       "label": "FAQs",
