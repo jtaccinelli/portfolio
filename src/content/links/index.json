@@ -1,14 +1,14 @@
 {
   "pages": [
     {
-      "label": "About",
-      "blurb": "Learn a little more about who I am.",
-      "url": "#about"
-    },
-    {
       "label": "Showcase",
       "blurb": "Discover what I've worked on.",
       "url": "#showcase"
+    },
+    {
+      "label": "About",
+      "blurb": "Learn a little more about who I am.",
+      "url": "#about"
     },
     {
       "label": "FAQs",
