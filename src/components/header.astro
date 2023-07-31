@@ -6,9 +6,7 @@ type Props = {
 };
 
 const { id, text } = Astro.props;
-const { hostname } = Astro.url;
 
-const copyId = `copy-${id}`;
 const linkId = `#${id}`;
 ---
 
@@ -17,7 +15,7 @@ const linkId = `#${id}`;
   class="sticky top-0 z-10 flex justify-between border-b-2 border-gray-800 bg-gray-900 p-8"
 >
   <h3 id={id} class="font-bold">{text}</h3>
-  <copy-link data-id={id} data-hostname={hostname} data-text={text}>
+  <copy-link data-id={id} data-text={text}>
     <IconButton icon="bx-link-alt" />
   </copy-link>
 </a>
@@ -28,8 +26,9 @@ const linkId = `#${id}`;
       super();
 
       const id = this.dataset.id;
-      const hostname = this.dataset.hostname;
       const text = this.dataset.text;
+
+      const hostname = window.location.hostname;
 
       function handleClick() {
         const updateToastEvent = new CustomEvent<{ message: string }>(
