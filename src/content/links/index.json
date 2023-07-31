@@ -1,9 +1,14 @@
 {
   "pages": [
     {
-      "label": "Showcase",
-      "blurb": "Discover what I've worked on.",
-      "url": "#showcase"
+      "label": "Projects",
+      "blurb": "See how I spend my free time.",
+      "url": "#projects"
+    },
+    {
+      "label": "Notable Roles",
+      "blurb": "Discover where I've worked.",
+      "url": "#roles"
     },
     {
       "label": "About",
