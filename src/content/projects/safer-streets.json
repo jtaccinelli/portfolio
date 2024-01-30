@@ -3,5 +3,5 @@
   "blurb": "Done with the Gabba Council, a community run project to advocate for vehicle and pedestrian safety.",
   "type": "Community Initiative",
   "url": "https://saferstreets.info",
-  "tools": ["React", "Remix", "MapLibre", "MapTiler", "Tailwind CSS"]
+  "tools": ["React", "Remix", "MapLibre", "Supabase", "Tailwind CSS"]
 }
