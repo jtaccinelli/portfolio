@@ -1,0 +1,7 @@
+{
+  "title": "Steep Port Douglas",
+  "blurb": "A small website for a bubble tea business in FNQ.",
+  "type": "Business Site",
+  "url": "https://steepportdouglas.com.au",
+  "tools": ["Next.js", "Tailwind CSS", "Sanity", "Resend"]
+}
