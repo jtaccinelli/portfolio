@@ -19,8 +19,11 @@ import Roles from "@root/components/roles.astro";
     blurb="I like making things people like using"
     emoji="🤖"
   />
+  <Header id="projects" text="Projects" />
+  <Projects />
+  <Header id="roles" text="Notable Roles" />
+  <Roles />
   <Header id="about" text="About" />
-  <Spacer />
   <Content>
     <p>
       I'm a generalist by design - I've worked on digital projects from
@@ -62,13 +65,7 @@ import Roles from "@root/components/roles.astro";
     </p>
   </Content>
   <Spacer />
-  <Header id="projects" text="Projects" />
-  <Projects />
-  <Header id="roles" text="Notable Roles" />
-  <Spacer />
-  <Roles />
   <Header id="faqs" text="FAQs" />
-  <Spacer />
   <Content>
     <p>
       I get approached every now and then (mostly then) about certain questions
@@ -82,7 +79,6 @@ import Roles from "@root/components/roles.astro";
   <Faqs />
   <Spacer />
   <Header id="contact" text="Contact" />
-  <Spacer />
   <Contact
     heading="Let's get to know each other."
     blurb="If you like what you've seen here, you can leave your details in the form below, and I'll get back to you as soon as I can."

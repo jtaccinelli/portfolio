@@ -4,7 +4,7 @@ import { getCollection } from "astro:content";
 const roles = await getCollection("roles");
 ---
 
-<div class="flex max-w-lg flex-col gap-8 p-8">
+<div class="flex max-w-lg flex-col gap-8 p-8 items-start">
   {
     roles
       .sort((a, b) => Number(b.data.start) - Number(a.data.start))
@@ -33,4 +33,5 @@ const roles = await getCollection("roles");
         </div>
       ))
   }
+  <a class="rounded bg-accent-700 px-4 py-3 font-medium text-white transition-all hover:bg-accent-700" href="/resume.pdf" target="_blank">See my full resume</a>
 </div>
